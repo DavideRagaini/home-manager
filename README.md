@@ -1,1 +1,1 @@
-# nix-home-manager
+# Home Manager
