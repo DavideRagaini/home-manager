@@ -6,12 +6,6 @@
     BROWSER = "librewolf";
   };
 
-  imports = [
-    # ./programs/firefox.nix
-    ./programs/dconf.nix
-    # ./services.nix
-  ];
-
   # let
   #   doom-emacs = pkgs.callPackage (builtins.fetchTarball {
   #     url = https://github.com/vlaci/nix-doom-emacs/archive/master.tar.gz;
@@ -42,57 +36,80 @@
   programs.ssh.enable = true;
 
   home.packages = with pkgs; [
+    # System utilities
     atool
-    bat
-    evince
-    exa
-    fd
     fzf
-    gnome.gnome-clocks
-    gnome.nautilus
-    emacs29-pgtk
-    transmission
-    librewolf
-    gparted
-    hunspell
+    gnupg
     jq
-    keepassxc
+    rsync
+    sqlite
+    transmission
+    unzip
+    xclip
+    # Shell
+    bat
+    exa
     lf
-    libnotify
     librespot
-    librewolf
     lm_sensors
     mpd
+    ncdu
     ncmpcpp
     newsboat
-    nixfmt
+    socat
+    sox
+    spotify-tui
+    tree
+    wmctrl
+    zoxide
+    # Desktop
+    calibre
+    evince
+    cpufrequtils
+    gnome.gnome-clocks
+    gnome.gnome-dictionary
+    gnome.gnome-disk-utility
+    gnome.nautilus
+    gparted
+    keepassxc
+    libnotify
+    librewolf
     nodejs_20
     pipe-viewer
-    pipenv
     pqiv
     pulsemixer
+    qutebrowser-qt6
+    tofi
+    tridactyl-native
+    udisks
+    # Emacs Dependencies
+    emacs29-pgtk
+    fd
+    hunspell
+    hunspellDicts.en-gb-ise
+    hunspellDicts.en-us
+    hunspellDicts.it-it
+    nixfmt
+    pipenv
     python311
     python311Packages.black
     python311Packages.isort
     python311Packages.nose
     python311Packages.pyflakes
     python311Packages.pytest
-    qutebrowser-qt6
-    rhythmbox
     ripgrep
-    rsync
     shellcheck
     shfmt
-    socat
-    sox
-    spotify-tui
-    tofi
-    tree
-    tridactyl-native
-    unzip
-    wmctrl
-    xclip
-    zoxide
+# Optionals
+    # texlive.combined.scheme-full
+    # tikzit
+    # ferdium
+  ];
+
+  imports = [
+    # ./programs/firefox.nix
+    ./programs/dconf.nix
+    ./services.nix
   ];
 
   # Enable the X11 windowing system.
