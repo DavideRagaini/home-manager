@@ -176,7 +176,7 @@ with lib.hm.gvariant;
     "org/gnome/shell/extensions/space-bar/shortcuts" = {
       enable-move-to-workspace-shortcuts = true;
       enable-activate-workspace-shortcuts = true;
-      activate-previous-key = [ "<Super>comma" ];
+      activate-previous-key = [ "<Super>semicolon" ];
     };
     "org/gnome/shell/extensions/space-bar/shortcuts/appearance" = {
       active-workspace-border-radius = 10;

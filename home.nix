@@ -45,7 +45,6 @@
     sqlite
     transmission
     unzip
-    xclip
     # Shell
     bat
     exa
@@ -62,10 +61,15 @@
     tree
     wmctrl
     zoxide
+    harfbuzz
+    cairo
+    # Power Measurement and Management
+    cpufrequtils
+    powertop
+    tlp
     # Desktop
     calibre
     evince
-    cpufrequtils
     gnome.gnome-clocks
     gnome.gnome-dictionary
     gnome.gnome-disk-utility
@@ -82,6 +86,8 @@
     tofi
     tridactyl-native
     udisks
+    xclip
+    wl-clipboard
     # Emacs Dependencies
     emacs29-pgtk
     fd
