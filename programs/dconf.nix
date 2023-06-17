@@ -41,11 +41,11 @@ with lib.hm.gvariant;
     gnomeExtensions.appindicator
     gnomeExtensions.caffeine
     gnomeExtensions.clipboard-indicator
-    gnomeExtensions.cpufreq
     gnomeExtensions.forge
     gnomeExtensions.just-perfection
     gnomeExtensions.space-bar
     gnomeExtensions.vitals
+    # gnomeExtensions.cpufreq
     # gnomeExtensions.dash-to-panel
     # gnomeExtensions.sound-output-device-chooser
     # gnomeExtensions.tray-icons-reloaded
@@ -58,17 +58,17 @@ with lib.hm.gvariant;
     "org/gnome/shell" = {
       disable-user-extensions = false;
       enabled-extensions = [
+        "Vitals@CoreCoding.com"
         "appindicatorsupport@rgcjonas.gmail.com"
         "auto-move-windows@gnome-shell-extensions.gcampax.github.com"
         "caffeine@patapon.info"
+        "clipboard-indicator@tudmotu.com"
+        "drive-menu@gnome-shell-extensions.gcampax.github.com"
         "forge@jmmaranan.com"
         "just-perfection-desktop@just-perfection"
-        "drive-menu@gnome-shell-extensions.gcampax.github.com"
+        "space-bar@luchrioh"
         "user-theme@gnome-shell-extensions.gcampax.github.com"
         "workspace-indicator@gnome-shell-extensions.gcampax.github.com"
-        "clipboard-indicator@tudmotu.com"
-        "space-bar@luchrioh"
-        "Vitals@CoreCoding.com"
         # "user-theme@gnome-shell-extensions.gcampax.github.com"
         # "trayIconsReloaded@selfmade.pl"
         # "Vitals@CoreCoding.com"
@@ -104,7 +104,6 @@ with lib.hm.gvariant;
         "org.codeberg.dnkl.foot.desktop:2"
         "org.codeberg.dnkl.footclient.desktop:2"
         # 3
-        "librewolf.desktop:3"
         "nixos-manual.desktop:3"
         "org.qutebrowser.qutebrowser.desktop:3"
         # 4
@@ -121,6 +120,7 @@ with lib.hm.gvariant;
         "org.keepassxc.KeePassXC.desktop:7"
         # 8
         "ferdium.desktop:8"
+        "librewolf.desktop:8"
         # 9
         "mpv.desktop:9"
         "umpv.desktop:9"
@@ -146,37 +146,52 @@ with lib.hm.gvariant;
       next-entry = [ "<Super>Page_Up" ];
       clear-history = [ "<Super>Delete" ];
     };
-    "org/gnome/shell/extensions/vitals" = {
-      update-time = 10;
-      position-in-panel = 2;
-      alphabetize = true;
-      hide-zeros = true;
-      fixed-widths = true;
-      hide-icons = false;
-      show-temperature = true;
-      network-speed-format = 1;
-      show-network = true;
-      show-system = true;
-      show-processor = true;
-      show-memory = true;
-      show-fan = false;
-      show-voltage = false;
-      show-battery = false;
-      show-storage = false;
+    "org/gnome/shell/extensions/forge/window-gap-size-increment" = {
+      window-gap-size-increment = 0;
+      window-gap-hidden-on-single = true;
+    };
+    "org/gnome/shell/extensions/just-perfection/background-menu" = {
+      background-menu = false;
+      ripple-box = false;
+      workspaces-in-app-grid = false;
+      window-preview-caption = true;
+      window-preview-close-button = true;
+      workspace = true;
+      workspace-popup = false;
+      osd = true;
+      show-apps-button = false;
+      dash-separator = false;
+      dash = false;
+      search = false;
+      weather = false;
+      calendar = true;
+      world-clock = false;
+      accessibility-menu = false;
+      keyboard-layout = false;
+      clock-menu = true;
+      app-menu = true;
+      app-menu-label = true;
+      quick-settings = true;
+      screen-sharing-indicator = true;
+      window-menu-take-screenshot-button = true;
+      app-menu-icon = true;
+      panel-notification-icon = true;
+      power-icon = true;
+      window-picker-icon = true;
+      window-demands-attention-focus = false;
+      double-super-to-appgrid = false;
+      startup-status = 0;
+      clock-menu-position = 0;
+      notification-banner-position = 1;
+      alt-tab-icon-size = 0;
+      alt-tab-small-icon-size = 0;
+      alt-tab-window-preview-size = 0;
     };
     "org/gnome/shell/extensions/space-bar/shortcuts" = {
       activate-empty-key = [ "<Super>e" ];
-    };
-    "org/gnome/shell/extensions/space-bar/shortcuts/behavior" = {
-      position-index = 0;
-      position = "left";
-      show-empty-workspaces = true;
-      smart-workspace-names = false;
-    };
-    "org/gnome/shell/extensions/space-bar/shortcuts" = {
-      enable-move-to-workspace-shortcuts = true;
-      enable-activate-workspace-shortcuts = true;
       activate-previous-key = [ "<Super>semicolon" ];
+      enable-activate-workspace-shortcuts = true;
+      enable-move-to-workspace-shortcuts = true;
     };
     "org/gnome/shell/extensions/space-bar/shortcuts/appearance" = {
       active-workspace-border-radius = 10;
@@ -193,6 +208,47 @@ with lib.hm.gvariant;
       inactive-workspace-padding-v = 3;
       workspace-margin = 4;
       workspaces-bar-padding = 10;
+    };
+    "org/gnome/shell/extensions/space-bar/shortcuts/behavior" = {
+      position-index = 0;
+      position = "left";
+      show-empty-workspaces = false;
+      smart-workspace-names = false;
+    };
+    "org/gnome/shell/extensions/vitals" = {
+      update-time = 10;
+      position-in-panel = 2;
+      alphabetize = true;
+      hide-zeros = true;
+      fixed-widths = true;
+      hide-icons = false;
+      hot-sensors = [
+        "_system_load_1m_"
+        # "_system_load_5m_"
+        # "_system_load_15m_"
+        "_processor_usage_"
+        "_processor_frequency_"
+        "_temperature_processor_0_'"
+        "_memory_usage_"
+        "_memory_swap_"
+        # "_memory_allocated_"
+        # "_memory_cached_"
+        # "_memory_free_"
+        "__network-rx_max__"
+        "__network-tx_max__"
+        # "__network-rx_ses__"
+        # "__network-tx_ses__"
+      ];
+      show-temperature = true;
+      network-speed-format = 1;
+      show-network = true;
+      show-system = true;
+      show-processor = true;
+      show-memory = true;
+      show-fan = false;
+      show-voltage = false;
+      show-battery = false;
+      show-storage = false;
     };
 
     "org.gnome.desktop.screensaver" = {
