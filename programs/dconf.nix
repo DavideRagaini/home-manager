@@ -39,15 +39,15 @@ with lib.hm.gvariant;
 
   home.packages = with pkgs; [
     gnomeExtensions.appindicator
-    gnomeExtensions.caffeine
     gnomeExtensions.clipboard-indicator
     gnomeExtensions.forge
     gnomeExtensions.just-perfection
     gnomeExtensions.space-bar
     gnomeExtensions.vitals
+    # gnomeExtensions.caffeine
     # gnomeExtensions.cpufreq
-    # gnomeExtensions.dash-to-panel
-    # gnomeExtensions.sound-output-device-chooser
+    gnomeExtensions.dash-to-panel
+    gnomeExtensions.sound-output-device-chooser
     # gnomeExtensions.tray-icons-reloaded
     # gnomeExtensions.user-themes
   ];
@@ -61,7 +61,6 @@ with lib.hm.gvariant;
         "Vitals@CoreCoding.com"
         "appindicatorsupport@rgcjonas.gmail.com"
         "auto-move-windows@gnome-shell-extensions.gcampax.github.com"
-        "caffeine@patapon.info"
         "clipboard-indicator@tudmotu.com"
         "drive-menu@gnome-shell-extensions.gcampax.github.com"
         "forge@jmmaranan.com"
@@ -69,12 +68,10 @@ with lib.hm.gvariant;
         "space-bar@luchrioh"
         "user-theme@gnome-shell-extensions.gcampax.github.com"
         "workspace-indicator@gnome-shell-extensions.gcampax.github.com"
-        # "user-theme@gnome-shell-extensions.gcampax.github.com"
+        "dash-to-panel@jderose9.github.com"
+        "sound-output-device-chooser@kgshank.net"
+        # "caffeine@patapon.info"
         # "trayIconsReloaded@selfmade.pl"
-        # "Vitals@CoreCoding.com"
-        # "dash-to-panel@jderose9.github.com"
-        # "sound-output-device-chooser@kgshank.net"
-        # "space-bar@luchrioh"
       ];
       # extensions.user-theme.name = "Yaru-purple";
       # extensions.just-perfection.theme = false;
@@ -146,6 +143,50 @@ with lib.hm.gvariant;
       next-entry = [ "<Super>Page_Up" ];
       clear-history = [ "<Super>Delete" ];
     };
+    "org/gnome/shell/extensions/dash-to-panel" = {
+      intellihide = false;
+      panel-positions = "{\"0\":\"TOP\"}";
+      panel-sizes = "{\"0\":24}";
+      panel-lengths = "{\"0\":100}";
+      panel-element-positions = "{\"0\":[
+        {\"element\":\"showAppsButton\", \"visible\":false,\"position\":\"stackedTL\"},
+        {\"element\":\"activitiesButton\",\"visible\":false,\"position\":\"stackedTL\"},
+        {\"element\":\"leftBox\",\"visible\":true,\"position\":\"stackedTL\"},
+        {\"element\":\"taskbar\",\"visible\":true,\"position\":\"stackedTL\"},
+        {\"element\":\"centerBox\",\"visible\":true,\"position\":\"stackedBR\"},
+        {\"element\":\"rightBox\",\"visible\":true,\"position\":\"stackedBR\"},
+        {\"element\":\"dateMenu\",\"visible\":true,\"position\":\"stackedBR\"},
+        {\"element\":\"systemMenu\",\"visible\":true,\"position\":\"stackedBR\"},
+        {\"element\":\"desktopButton\",\"visible\":false,\"position\":\"stackedBR\"}
+      ]}";
+      appicon-margin = 0;
+      appicon-padding = 0;
+      dot-style-focused = "METRO";
+      dot-style-unfocused = "DASHES";
+      dot-position = "BOTTOM";
+      trans-use-custom-bg = false;
+      show-favorites = false;
+      show-running-apps = true;
+      show-appmenu = false;
+      group-apps = true;
+      progress-show-count = true;
+      show-window-previews = false;
+      show-tooltip = false;
+      isolate-workspaces = false;
+      isolate-monitors = false;
+      overview-click-to-exit = false;
+      hide-overview-on-startup = true;
+      hot-keys = false;
+      tray-size = 0;
+      leftbox-size = 0;
+      animate-app-switch = false;
+      animate-window-launch = false;
+      stockgs-keep-dash = false;
+      stockgs-keep-top-panel = false;
+      stockgs-panelbtn-click-only = false;
+      stockgs-force-hotcorner = false;
+    };
+
     "org/gnome/shell/extensions/forge/window-gap-size-increment" = {
       window-gap-size-increment = 0;
       window-gap-hidden-on-single = true;
