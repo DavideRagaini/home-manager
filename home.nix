@@ -1,81 +1,59 @@
 { config, pkgs, ... }:
 
 {
-  home.sessionVariables = {
-    EDITOR = "emacsclient";
-    BROWSER = "librewolf";
-  };
-
-  # let
-  #   doom-emacs = pkgs.callPackage (builtins.fetchTarball {
-  #     url = https://github.com/vlaci/nix-doom-emacs/archive/master.tar.gz;
-  #   }) {
-  #     doomPrivateDir = "$HOME/.config/doom";
-  #   };
-  # in {
-  #   home.packages = [ doom-emacs ];
-  #   home.file."$HOME/.config/emacs.d/init.el".text = ''
-  #       (load "default.el")
-  #   '';
-  # };
-
-  # # Configure keymap in X11
-  # services.xserver.layout = "us";
-  # services.xserver.xkbVariant = "altgr-intl";
-  # services.xserver.xkbOptions = "eurosign:e,ctrl:swapcaps,altwin:swap_alt_win,altwin:escape,altwin:menu_win";
-
-  # # Fonts
-  # fonts.fonts = with pkgs; [
-  #   nerdfonts
-  #   liberation_ttf
-  #   fantasque-sans-mono
-  # ];
-
-  # programs.dconf.enable = true;
-  services.gpg-agent.enable = true;
-  programs.ssh.enable = true;
+  # xdg.userDirs.enable = true;
 
   home.packages = with pkgs; [
     # System utilities
     atool
+    bat
+    cairo
+    dash
+    exa
+    file
     fzf
     gnupg
+    harfbuzz
+    # hblock
     jq
-    rsync
-    sqlite
-    transmission
-    unzip
-    # Shell
-    bat
-    exa
     lf
     librespot
     lm_sensors
+    lshw
+    mpc-cli
     mpd
     ncdu
     ncmpcpp
     newsboat
+    pciutils
+    rsync
     socat
     sox
+    tremc
     spotify-tui
+    sqlite
+    transmission
     tree
+    unzip
     wmctrl
     zoxide
-    harfbuzz
-    cairo
+    hw-probe
     # Power Measurement and Management
     cpufrequtils
     powertop
     tlp
     # Desktop
     calibre
+    clipmenu
+    conky
     evince
-    gnome.gnome-clocks
-    gnome.gnome-dictionary
-    gnome.gnome-disk-utility
-    gnome.nautilus
+    # gnome.gnome-clocks
+    # gnome.gnome-dictionary
+    # gnome.gnome-disk-utility
+    # gnome.nautilus
     gparted
     keepassxc
+    kodi
     libnotify
     librewolf
     nodejs_20
@@ -86,10 +64,12 @@
     tofi
     tridactyl-native
     udisks
+    vlc
     xclip
     wl-clipboard
+    zathura
     # Emacs Dependencies
-    emacs29-pgtk
+    emacs29
     fd
     hunspell
     hunspellDicts.en-gb-ise
@@ -107,29 +87,27 @@
     shellcheck
     shfmt
 # Optionals
-    # texlive.combined.scheme-full
+    # activity-watch
+    # aw-watcher-afk
+    # aw-watcher-windows
+    teams-for-linux
+    texlive.combined.scheme-full
     # tikzit
     # ferdium
+  # Readability script
+    nodePackages.readability-cli
+    python311Packages.requests
+    python311Packages.readability-lxml
   ];
 
   imports = [
     # ./programs/firefox.nix
-    ./programs/dconf.nix
+    # ./programs/qtile.nix
+    # ./programs/dconf.nix
     ./services.nix
   ];
 
-  # Enable the X11 windowing system.
-  # services.xserver.enable = true;
-  # services.xserver.displayManager.gdm.enable = true;
-  # services.xserver.displayManager.autoLogin.enable = true;
-  # services.xserver.displayManager.autoLogin.user = "davide";
-  # services.xserver.desktopManager.gnome.enable = true;
-
-  # programs.waybar.enable = true;
-  # programs.qt5ct.enable = true;
-
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
+  qt.platformTheme = "qtct";
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.

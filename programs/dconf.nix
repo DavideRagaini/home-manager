@@ -40,14 +40,15 @@ with lib.hm.gvariant;
   home.packages = with pkgs; [
     gnomeExtensions.appindicator
     gnomeExtensions.clipboard-indicator
+    gnomeExtensions.dash-to-panel
     gnomeExtensions.forge
     gnomeExtensions.just-perfection
     gnomeExtensions.space-bar
     gnomeExtensions.vitals
+    gnomeExtensions.quick-settings-tweaker
+    gnomeExtensions.no-titlebar-when-maximized
     # gnomeExtensions.caffeine
     # gnomeExtensions.cpufreq
-    gnomeExtensions.dash-to-panel
-    gnomeExtensions.sound-output-device-chooser
     # gnomeExtensions.tray-icons-reloaded
     # gnomeExtensions.user-themes
   ];
@@ -68,8 +69,9 @@ with lib.hm.gvariant;
         "space-bar@luchrioh"
         "user-theme@gnome-shell-extensions.gcampax.github.com"
         "workspace-indicator@gnome-shell-extensions.gcampax.github.com"
+        "quick-settings-tweaks@qwreey"
+        "no-titlebar-when-maximized@alec.ninja"
         "dash-to-panel@jderose9.github.com"
-        "sound-output-device-chooser@kgshank.net"
         # "caffeine@patapon.info"
         # "trayIconsReloaded@selfmade.pl"
       ];
@@ -144,10 +146,22 @@ with lib.hm.gvariant;
       clear-history = [ "<Super>Delete" ];
     };
     "org/gnome/shell/extensions/dash-to-panel" = {
+      animate-app-switch = false;
+      animate-window-launch = false;
+      appicon-margin = 0;
+      appicon-padding = 0;
+      dot-position = "BOTTOM";
+      dot-style-focused = "METRO";
+      dot-style-unfocused = "DASHES";
+      group-apps = true;
+      hide-overview-on-startup = true;
+      hot-keys = false;
       intellihide = false;
-      panel-positions = "{\"0\":\"TOP\"}";
-      panel-sizes = "{\"0\":24}";
-      panel-lengths = "{\"0\":100}";
+      intellihide-key-toggle = [ "<Super>b" ];
+      isolate-monitors = true;
+      isolate-workspaces = false;
+      leftbox-size = 0;
+      overview-click-to-exit = false;
       panel-element-positions = "{\"0\":[
         {\"element\":\"showAppsButton\", \"visible\":false,\"position\":\"stackedTL\"},
         {\"element\":\"activitiesButton\",\"visible\":false,\"position\":\"stackedTL\"},
@@ -158,35 +172,71 @@ with lib.hm.gvariant;
         {\"element\":\"dateMenu\",\"visible\":true,\"position\":\"stackedBR\"},
         {\"element\":\"systemMenu\",\"visible\":true,\"position\":\"stackedBR\"},
         {\"element\":\"desktopButton\",\"visible\":false,\"position\":\"stackedBR\"}
-      ]}";
-      appicon-margin = 0;
-      appicon-padding = 0;
-      dot-style-focused = "METRO";
-      dot-style-unfocused = "DASHES";
-      dot-position = "BOTTOM";
-      trans-use-custom-bg = false;
-      show-favorites = false;
-      show-running-apps = true;
-      show-appmenu = false;
-      group-apps = true;
+        ]}";
+        # ] \"1\":[
+        # {\"element\":\"showAppsButton\",\"visible\":false,\"position\":\"stackedTL\"},
+        # {\"element\":\"activitiesButton\",\"visible\":false,\"position\":\"stackedTL\"},
+        # {\"element\":\"leftBox\",\"visible\":true,\"position\":\"stackedTL\"},
+        # {\"element\":\"taskbar\",\"visible\":true,\"position\":\"stackedTL\"},
+        # {\"element\":\"centerBox\",\"visible\":true,\"position\":\"stackedBR\"},
+        # {\"element\":\"rightBox\",\"visible\":true,\"position\":\"stackedBR\"},
+        # {\"element\":\"dateMenu\",\"visible\":true,\"position\":\"stackedBR\"},
+        # {\"element\":\"systemMenu\",\"visible\":true,\"position\":\"stackedBR\"},
+        # {\"element\":\"desktopButton\",\"visible\":true,\"position\":\"stackedBR\"}
+        # ]}";
+      panel-lengths = "{\"0\":100,\"1\":100}";
+      panel-positions = "{\"0\":\"TOP\",\"1\":\"TOP\"}";
+      panel-sizes = "{\"0\":24,\"1\":24,\"24\":24}";
       progress-show-count = true;
-      show-window-previews = false;
+      show-appmenu = false;
+      show-favorites = true;
+      show-running-apps = true;
       show-tooltip = false;
-      isolate-workspaces = false;
-      isolate-monitors = false;
-      overview-click-to-exit = false;
-      hide-overview-on-startup = true;
-      hot-keys = false;
-      tray-size = 0;
-      leftbox-size = 0;
-      animate-app-switch = false;
-      animate-window-launch = false;
+      show-window-previews = false;
+      stockgs-force-hotcorner = false;
       stockgs-keep-dash = false;
       stockgs-keep-top-panel = false;
       stockgs-panelbtn-click-only = false;
-      stockgs-force-hotcorner = false;
+      trans-use-custom-bg = false;
+      tray-size = 0;
     };
 
+    # "org/gnome/nautilus/window-state/maximized" = false;
+# /org/gnome/desktop/notifications/application-children
+  # ['org-gnome-nautilus', 'alacritty', 'org-qutebrowser-qutebrowser', 'librewolf', 'org-gnome-extensions', 'org-keepassxc-keepassxc', 'mpv', 'gnome-network-panel', 'emacsclient', 'org-gnome-settings', 'org-gnome-evince', 'emacs', 'org-gnome-shell-extensions']
+
+    "org/gnome/shell/extensions/forge" = {
+      tabbed-tiling-mode-enabled = true;
+      workspace-skip-tile = "";
+    };
+    "org/gnome/shell/extensions/forge/keybindings" = {
+      window-focus-down = [ "<Super>j" ];
+      window-focus-left = [ "<Super>h" ];
+      window-focus-right = [ "<Super>l" ];
+      window-focus-up = [ "<Super>k" ];
+      window-move-down = [ "<Shift><Super>j" ];
+      window-move-left = [ "<Shift><Super>h" ];
+      window-move-right = [ "<Shift><Super>l" ];
+      window-move-up = [ "<Shift><Super>k" ];
+      window-resize-bottom-decrease = [ "<Super>u" ];
+      window-resize-left-decrease = [ "<Super>y" ];
+      window-resize-right-decrease = [ "<Super>p" ];
+      window-resize-up-decrease = [ "<Super>o" ];
+      window-resize-bottom-increase = [ "<Shift><Super>u" ];
+      window-resize-left-increase = [ "<Shift><Super>y" ];
+      window-resize-right-increase = [ "<Shift><Super>p" ];
+      window-resize-up-increase = [ "<Shift><Super>o" ];
+      window-snap-center = [ "<Ctrl><Super>n" ];
+      window-swap-last-active = [ "<Super>Return" ];
+      con-split-horizontal = [ "<Super>z" ];
+      con-split-vertical = [ "<Super>x" ];
+      con-split-layout-toggle = [ "<Super>c" ];
+      con-stacked-layout-toggle = [ "<Shift><Super>s" ];
+      con-tabbed-layout-toggle = [ "<Shift><Super>t" ];
+      con-tabbed-showtab-decoration-toggle = [ "<Ctrl><Super>t" ];
+      focus-border-toggle = [ "<Super>x" ];
+      prefs-open = [ ];
+    };
     "org/gnome/shell/extensions/forge/window-gap-size-increment" = {
       window-gap-size-increment = 0;
       window-gap-hidden-on-single = true;
@@ -256,17 +306,19 @@ with lib.hm.gvariant;
       show-empty-workspaces = false;
       smart-workspace-names = false;
     };
+
     "org/gnome/shell/extensions/vitals" = {
       update-time = 10;
       position-in-panel = 2;
-      alphabetize = true;
+      alphabetize = false;
       hide-zeros = true;
-      fixed-widths = true;
-      hide-icons = false;
+      fixed-widths = false;
+      hide-icons = true;
       hot-sensors = [
         "_system_load_1m_"
-        # "_system_load_5m_"
-        # "_system_load_15m_"
+        "_system_load_5m_"
+        "_system_load_15m_"
+        "_system_threads_active_"
         "_processor_usage_"
         "_processor_frequency_"
         "_temperature_processor_0_'"
@@ -291,8 +343,14 @@ with lib.hm.gvariant;
       show-battery = false;
       show-storage = false;
     };
+    "org/gnome/shell/keybindings" = {
+      focus-active-notification = [ ];
+      show-screen-recording-ui = ["<Super>Print"];
+      toggle-message-tray = [ ];
+      toggle-overview = [ ];
+    };
 
-    "org.gnome.desktop.screensaver" = {
+    "org/gnome/desktop/screensaver" = {
       # color-shading-type = "solid";
       # embedded-keyboard-command = "";
       # embedded-keyboard-enabled = false;
@@ -311,12 +369,6 @@ with lib.hm.gvariant;
       user-switch-enabled = true;
     };
 
-    screensaver = {
-      picture-uri = "file:///run/current-system/sw/share/backgrounds/gnome/adwaita-l.webp";
-      primary-color = "#3071AE";
-    };
-    # "org/gnome/nautilus/window-state/maximized" = false;
-
     "org/gnome/mutter" = {
       center-new-windows = true;
       dynamic-workspaces = false;
@@ -324,7 +376,10 @@ with lib.hm.gvariant;
       overlay-key = "Super_L";
       workspaces-only-on-primary = true;
     };
-
+    "org/gnome/mutter/keybindings" = {
+      toggle-tiled-right = [ ];
+      toggle-tiled-left = [ ];
+    };
 
     "org/gnome/settings-daemon/plugins/power" = {
       idle-dim = true;
@@ -344,15 +399,46 @@ with lib.hm.gvariant;
       sleep-inactive-battery-timeout = 900;
       sleep-inactive-battery-type = "suspend";
     };
-# org.gnome.settings-daemon.plugins.media-keys custom-keybindings ['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/']
-    "org.gnome.settings-daemon.plugins.media-keys" = {
-      play = [ "Cancel" ];
-      previous = [ "Back" ];
-      volume-down = [ "<Super>Down" ];
-      volume-mute = [ "<Control><Super>Down" ];
-      volume-step = 5;
-      volume-up = [ "<Super>Up" ];
-    };
+    # "org/gnome/settings-daemon/plugins/media-keys" = {
+    #   control-center = [ ];
+    #   decrease-text-size = [ ];
+    #   email = [ ];
+    #   increase-text-size = [ ];
+    #   logout = [ "<Control><Super>q" ];
+    #   magnifier = [ ];
+    #   magnifier-zoom-in = [ ];
+    #   magnifier-zoom-out = [ ];
+    #   mic-mute = [ "<Super>Pause" ];
+    #   next = [ "<Super>End" ];
+    #   on-screen-keyboard = [ ];
+    #   play = [ "Pause" ];
+    #   previous = [ "<Super>Home" ];
+    #   screenreader = [ ];
+    #   search = [ ];
+    #   stop = [ ];
+    #   toggle-contrast = [ ];
+    #   volume-down = [ "<Super>KP_Subtract" ];
+    #   volume-step = 5;
+    #   volume-up = [ "<Super>KP_Add" ];
+    #   www = [ ];
+    # };
+    # "org/gnome/settings-daemon/plugins/media-keys" = {
+    #   custom-keybindings = [
+    #     "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0"
+    #     "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1"
+    #     "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2"
+    #   ];
+    # };
+    # "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
+    #   name = "tppclt toggle";
+    #   command = "sh /home/davide/.local/bin/media/tppctl toggle";
+    #   binding = "<Super>period";
+    # };
+    # "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1" = {
+    #   name = "tppctl invert";
+    #   command = "sh /home/davide/.local/bin/media/tppctl invert";
+    #   binding = "<Shift><Super>period";
+    # };
 
     "org/gnome/system/location" = { enabled = false; };
 
@@ -375,13 +461,31 @@ with lib.hm.gvariant;
     };
     "org/gnome/desktop/peripherals/touchpad" = {
       natural-scroll = false;
-      two-finger-scrolling-enabled = true;
+      two-finger-scrolling-enabled = false;
     };
     "org/gnome/desktop/wm/keybindings" = {
+        # cycle-windows = [ "<Super>Tab" ];
+        # move-to-workspace-last = [ "<Shift><Super>semicolon" ];
+        # switch-to-workspace-last = [ "<Super>semicolon" ];
+        # switch-windows = [ "<Super>Tab" ];
+        # switch-windows-backward = [ "<Shift><Super>Tab" ];
+        begin-move = ["<Control><Super>e"];
+        begin-resize = ["<Shift><Super>r"];
         close = [ "<Super>q" ];
-        lower = [ "<Control><Super>j" ];
+        cycle-group = [ ];
+        cycle-group-backward = [ ];
+        cycle-panels = [ ];
+        cycle-panels-backward = [ ];
+        # cycle-windows = ["<Super>grave"];
+        cycle-windows = [ ];
+        # cycle-windows-backward = ["<Shift><Super>grave"];
+        cycle-windows-backward = [ ];
+        focus-active-notification = [ ];
+        lower = [ ];
+        minimize = [ ];
         move-to-monitor-left = [ "<Control><Super>h" ];
         move-to-monitor-right = [ "<Control><Super>l" ];
+        move-to-monitor-up = [ ];
         move-to-workspace-1 = [ "<Shift><Super>1" ];
         move-to-workspace-2 = [ "<Shift><Super>2" ];
         move-to-workspace-3 = [ "<Shift><Super>3" ];
@@ -391,13 +495,18 @@ with lib.hm.gvariant;
         move-to-workspace-7 = [ "<Shift><Super>7" ];
         move-to-workspace-8 = [ "<Shift><Super>8" ];
         move-to-workspace-9 = [ "<Shift><Super>9" ];
-        # move-to-workspace-last = [ "<Shift><Super>semicolon" ];
-        # cycle-windows = [ "<Super>Tab" ];
+        move-to-workspace-last = [ ];
+        move-to-workspace-left = [ ];
+        move-to-workspace-right = [ ];
         panel-run-dialog = [ "<Super>d" ];
         switch-applications = [ "<Super>Tab" ];
-        switch-applications-backward = [ "<Super>i" ];
+        switch-applications-backward = [ "<Shift><Super>Tab" ];
         switch-group = [ "<Super>grave" ];
         switch-group-backward = [ "<Shift><Super>grave" ];
+        switch-input-source = [ ];
+        switch-input-source-backward = [ ];
+        switch-panels = [ ];
+        switch-panels-backward = [ ];
         switch-to-workspace-1 = [ "<Super>1" ];
         switch-to-workspace-2 = [ "<Super>2" ];
         switch-to-workspace-3 = [ "<Super>3" ];
@@ -407,37 +516,24 @@ with lib.hm.gvariant;
         switch-to-workspace-7 = [ "<Super>7" ];
         switch-to-workspace-8 = [ "<Super>8" ];
         switch-to-workspace-9 = [ "<Super>9" ];
-        # switch-to-workspace-last = [ "<Super>semicolon" ];
+        switch-to-workspace-last = [ ];
         switch-to-workspace-left = [ "<Super>bracketleft" ];
         switch-to-workspace-right = [ "<Super>bracketright" ];
-        # switch-windows = [ "<Super>Tab" ];
-        # switch-windows-backward = [ "<Shift><Super>Tab" ];
         toggle-fullscreen = [ "<Super><Shift>f" ];
         toggle-maximized = [ "<Super>f" ];
+        toggle-message-tray = [ ];
         toggle-on-all-workspaces = [ "<Super>s" ];
-      };
+    };
+
+    "org/gnome/desktop/peripherals/keyboard" = {
+      numlock-state = true;
+    };
     "org/gnome/desktop/wm/preferences" = {
       audible-bell = false;
       auto-raise = true;
       focus-mode = "click";
       num-workspaces = 9;
     };
-
-    # "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings" = [
-    #   "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0"
-    #   "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1"
-    #   "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2"
-    # ];
-    # "org/gnome/settings-daemon/plugins/media-keys/custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
-    #   name = "tppctl toggle";
-    #   command = "sh /home/davide/.local/bin/media/tppctl toggle";
-    #   binding = "<Super>period";
-    # };
-    # "org/gnome/settings-daemon/plugins/media-keys/custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1" = {
-    #   name = "tppctl invert";
-    #   command = "sh /home/davide/.local/bin/media/tppctl invert";
-    #   binding = "<Shift><Super>period";
-    # };
 
     # "org/gnome/desktop/wm/preferences.workspace-names" =
     #   [ "w1" "w2" "w3" "w4" "w5" "w6" "w7" "w8" "w9" ];
