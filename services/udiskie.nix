@@ -2,37 +2,6 @@
 
 {
   services = {
-    emacs = {
-      enable = true;
-      defaultEditor = true;
-    };
-
-    clipmenu.enable = true;
-    # picom.enable = true;
-
-    # mpd = {
-    #   enable = true;
-    #   extraConfig = "";
-    # };
-
-    # ssh-agent = {
-    #   enable = true;
-    # };
-
-    gpg-agent = {
-      enable = true;
-      enableSshSupport = true;
-    };
-
-    unclutter = {
-      enable = true;
-      threshold = 10;
-      extraOptions = [
-        "exclude-root"
-        "ignore-scrolling"
-      ];
-    };
-
     udiskie = {
       enable = true;
       automount = false;
@@ -102,43 +71,6 @@
           quit = ["application-exit"];
         };
       };
-    };
-
-    screen-locker = {
-      enable = true;
-      inactiveInterval = 5;
-      lockCmd = "\${pkgs.systemctl}/bin/systemctl suspend";
-      # xautolock.enable = true;
-      # extraOptions = [
-      #   "-time 5"
-      #   "-notify 45"
-      #   "-notifier 'norify-send -u critical -t 45000 \'System will be locked\' \'45 seconds left\''"
-      #   "-locker 'systemctl suspend'"
-      # ];
-    };
-
-    # mpd = {
-    #   enable = true;
-      # extraConfig = "
-      #   auto_update 'yes'
-      #   restore_paused 'yes'
-      #   volume_normalization 'yes'
-
-      #   audio_output {
-      #         type  'pipewire'
-      #         name  'PipeWire Sound Server'
-      #         # mixer_type 'software'
-      #   }";
-      # musicDirectory = "~/Storage/Music";
-      # playlistDirectory = "";
-      # dbFile = "";
-      # dataDir = "";
-    # };
-  };
-  systemd.user.targets.tray = {
-    Unit = {
-      Description = "Home Manager System Tray";
-      Requires = [ "graphical-session-pre.target" ];
     };
   };
 }
