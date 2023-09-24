@@ -1,6 +1,7 @@
 { config, pkgs, ... }:
 
-{  home = {
+{
+  home = {
     packages = with pkgs; [
       atool
       bat
@@ -24,6 +25,8 @@
       newsboat
       # parallel
       pciutils
+      python311Packages.pip
+      qbittorrent
       rsync
       socat
       sox

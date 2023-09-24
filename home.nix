@@ -10,6 +10,7 @@
     ./packages/x11.nix
     ./programs/theme.nix
     ./services/emacs.nix
+    ./services/gpg.nix
     ./services/services.nix
     ./services/udiskie.nix
     ./services/x11.nix

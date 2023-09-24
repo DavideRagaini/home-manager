@@ -3,8 +3,7 @@
 {  home = {
     packages = with pkgs; [
       conky
-      rofi
-      rofimoji
+      maim
       xcape
       xclip
       xdotool

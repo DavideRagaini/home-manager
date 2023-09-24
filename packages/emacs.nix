@@ -10,7 +10,8 @@
       hunspellDicts.en-us
       hunspellDicts.it-it
       nixfmt
-      pinentry_qt
+      nixpkgs-fmt
+      nixpkgs-review
       pipenv
       python311
       python311Packages.black
