@@ -35,7 +35,7 @@
           font = "Fantasque Sans Mono 12";
           line_height = 3;
           markup = "full";
-          format = ''<b>%s</b>\n%b\n\n[%a]\n%p'';
+          format = ''<b>%s</b>\n%a %b\n\n[%a]\n%p'';
           alignment = "left";
           vertical_alignment = "center";
           show_age_threshold = 10;

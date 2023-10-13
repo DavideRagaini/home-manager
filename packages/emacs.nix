@@ -3,15 +3,18 @@
 {
   home = {
     packages = with pkgs; [
-      emacs
+      emacs29
       fd
+      graphviz
       hunspell
       hunspellDicts.en-gb-ise
       hunspellDicts.en-us
       hunspellDicts.it-it
+      libxml2
       nixfmt
       nixpkgs-fmt
       nixpkgs-review
+      nodejs_20
       pipenv
       python311
       python311Packages.black

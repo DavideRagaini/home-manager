@@ -4,6 +4,7 @@
     packages = with pkgs; [
       conky
       maim
+      xautolock
       xcape
       xclip
       xdotool
