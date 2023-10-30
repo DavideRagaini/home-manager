@@ -8,16 +8,20 @@
       clipmenu
       dmenu
       easyeffects
-      ferdium
+      fd
       keepassxc
       kodi
       libnotify
       librewolf
       mangal
       pdftk
-      pipe-viewer
+      qt5ct
+      libsForQt5.breeze-qt5
       pulsemixer
-      qutebrowser-qt6
+      qutebrowser
+      papirus-icon-theme
+      yaru-theme
+      catppuccin-cursors.macchiatoDark
     ];
   };
 }

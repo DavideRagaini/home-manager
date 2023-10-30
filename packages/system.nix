@@ -7,7 +7,7 @@
       bat
       cairo
       dash
-      exa
+      eza
       file
       fzf
       git-crypt

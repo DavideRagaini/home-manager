@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 {
-  home = { packages = with pkgs; [ gnupg pinentry_qt ]; };
+  home = { packages = with pkgs; [ gnupg pinentry-qt ]; };
 
   programs.gpg.enable = true;
 
