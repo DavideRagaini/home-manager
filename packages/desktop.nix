@@ -4,24 +4,27 @@
   home = {
     packages = with pkgs; [
       ani-cli
+      brave
       calibre
+      catppuccin-cursors.macchiatoDark
       clipmenu
       dmenu
       easyeffects
       fd
+      jmtpfs
       keepassxc
       kodi
       libnotify
       librewolf
-      mangal
-      pdftk
-      qt5ct
       libsForQt5.breeze-qt5
-      pulsemixer
-      qutebrowser
+      mangal
+      mpv
       papirus-icon-theme
+      pdftk
+      pulsemixer
+      qt5ct
+      qutebrowser
       yaru-theme
-      catppuccin-cursors.macchiatoDark
     ];
   };
 }

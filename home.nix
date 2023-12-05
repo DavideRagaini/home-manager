@@ -5,14 +5,14 @@
     # ./packages/wayland.nix
     ./packages/desktop.nix
     ./packages/emacs.nix
-    # ./packages/optionals.nix
+    ./packages/optionals.nix
     ./packages/system.nix
     ./packages/x11.nix
     ./programs/theme.nix
     ./services/emacs.nix
     ./services/gpg.nix
     ./services/services.nix
-    # ./services/udiskie.nix
+    ./services/udiskie.nix
     ./services/x11.nix
   ];
 
@@ -30,9 +30,9 @@
 
   programs.home-manager.enable = true;
 
-  manual.manpages.enable = false;
-  manual.html.enable = false;
-  manual.json.enable = false;
+  # manual.manpages.enable = false;
+  # manual.html.enable = false;
+  # manual.json.enable = false;
 }
 
 # The home.packages option allows you to install Nix packages into your

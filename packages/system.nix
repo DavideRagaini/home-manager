@@ -18,12 +18,12 @@
       librespot
       lm_sensors
       lshw
+      mediainfo
       mpc-cli
       mpd
       ncdu
       ncmpcpp
       newsboat
-      # parallel
       pciutils
       python311Packages.pip
       qbittorrent
@@ -32,12 +32,11 @@
       sox
       spotify-tui
       taskspooler
-      transmission
       tree
       tremc
+      udisks
       unzip
       wcalc
-      wmctrl
       zathura
       zoxide
     ];

@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, ... }:
 
 {
   services = {
@@ -7,15 +7,15 @@
       automount = false;
       tray = "auto";
       settings = {
-        program_options = {
-          menu = "flat";
-          automount = false;
-          notify = true;
-          password_cache = 30;
-          file_manager = "/bin/alacritty -e lfub --working-directory";
-          terminal = "/bin/alacritty --working-directory";
-          password_prompt = [ "gnome-keyring-query" "get" "{id_uuid}" ];
-        };
+      #   program_options = {
+      #     menu = "flat";
+      #     automount = false;
+      #     notify = true;
+      #     password_cache = 30;
+      #     file_manager = "/bin/alacritty -e lfub --working-directory";
+      #     terminal = "/bin/alacritty --working-directory";
+      #     password_prompt = [ "gnome-keyring-query" "get" "{id_uuid}" ];
+      #   };
           # device_config = {
         # - id_uuid: 2542-5EA1
         #   ignore:      true
@@ -45,31 +45,31 @@
           device_locked = "-1";
           job_failed = "-1";
         };
-        quickmenu_actions = [
-          "mount"
-          "unmount"
-          "unlock"
-          "terminal"
-          "detach"
-          "delete"
-        ];
+        # quickmenu_actions = [
+        #   "mount"
+        #   "unmount"
+        #   "unlock"
+        #   "terminal"
+        #   "detach"
+        #   "delete"
+        # ];
         notification_actions = {
           device_mounted = ["browse"];
           device_added = ["mount"];
         };
-        icon_names = {
-          media = [ "drive-removable-media" "media-optical"];
-          browse = ["document-open" "folder-open"];
-          terminal = ["terminal" "terminator" "xfce-terminal"];
-          mount = ["udiskie-mount"];
-          unmount = ["udiskie-unmount"];
-          unlock = ["udiskie-unlock"];
-          lock = ["udiskie-lock"];
-          eject = ["udiskie-eject" "media-eject"];
-          detach = ["udiskie-detach"];
-          delete = ["udiskie-eject"];
-          quit = ["application-exit"];
-        };
+        # icon_names = {
+        #   media = [ "drive-removable-media" "media-optical"];
+        #   browse = ["document-open" "folder-open"];
+        #   terminal = ["terminal" "terminator" "xfce-terminal"];
+        #   mount = ["udiskie-mount"];
+        #   unmount = ["udiskie-unmount"];
+        #   unlock = ["udiskie-unlock"];
+        #   lock = ["udiskie-lock"];
+        #   eject = ["udiskie-eject" "media-eject"];
+        #   detach = ["udiskie-detach"];
+        #   delete = ["udiskie-eject"];
+        #   quit = ["application-exit"];
+        # };
       };
     };
   };

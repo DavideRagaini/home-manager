@@ -3,7 +3,8 @@
 {
   home = {
     packages = with pkgs; [
-      emacs29
+      emacs29-pgtk
+      direnv
       fd
       graphviz
       hunspell
