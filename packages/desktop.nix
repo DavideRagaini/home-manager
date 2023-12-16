@@ -8,9 +8,11 @@
       calibre
       catppuccin-cursors.macchiatoDark
       clipmenu
-      dmenu
-      easyeffects
+      dmenu-rs
       fd
+      ffmpegthumbnailer
+      gnome-epub-thumbnailer
+      html2text
       jmtpfs
       keepassxc
       kodi
@@ -21,9 +23,11 @@
       mpv
       papirus-icon-theme
       pdftk
+      poppler_utils
       pulsemixer
       qt5ct
       qutebrowser
+      ueberzugpp
       yaru-theme
     ];
   };

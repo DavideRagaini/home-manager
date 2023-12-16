@@ -4,7 +4,7 @@
   services = {
     emacs = {
       enable = true;
-      package = pkgs.emacs29-pgtk;
+      package = pkgs.emacs29;
       defaultEditor = true;
     };
   };

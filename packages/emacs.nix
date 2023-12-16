@@ -3,7 +3,7 @@
 {
   home = {
     packages = with pkgs; [
-      emacs29-pgtk
+      emacs29
       direnv
       fd
       graphviz

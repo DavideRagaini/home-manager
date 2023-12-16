@@ -5,8 +5,6 @@
       conky
       djvulibre
       fontpreview
-      ghostscript
-      gnome-epub-thumbnailer
       maim
       numlockx
       # wkhtmltopdf
