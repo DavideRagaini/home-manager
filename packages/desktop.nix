@@ -8,7 +8,7 @@
       calibre
       catppuccin-cursors.macchiatoDark
       clipmenu
-      dmenu-rs
+      dmenu
       fd
       ffmpegthumbnailer
       gnome-epub-thumbnailer

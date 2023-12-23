@@ -5,11 +5,11 @@
     # ./packages/wayland.nix
     ./packages/desktop.nix
     ./packages/emacs.nix
+    ./packages/firefox.nix
     ./packages/optionals.nix
-    # ./packages/firefox.nix
     ./packages/system.nix
+    ./packages/theme.nix
     ./packages/x11.nix
-    ./programs/theme.nix
     ./services/emacs.nix
     ./services/gpg.nix
     ./services/services.nix

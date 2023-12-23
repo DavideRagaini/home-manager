@@ -3,7 +3,7 @@
 {
   services = {
 
-    clipmenu.enable = true;
+    # clipmenu.enable = true;
 
     dunst = {
       enable = true;

@@ -29,7 +29,7 @@
       qbittorrent
       rsync
       socat
-      sox
+      # sox
       spotify-tui
       taskspooler
       tree

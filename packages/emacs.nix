@@ -3,10 +3,17 @@
 {
   home = {
     packages = with pkgs; [
-      emacs29
       direnv
+      emacs29
       fd
+      gomodifytags
+      gopls
+      gore
+      gotests
+      gotools
+      gh-markdown-preview
       graphviz
+      html-tidy
       hunspell
       hunspellDicts.en-gb-ise
       hunspellDicts.en-us
@@ -15,6 +22,8 @@
       nixfmt
       nixpkgs-fmt
       nixpkgs-review
+      nodePackages.js-beautify
+      nodePackages.stylelint
       nodejs_20
       pipenv
       python311
