@@ -2,19 +2,21 @@
 
 {
   imports = [
-    # ./packages/wayland.nix
+    # ./services/udiskie.nix
     ./packages/desktop.nix
     ./packages/emacs.nix
     ./packages/firefox.nix
-    ./packages/optionals.nix
     ./packages/system.nix
     ./packages/theme.nix
-    ./packages/x11.nix
-    ./services/emacs.nix
     ./services/gpg.nix
-    ./services/services.nix
-    ./services/udiskie.nix
+    # Bagaro
+    # ./packages/wayland.nix
+    # Apollo
+    ./packages/x11.nix
     ./services/x11.nix
+    ./packages/optionals.nix
+    ./services/emacs.nix
+    ./services/mpd.nix
   ];
 
   # xdg.userDirs.enable = true;

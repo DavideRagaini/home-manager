@@ -22,7 +22,9 @@
       nixfmt
       nixpkgs-fmt
       nixpkgs-review
+      nodePackages.bash-language-server
       nodePackages.js-beautify
+      nodePackages.prettier
       nodePackages.stylelint
       nodejs_20
       pipenv

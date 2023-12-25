@@ -3,27 +3,174 @@
 {
   programs.firefox = {
     enable = true;
+    # https://mozilla.github.io/policy-templates/
     policies = {
-      DefaultDownloadDirectory = "\${home}/Downloads";
+      "3rdparty" = {
+        Extensions = {
+          # "addon@darkreader.org" = {};
+          "{d7742d87-e61d-4b78-b8a1-b469842139fa}" = {
+            uploadBackup = "\${home}/Documents/backups/vimium-options.json";
+          };
+          "uBlock0@raymondhill.net" = {
+            advancedUserEnable = true;
+            adminSettings = {
+              selectedFilterLists = [
+                "ublock-privacy"
+                "ublock-badware"
+                "ublock-filters"
+                "ublock-quick-fixes"
+                "ublock-unbreak"
+                "easylist"
+                "easyprivacy"
+                "urlhaus-1"
+                "plowe-0"
+                "adguard-mobile-app-banners"
+                "adguard-other-annoyances"
+                "adguard-popup-overlays"
+                "adguard-socials"
+                "adguard-widgets"
+                "adguard-cookies"
+                "ublock-cookies-adguard"
+                "easylist-chat"
+                "easylist-newsletters"
+                "easylist-notifications"
+                "easylist-annoyances"
+                "fanboy-social"
+                "fanboy-cookiemonster"
+                "ublock-cookies-easylist"
+                "fanby-thirdparty_social"
+                "ublock-annoyances"
+                "BGR-0"
+                "CZE-0"
+                "DEU-0"
+                "spa-0"
+                "spa-1"
+                "FIN-0"
+                "FRA-0"
+                "GRC-0"
+                "HRV-0"
+                "HUN-0"
+                "ITA-0"
+                "LTV-0"
+                "LVA-0"
+                "MKD-0"
+                "NDL-0"
+                "NOR-0"
+                "POL-0"
+                "POL-1"
+                "ROU-0"
+                "RUS-0"
+                "SWE-0"
+                "SVN-0"
+              ];
+            };
+          };
+          Uninstall = {
+            Amazon = "amazondotcom@search.mozilla.org";
+            Bing = "bing@search.mozilla.org";
+            DuckDuckGo = "ddg@search.mozilla.org";
+            eBay = "ebay@search.mozilla.org";
+            Google = "google@search.mozilla.org";
+            Wikipedia = "wikipedia@search.mozilla.org";
+            Alpenglow = "firefox-alpenglow@mozilla.org";
+          };
+        };
+      };
       CaptivePortal = false;
-      DisableFirefoxStudies = true;
-      DisablePocket = true;
-      DisableTelemetry = true;
+      Cookies = {
+        Default = false;
+        AcceptThirdParty = "never";
+        # ExpireAtSessionEnd = ;
+        RejectTracker = true;
+        Behavior = "reject-foreing";
+        BehaviorPrivateBrowsing = "reject";
+        Locked = false;
+      };
+      DefaultDownloadDirectory = "\${home}/Downloads";
+      DisableBuiltinPDFViewer = true;
       DisableFirefoxAccounts = true;
+      DisableFirefoxStudies = true;
+      DisableMasterPasswordCreation = true;
+      DisableMenuBar = "never";
+      DisablePasswordReveal = true;
+      DisablePocket = true;
+      DisableProfileImport = true;
+      DisableSetDesktopBackgroud = true;
+      DisableTelemetry = true;
+      DNSOverHTTPS = {
+        Enabled = true;
+        ProviderURL = "https://mozilla.cloudflare-dns.com/dns-query";
+      };
+      DontCheckDefaultBrowser = false;
+      EncryptedMediaExtensions = {
+        Enabled = false;
+        Locked = true;
+      };
+      Extensions = {
+        Install = {
+          uBlockOrigin =
+            "https://addons.mozilla.org/firefox/downloads/file/4198829/ublock_origin-1.54.0.xpi";
+          DarkReader =
+            "https://addons.mozilla.org/firefox/downloads/file/4205543/darkreader-4.9.73.xpi";
+          KeePassXC =
+            "https://addons.mozilla.org/firefox/downloads/file/4200248/keepassxc_browser-1.8.10.xpi";
+          Vimium =
+            "https://addons.mozilla.org/firefox/downloads/file/4191523/vimium_ff-2.0.6.xpi";
+        };
+      };
+      FirefoxHome = {
+        Search = true;
+        TopSites = true;
+        SponsoredTopSites = false;
+        Highlights = false;
+        Pocket = false;
+        SponsoredPocket = false;
+        Snippets = false;
+        Locked = false;
+      };
+      FirefoxSuggest = {
+        WebSuggestions = false;
+        SponsoredSuggestions = false;
+        ImproveSuggest = false;
+        Locked = true;
+      };
+      HardwareAcceleration = true;
+      # PopupBolocking = {
+      #   Allow = [];
+      # Default = ;
+      # Locked = ;
+      Homepage = {
+        URL = "file:///home/davide/sources/startpage/index.html";
+        Locked = true;
+        Additional = {
+          "1" = "file:///home/davide/sources/startpage/index.html";
+          "2" = "file:///home/davide/.local/src/startpage/index.html";
+        };
+        StartPage = "homepage";
+      };
+      NewTabPage = true;
       NoDefaultBookmarks = true;
       OfferToSaveLogins = false;
       OfferToSaveLoginsDefault = false;
-      PasswordManagerEnabled = false;
-      FirefoxHome = {
-        Search = true;
-        Pocket = false;
-        Snippets = false;
-        TopSites = false;
-        Highlights = false;
+      OverrideFirstRunPage = "";
+      PDFjs = {
+        Enable = false;
+        EnablePermissions = false;
       };
+      PasswordManagerEnabled = false;
+      PictureInPicture = {
+        Enabled = false;
+        Locked = false;
+      };
+      SearchBar = "unified";
       UserMessaging = {
-        ExtensionRecommendations = false;
+        WhatsNew = false;
+        FeatureRecommendations = false;
+        UrlBarInterventions = false;
         SkipOnboarding = true;
+        MoreFromMozilla = false;
+        ExtensionRecommendations = false;
+        Locked = true;
       };
     };
     package = pkgs.firefox;
@@ -141,12 +288,14 @@
           };
         };
         extensions = with pkgs.nur.repos.rycee.firefox-addons; [
-          darkreader
-          keepassxc-browser
           # tridactyl
+          # violentmonkey
+          darkreader
+          hover-zoom-plus
+          keepassxc-browser
+          libredirect
           ublock-origin
           vimium
-          # violentmonkey
         ];
         containers = {
           "linux" = {
@@ -295,7 +444,8 @@
           "browser.theme.toolbar-theme" = 0;
           "browser.toolbars.bookmarks.visibility" = "never";
           "browser.uiCustomization.state" = ''
-            {"placements":{"widget-overflow-fixed-list":[],"unified-extensions-area":[],"nav-bar":["back-button","forward-button","stop-reload-button","home-button","urlbar-container","save-to-pocket-button","downloads-button","fxa-toolbar-menu-button","unified-extensions-button","ublock0_raymondhill_net-browser-action","addon_darkreader_org-browser-action","keepassxc-browser_keepassxc_org-browser-action"],"toolbar-menubar":["menubar-items"],"TabsToolbar":["tabbrowser-tabs","new-tab-button","alltabs-button","firefox-view-button"],"PersonalToolbar":["import-button","personal-bookmarks"]},"seen":["developer-button","ublock0_raymondhill_net-browser-action","addon_darkreader_org-browser-action","keepassxc-browser_keepassxc_org-browser-action"],"dirtyAreaCache":["nav-bar","PersonalToolbar","unified-extensions-area","TabsToolbar","toolbar-menubar"],"currentVersion":20,"newElementCount":5}'';
+            {"placements":{"widget-overflow-fixed-list":[],"unified-extensions-area":[],"nav-bar":["back-button","forward-button","stop-reload-button","home-button","urlbar-container","fxa-toolbar-menu-button","downloads-button","ublock0_raymondhill_net-browser-action","addon_darkreader_org-browser-action","keepassxc-browser_keepassxc_org-browser-action","_d7742d87-e61d-4b78-b8a1-b469842139fa_-browser-action","unified-extensions-button"],"toolbar-menubar":["menubar-items"],"TabsToolbar":["tabbrowser-tabs","new-tab-button","alltabs-button","firefox-view-button"],"PersonalToolbar":["import-button","personal-bookmarks"]},"seen":["developer-button","ublock0_raymondhill_net-browser-action","addon_darkreader_org-browser-action","keepassxc-browser_keepassxc_org-browser-action","_d7742d87-e61d-4b78-b8a1-b469842139fa_-browser-action"],"dirtyAreaCache":["nav-bar","PersonalToolbar","unified-extensions-area","TabsToolbar","toolbar-menubar","widget-overflow-fixed-list"],"currentVersion":20,"newElementCount":6}
+          '';
           "browser.urlbar.quicksuggest.enabled" = false;
           "browser.urlbar.quicksuggest.migrationVersion" = 2;
           "browser.urlbar.quicksuggest.scenario" = "history";

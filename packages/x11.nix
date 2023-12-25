@@ -2,18 +2,31 @@
 
 {  home = {
     packages = with pkgs; [
-      conky
+      ani-cli
+      calibre
+      clipmenu
       djvulibre
+      ffmpegthumbnailer
+      gnome-epub-thumbnailer
+      mangal
+      pdftk
+      ueberzugpp
+
+      alsa-utils
+      conky
+      dunst
       fontpreview
       maim
+      nsxiv
       numlockx
-      # wkhtmltopdf
       wmctrl
       xautolock
       xcape
       xclip
       xdotool
       xorg.xmodmap
+      xorg.xset
+      xwallpaper
     ];
   };
 }

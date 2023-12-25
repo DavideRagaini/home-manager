@@ -103,7 +103,7 @@
       # settings = {};
       shadow = false;
       vSync = true;
-      backend = "glx";
+      backend = "xrender"; # try "glx" if xrender doesn't help
       fade = true;
       fadeDelta = 1;
       fadeSteps = [ 0.01 0.01 ];
