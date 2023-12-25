@@ -2,8 +2,8 @@
 
 {  home = {
     packages = with pkgs; [
-      # emacs-29pgtk
-      evince
+      emacs29-pgtk
+      cliphist
       pqiv
       tofi
       wl-clipboard

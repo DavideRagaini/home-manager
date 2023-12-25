@@ -4,7 +4,6 @@
   home = {
     packages = with pkgs; [
       direnv
-      emacs29
       fd
       gomodifytags
       gopls

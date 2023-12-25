@@ -15,6 +15,7 @@
       alsa-utils
       conky
       dunst
+      emacs29
       fontpreview
       maim
       nsxiv
