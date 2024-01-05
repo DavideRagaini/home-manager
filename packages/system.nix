@@ -25,9 +25,10 @@
       ncmpcpp
       newsboat
       pciutils
-      python311Packages.pip
+      pipx
       qbittorrent
       rsync
+      sioyek
       socat
       # sox
       spotify-tui
@@ -36,6 +37,7 @@
       tremc
       udisks
       unzip
+      w3m
       wcalc
       zathura
       zoxide

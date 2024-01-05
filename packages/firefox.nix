@@ -24,6 +24,13 @@
                 "easyprivacy"
                 "urlhaus-1"
                 "plowe-0"
+                "adguard-generic"
+                "adguard-mobile"
+                "adguard-spyware"
+                "adguard-spyware-url"
+                "block-lan"
+                "curben-phishing"
+                "dpollock-0"
                 "adguard-mobile-app-banners"
                 "adguard-other-annoyances"
                 "adguard-popup-overlays"
@@ -38,11 +45,13 @@
                 "fanboy-social"
                 "fanboy-cookiemonster"
                 "ublock-cookies-easylist"
-                "fanby-thirdparty_social"
+                "fanboy-thirdparty_social"
                 "ublock-annoyances"
+                "ALB-0"
                 "BGR-0"
                 "CZE-0"
                 "DEU-0"
+                "EST-0"
                 "spa-0"
                 "spa-1"
                 "FIN-0"
@@ -50,29 +59,22 @@
                 "GRC-0"
                 "HRV-0"
                 "HUN-0"
+                "ISL-0"
                 "ITA-0"
+                "LVU-0"
                 "LTV-0"
                 "LVA-0"
                 "MKD-0"
-                "NDL-0"
+                "NLD-0"
                 "NOR-0"
                 "POL-0"
                 "POL-2"
-                "ROU-0"
+                "ROU-1"
                 "RUS-0"
-                "SWE-0"
+                "SWE-1"
                 "SVN-0"
               ];
             };
-          };
-          Uninstall = {
-            Amazon = "amazondotcom@search.mozilla.org";
-            Bing = "bing@search.mozilla.org";
-            DuckDuckGo = "ddg@search.mozilla.org";
-            eBay = "ebay@search.mozilla.org";
-            Google = "google@search.mozilla.org";
-            Wikipedia = "wikipedia@search.mozilla.org";
-            Alpenglow = "firefox-alpenglow@mozilla.org";
           };
         };
       };
@@ -117,10 +119,19 @@
           Vimium =
             "https://addons.mozilla.org/firefox/downloads/file/4191523/vimium_ff-2.0.6.xpi";
         };
+        Uninstall = {
+          Amazon = "amazondotcom@search.mozilla.org";
+          Bing = "bing@search.mozilla.org";
+          DuckDuckGo = "ddg@search.mozilla.org";
+          eBay = "ebay@search.mozilla.org";
+          Google = "google@search.mozilla.org";
+          Wikipedia = "wikipedia@search.mozilla.org";
+          Alpenglow = "firefox-alpenglow@mozilla.org";
+        };
       };
       FirefoxHome = {
-        Search = true;
-        TopSites = true;
+        Search = false;
+        TopSites = false;
         SponsoredTopSites = false;
         Highlights = false;
         Pocket = false;
@@ -223,7 +234,27 @@
               }];
               # icon =
               # "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
-              # definedAliases = [ "" ];
+              definedAliases = [ "y" ];
+            };
+            "Qtile Search" = {
+              urls = [{
+                template = "https://docs.qtile.org/en/latest/";
+                params = [
+                  {
+                    name = "area";
+                    value = "default";
+                  }
+                  {
+                    name = "check_keyword";
+                    value = "yes";
+                  }
+                  {
+                    name = "q";
+                    value = "{searchTerms}";
+                  }
+                ];
+              }];
+              definedAliases = [ "qs" ];
             };
             "Nix Packages" = {
               urls = [{
@@ -280,11 +311,63 @@
               }];
               definedAliases = [ "ho" ];
             };
-            "Wikipedia (en)".metaData.alias = "w";
-            "Google".metaData.hidden = true;
-            "Amazon.com".metaData.hidden = true;
+            # https://docs.qtile.org/en/stable/search.html?q=groupbox&check_keywords=yes&area=default
+            "Qtile Docs" = {
+              urls = [{
+                template =
+                  "https://docs.qtile.org/en/stable/search.html"
+                params = [{
+                  name = "q";
+                  value = "{searchTerms}";
+                  {
+                    name = "check_keywords";
+                    value = "yes";
+                  }
+                  {
+                    name = "area";
+                    value = "default";
+                  }
+                }];
+              }];
+              definedAliases = [ "qd" ];
+            };
+            # https://wiki.archlinux.org/index.php?title=Special%3ASearch&wprov=acrw1_-1&search=%s
+            "Archlinux Wiki" = {
+              urls = [{
+                template =
+                  "https://wiki.archlinux.org/index.php?"
+                params = [{
+                  name = "title=Special%3ASearch&wprov=acrw1_-1&search";
+                  value = "{searchTerms}";
+                }];
+              }];
+              definedAliases = [ "aw" ];
+            };
+            "Wikipedia (en)" = {
+              metaData = {
+                hidden = true;
+                alias = "w";
+              };
+            };
+            "Google" = {
+              metaData = {
+                hidden = true;
+                alias = "g";
+              };
+            };
+            "Amazon" = {
+              metaData = {
+                hidden = true;
+                alias = "az";
+              };
+            };
+            "Ebay" = {
+              metaData = {
+                hidden = true;
+                alias = "eb";
+              };
+            };
             "Bing".metaData.hidden = true;
-            "eBay".metaData.hidden = true;
           };
         };
         extensions = with pkgs.nur.repos.rycee.firefox-addons; [
@@ -420,21 +503,21 @@
           "browser.search.isUS" = true;
           "distribution.searchplugins.defaultLocale" = "en-US";
           "general.useragent.locale" = "en-US";
-          "browser.bookmarks.showMobileBookmarks" = true;
-          "browser.newtabpage.pinned" = [
-            {
-              title = "YewTube";
-              url = "https://yewtu.be";
-            }
-            {
-              title = "NixOS";
-              url = "https://nixos.org";
-            }
-            {
-              title = "Doom Emacs";
-              url = "https://github.com/doomemacs/doomemacs";
-            }
-          ];
+          "browser.bookmarks.showMobileBookmarks" = false;
+          # "browser.newtabpage.pinned" = [
+          #   {
+          #     title = "YewTube";
+          #     url = "https://yewtu.be";
+          #   }
+          #   {
+          #     title = "NixOS";
+          #     url = "https://nixos.org";
+          #   }
+          #   {
+          #     title = "Doom Emacs";
+          #     url = "https://github.com/doomemacs/doomemacs";
+          #   }
+          # ];
           "browser.startup.page" = 1;
           "browser.tabs.closeWindowWithLastTab" = false;
           "browser.tabs.crashReporting.sendReport" = false;
@@ -444,7 +527,7 @@
           "browser.theme.toolbar-theme" = 0;
           "browser.toolbars.bookmarks.visibility" = "never";
           "browser.uiCustomization.state" = ''
-            {"placements":{"widget-overflow-fixed-list":[],"unified-extensions-area":[],"nav-bar":["back-button","forward-button","stop-reload-button","home-button","urlbar-container","fxa-toolbar-menu-button","downloads-button","ublock0_raymondhill_net-browser-action","addon_darkreader_org-browser-action","keepassxc-browser_keepassxc_org-browser-action","_d7742d87-e61d-4b78-b8a1-b469842139fa_-browser-action","unified-extensions-button"],"toolbar-menubar":["menubar-items"],"TabsToolbar":["tabbrowser-tabs","new-tab-button","alltabs-button","firefox-view-button"],"PersonalToolbar":["import-button","personal-bookmarks"]},"seen":["developer-button","ublock0_raymondhill_net-browser-action","addon_darkreader_org-browser-action","keepassxc-browser_keepassxc_org-browser-action","_d7742d87-e61d-4b78-b8a1-b469842139fa_-browser-action"],"dirtyAreaCache":["nav-bar","PersonalToolbar","unified-extensions-area","TabsToolbar","toolbar-menubar","widget-overflow-fixed-list"],"currentVersion":20,"newElementCount":6}
+            {"placements":{"widget-overflow-fixed-list":[],"unified-extensions-area":[],"nav-bar":["back-button","forward-button","stop-reload-button","home-button","urlbar-container","fxa-toolbar-menu-button","downloads-button","ublock0_raymondhill_net-browser-action","addon_darkreader_org-browser-action","keepassxc-browser_keepassxc_org-browser-action","_d7742d87-e61d-4b78-b8a1-b469842139fa_-browser-action","7esoorv3_alefvanoon_anonaddy_me-browser-action","unified-extensions-button"],"toolbar-menubar":["menubar-items"],"TabsToolbar":["tabbrowser-tabs","new-tab-button","alltabs-button","firefox-view-button"],"PersonalToolbar":["import-button","personal-bookmarks"]},"seen":["developer-button","ublock0_raymondhill_net-browser-action","addon_darkreader_org-browser-action","keepassxc-browser_keepassxc_org-browser-action","_d7742d87-e61d-4b78-b8a1-b469842139fa_-browser-action","7esoorv3_alefvanoon_anonaddy_me-browser-action"],"dirtyAreaCache":["nav-bar","PersonalToolbar","unified-extensions-area","TabsToolbar","toolbar-menubar","widget-overflow-fixed-list"],"currentVersion":20,"newElementCount":7}
           '';
           "browser.urlbar.quicksuggest.enabled" = false;
           "browser.urlbar.quicksuggest.migrationVersion" = 2;
@@ -634,83 +717,166 @@
           "webgl.disabled" = true;
           "widget.use-xdg-desktop-portal" = true;
         };
-        extraConfig = "";
+        extraConfig = ''
+          var key_bookmarks = document.getElementById('viewBookmarksSidebarKb');
+          var key_history = document.getElementById('viewHistorySidebarKb');
+          if (key_bookmark) key_bookmark.remove();
+          else if (key_history) key_history.remove();
+        '';
         userChrome = ''
-          :root{
-            --uc-autohide-toolbox-delay: 100ms; /* Wait 0.1s before hiding toolbars */
-            --uc-toolbox-rotation: 82deg;  /* This may need to be lower on mac - like 75 or so */
-          }
-
-          :root[sizemode="maximized"]{
-            --uc-toolbox-rotation: 88.5deg;
-          }
-
-          @media  (-moz-platform: windows){
-            #navigator-toolbox:not(:-moz-lwtheme){ background-color: -moz-dialog !important; }
-          }
-
-          :root[sizemode="fullscreen"],
-          #navigator-toolbox[inFullscreen]{ margin-top: 0 !important; }
-
-          #navigator-toolbox{
-            position: fixed !important;
-            display: block;
-            background-color: var(--lwt-accent-color,black) !important;
-            transition: transform 0ms linear, opacity 0ms linear !important;
-            transition-delay: var(--uc-autohide-toolbox-delay) !important;
-            transform-origin: top;
-            transform: rotateX(var(--uc-toolbox-rotation));
-            opacity: 0;
-            line-height: 0;
-            z-index: 1;
-            pointer-events: none;
-          }
-
-          #navigator-toolbox:hover,
-          #navigator-toolbox:focus-within{
-            transition-delay: 0ms !important;
-            transform: rotateX(0);
-            opacity: 1;
-          }
-          /* This ruleset is separate, because not having :has support breaks other selectors as well */
-          #mainPopupSet:has(> #appMenu-popup:hover) ~ toolbox{
-            transition-delay: 0ms !important;
-            transform: rotateX(0);
-            opacity: 1;
-          }
-
-          #navigator-toolbox > *{ line-height: normal; pointer-events: auto }
-
-          #navigator-toolbox,
-          #navigator-toolbox > *{
-            width: 100vw;
-            -moz-appearance: none !important;
-          }
-
-          /* These two exist for oneliner compatibility */
-          #nav-bar{ width: var(--uc-navigationbar-width,100vw) }
-          #TabsToolbar{ width: calc(100vw - var(--uc-navigationbar-width,0px)) }
-
-          /* Don't apply transform before window has been fully created */
-          :root:not([sessionrestored]) #navigator-toolbox{ transform:none !important }
-
-          :root[customizing] #navigator-toolbox{
-            position: relative !important;
-            transform: none !important;
-            opacity: 1 !important;
-          }
-
-          #navigator-toolbox[inFullscreen] > #PersonalToolbar,
-          #PersonalToolbar[collapsed="true"]{ display: none }
-
-          /* Uncomment this if tabs toolbar is hidden with hide_tabs_toolbar.css */
-           /*#titlebar{ margin-bottom: -9px }*/
-
-          /* Uncomment the following for compatibility with tabs_on_bottom.css - this isn't well tested though */
           /*
-          #navigator-toolbox{ flex-direction: column; display: flex; }
-          #titlebar{ order: 2 }
-          */
+           *  Hide window controls
+           */
+          .titlebar-buttonbox-container{
+              display: none !important;
+          }
+
+
+          .titlebar-placeholder,
+          #TabsToolbar .titlebar-spacer{ display: none; }
+          #navigator-toolbox::after{ display: none !important; }
+
+          .tab-label::before {
+            counter-increment: tab-counter;
+            content: counter(tab-counter) " - ";
+          }
+
+          /*
+           *  Hide all the clutter in the navbar
+           */
+          #main-window :-moz-any(#back-button,
+          		       #forward-button,
+          		       #stop-reload-button,
+          		       #home-button,
+          		       #library-button,
+          		       #sidebar-button,
+          		       #star-button,
+          		       #pocket-button,
+          		       #save-to-pocket-button,
+          		       #permissions-granted-icon,
+          		       #fxa-toolbar-menu-button,
+          /*
+           *  Minimal theme
+           */
+          #navigator-toolbox {
+              font-family: 'IosevkaTerm Nerd Font Mono' !important;
+          }
+
+          #navigator-toolbox toolbarspring {
+              display: none;
+          }
+
+          /* Hide filler */
+          #customizableui-special-spring2{
+          	display:none;
+          }
+
+          .tab-background{
+          	padding-bottom: 0 !important;
+          }
+
+          #navigator-toolbox #urlbar-container {
+              padding: 0 !important;
+              margin: 0 !important;
+          }
+
+          #navigator-toolbox #urlbar {
+              border: none !important;
+              border-radius: 0 !important;
+              box-shadow: none !important;
+          }
+
+          #navigator-toolbox #PanelUI-button {
+              padding: 0 !important;
+              margin: 0 !important;
+              border: none !important;
+          }
+
+          #navigator-toolbox #nav-bar {
+              box-shadow: none !important;
+          }
+
+          #navigator-toolbox #pageActionButton {
+              display: none;
+          }
+
+          #navigator-toolbox #pageActionSeparator {
+              display: none;
+          }
+
+          #fullscr-toggler {
+              height: 0 !important;
+          }
+
+          #navigator-toolbox .urlbar-history-dropmarker {
+              display: none;
+          }
+
+          #navigator-toolbox #tracking-protection-icon-container {
+              padding-right: 0 !important;
+              border: none !important;
+              display: none !important;
+          }
+
+          #navigator-toolbox .tab-close-button, #navigator-toolbox #tabs-newtab-button, #firefox-view-button, #alltabs-button {
+              display: none;
+          }
+
+          #navigator-toolbox #urlbar {
+              padding: 0 !important;
+              padding-left: 3ch !important;
+              font-size: 13px;
+          }
+
+          #navigator-toolbox #urlbar-background {
+              border: none !important;
+              margin: 0 !important;
+          }
+
+          #navigator-toolbox .toolbarbutton-1 {
+              width: 22px;
+              padding-left: 1ch !important;
+          }
+
+          #navigator-toolbox .tabbrowser-tab {
+              font-size: 12px
+          }
+
+          #navigator-toolbox .tab-background {
+              box-shadow: none!important;
+              border: none !important;
+          }
+
+          #navigator-toolbox .tabbrowser-tab::after {
+              display: none !important;
+          }
+
+          #navigator-toolbox #urlbar-zoom-button {
+              border: none !important;
+          }
+
+          #appMenu-fxa-container, #appMenu-fxa-container + toolbarseparator {
+              display: none !important;
+          }
+
+          #sync-setup {
+              display: none !important;
+          }
+
+          /*
+           *  Hamburger menu to the left
+           */
+
+          #PanelUI-button {
+              -moz-box-ordinal-group: 0;
+              border-left: none !important;
+              border-right: none !important;
+              position: absolute;
+          }
+
+          #toolbar-context-menu .viewCustomizeToolbar {
+              display: none !important;
+          }
         '';
       };
     };

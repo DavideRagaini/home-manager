@@ -90,15 +90,19 @@
         "100:class_g = 'alacritty' && focused"
         "100:class_g = 'mpv' && focused"
         "100:class_g = 'mpv' && IS_FLOATING_WINDOW@:s = 'False' && !focused"
-        "25:class_g = 'mpv' && IS_FLOATING_WINDOW@:s = 'True' && !focused"
+        "10:class_g = 'mpv' && IS_FLOATING_WINDOW@:s = 'True' && !focused"
         "95:class_g = 'URxvt' && !_NET_WM_STATE@:32a"
+        "100:_NET_WM_STATE@[0]:32a = '_NET_WM_STATE_FULLSCREEN'"
+        "100:_NET_WM_STATE@[1]:32a = '_NET_WM_STATE_FULLSCREEN'"
+        "100:_NET_WM_STATE@[2]:32a = '_NET_WM_STATE_FULLSCREEN'"
+        "100:_NET_WM_STATE@[3]:32a = '_NET_WM_STATE_FULLSCREEN'"
+        "100:_NET_WM_STATE@[4]:32a = '_NET_WM_STATE_FULLSCREEN'"
         "0:_NET_WM_STATE@:32a *= '_NET_WM_STATE_HIDDEN'"
         "0:_NET_WM_STATE@[0]:32a *= '_NET_WM_STATE_HIDDEN'"
         "0:_NET_WM_STATE@[1]:32a *= '_NET_WM_STATE_HIDDEN'"
         "0:_NET_WM_STATE@[2]:32a *= '_NET_WM_STATE_HIDDEN'"
         "0:_NET_WM_STATE@[3]:32a *= '_NET_WM_STATE_HIDDEN'"
         "0:_NET_WM_STATE@[4]:32a *= '_NET_WM_STATE_HIDDEN'"
-        "95:I3_FLOATING_WINDOW@:c"
       ];
       # settings = {};
       shadow = false;
@@ -119,16 +123,22 @@
       enable = true;
       tray = false;
       dawnTime = "6:00-7:30";
-      duskTime = "17:00-21:00";
-      latitude = 43.84;
-      longitude = 13.01;
+      duskTime = "17:00-20:00";
       temperature = {
-        day = 5500;
-        night = 3700;
+        day = 6500;
+        night = 2400;
+      };
+      brightness = {
+        day = 1;
+        night = 0.75;
       };
       settings = {
-        redshift = { adjustment-method = "randr"; };
-        randr = { screen = 0; };
+        redshift = {
+          adjustment-method = "randr";
+        };
+        randr = {
+          screen = 0;
+        };
       };
     };
 

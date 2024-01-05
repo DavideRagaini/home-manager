@@ -2,6 +2,7 @@
 
 {  home = {
     packages = with pkgs; [
+      alacritty
       ani-cli
       calibre
       clipmenu
@@ -27,7 +28,6 @@
       xdotool
       xorg.xmodmap
       xorg.xset
-      xwallpaper
     ];
   };
 }
