@@ -40,6 +40,7 @@
       w3m
       wcalc
       zathura
+      zip
       zoxide
     ];
   };

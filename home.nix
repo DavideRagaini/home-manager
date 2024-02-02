@@ -9,6 +9,7 @@
     ./packages/system.nix
     ./packages/theme.nix
     ./services/gpg.nix
+    ./services/dunst.nix
     # Bagaro
     # ./packages/wayland.nix
     # Apollo

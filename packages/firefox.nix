@@ -1,6 +1,8 @@
 { config, pkgs, ... }:
 
 {
+  home.sessionVariables = { MOZ_USE_XINPUT2 = "1"; };
+
   programs.firefox = {
     enable = true;
     # https://mozilla.github.io/policy-templates/
@@ -8,9 +10,9 @@
       "3rdparty" = {
         Extensions = {
           # "addon@darkreader.org" = {};
-          "{d7742d87-e61d-4b78-b8a1-b469842139fa}" = {
-            uploadBackup = "\${home}/Documents/backups/vimium-options.json";
-          };
+          # "{d7742d87-e61d-4b78-b8a1-b469842139fa}" = {
+          #   uploadBackup = "\${home}/Documents/backups/vimium-options.json";
+          # };
           "uBlock0@raymondhill.net" = {
             advancedUserEnable = true;
             adminSettings = {
@@ -116,8 +118,8 @@
             "https://addons.mozilla.org/firefox/downloads/file/4205543/darkreader-4.9.73.xpi";
           KeePassXC =
             "https://addons.mozilla.org/firefox/downloads/file/4200248/keepassxc_browser-1.8.10.xpi";
-          Vimium =
-            "https://addons.mozilla.org/firefox/downloads/file/4191523/vimium_ff-2.0.6.xpi";
+          # Vimium =
+          #   "https://addons.mozilla.org/firefox/downloads/file/4191523/vimium_ff-2.0.6.xpi";
         };
         Uninstall = {
           Amazon = "amazondotcom@search.mozilla.org";
@@ -184,10 +186,9 @@
         Locked = true;
       };
     };
-    package = pkgs.firefox;
-    # package = pkgs.firefox.override {
-    #   cfg = {enableTridactylNative = true;};
-    # };
+    # package = pkgs.firefox;
+    package =
+      pkgs.firefox.override { cfg = { enableTridactylNative = true; }; };
     profiles = {
       nixhm = {
         id = 0;
@@ -198,9 +199,11 @@
           default = "SearX";
           # order = [  ];
           engines = {
-            "SearX" = {
+            "SearX General" = {
               urls = [{
-                template = "https://searx.be/search";
+                # template = "https://searx.be/search";
+                template =
+                  "https://searx.be/?preferences=eJx1WMmO5DYM_ZqpizGFTCZAkEOdgiQ_MHeDlmibY0n0aKkq99eH8lKW292HNkpPokSRj4taQcSOPWG4dejQg7kYcF2CDm9gZMAKDN7QXSBFVmxHgxFvHXNn8EJW1tWj5-d0--ETXizGnvXtv39-XAK0GBC86m-_XWKPFm8cFPiLx5BMDDW72uGjjtAsspqpljk2d_Q3Bhle2XeXWehriJOoYbgjxRrvl0BZk3qBs2oXhS6ir8FQ56z8vv0LJuAF9B2cQl2vusxH_Urop5pcHSmK_IyRa8lRlD2VZ2MWcBHKqqrFUJPsY1Btu_ccB5zCTWMLcqmLpgCNkdPQdeTEqH910NV1YEVgKoua4Mvvf4NzEKq8M92xrlsyGDI8DpUl79mXmFyzkm8VIvtysQPFTkNdU8xDH0nJ7-yQPN2QofxX13fSyDM0NnW9OlmGSqmv8V7M84hOTB-w2EZM8dB3EjcVkhOO74bVIlAIZlC8K1D-5p2SN4SlXAO967ktIY34Jj6sbQqk5vGdwEW5XLG11l0l9s7OInbhIM9qQF_1qVnN8qCBNEQoFy0mtTCKqHwFieKq6aDbt2dxYKs9k95N3xpSgy8XeMQqcBsf4LHS5IUgmSqLDq0nNxCU3lnCpxoNTNm3Yd-7nLEslg-Fh6xw0GciSRC40trdyFqXhuuh8ZA_qw49ZMMsDlmA-Zx1QLZL5X3IQXGqEMmDnypuKzm2kxAtjzbchIhXv20Mb2bypMKui-QEUCO4dYF92MaUtnajXadYTwGxOHoUtaGjENcFI40SW8W8X1NMud8LPLNyn1q2OIil5ip8206aRlp_BhwJtmNeRy9ATkZV_rx8DRaywTYgZPKOOUsWR8WsTlA9pM_QNWiSC8KE0JeBxSmmpjTSC9kM_qBmOhDe4BOcFuaUaA6NhnkI78FfiSO-BwMnr87oiGqm6BHOWYTidIJ5emeIB5vFYmN_0E2Tim_sDmsDvjmwB-LAPXN-B3xqpg7tRsUR0b-z1ZyBpRgNOac9sCnNCOqgcR6fGeSTsBcPPMDBH1PdAp1EF3gj3r7BXUJq5GJhtpWV9FZqI5zaY0ySxIG5Q3fteCPvBd2xBM18N-TSs8o7vwrGk2R9EP9JeZzTsdMK7FjyaMjxdqRNQ657Pz7fdUYPRpmR0-Ubik2S1LQFeBM1dd2eDlWP7cA58Fi85peKFILHtlRdaouXn9OxlEjoRQq7JEoty2l8G2s5OP91B2Pu6PlWxdzpJsXc4d4F_sBMPV9oZPnnZuEXFifLTtyFO9ZOU6G36EqpyK8yjpkQCzWkoYFmH-ylMGepBn23c2guAPvN19JzuvWKH261YicrrLhkMTbgSx-R1c1-B3IiQpxK2QLbrvaTQs-71CB1F0JRLQ1aO0n-tTblbiCr_a7VWlakgP6zuZFD_Gwu7yzW_WB6rYnZeoEKjd6-rlOFksL8-yGGLEgzp9l9otdrupfUL1XhgxX6VU3pqQwnvdvMTQD74Rak98CtDcgtHkh7kluigPO9Xg7a5qQOSn8Da291nA9ROp0oTdPWOWUwZ6_CAqPOGXeXG6VHlv55FRgpd-kYyoZururXWf_9GiN56XYaKAwpTY4S05DT-NxJsdf0A0PlGjb3Crsivx7SSpZumIGj1AKdQmCBT2z3IHytGskroWy-xL6a4slpnmPMoSpdHGORl6S0SuY9OlFylxpYyltr-LFl7DCkJrmYtq4tW9JJc7W8Iz6IuZBG9Cm83B9Q6CDvhI_iM_IwiaMk3obcqm02l-cYaWlm_RIGGxwP0TxBf6xIM_AuDwIZyWyZVoUF72SRi3EuOQexQ5exaytw3mmOs02LvDQHrPD2evKgnaxkW4nY6MEFI9QqMuq379__fO6X00mj22clSUvlPsRvbsxHMhyL09lrR0MJPGlgJ2W5CpNjJwoUPv85XsdHcYhk8NhmZvsTbx7yDu-l1XFlixCjv1IhPyVrTWEMyUH342srA2e7LPC5Ls_wsauZO8A-7aX6j61Q78_e0SRpOsItR-Tzuo6u8mRu5bXd8qs3-Xhdznfr1Jelwy7mJE1L_4e1pBsDC70PCxjq5T8IDy-v-NO0cLiWbkIN5xk_P45qeaCKtM1Rd5FokGx3-x-Cxndz&";
                 params = [
                   {
                     name = "q";
@@ -220,9 +223,34 @@
                   }
                 ];
               }];
+            };
+            "SearX images" = {
+              urls = [{
+                # template = "https://searx.be/search";
+                template =
+                  "https://searx.be/?preferences=eJx1WMmO5DYM_ZqpizGFTCZAkEOdgiQ_MHeDlmibY0n0aKkq99eH8lKW292HNkpPokSRj4taQcSOPWG4dejQg7kYcF2CDm9gZMAKDN7QXSBFVmxHgxFvHXNn8EJW1tWj5-d0--ETXizGnvXtv39-XAK0GBC86m-_XWKPFm8cFPiLx5BMDDW72uGjjtAsspqpljk2d_Q3Bhle2XeXWehriJOoYbgjxRrvl0BZk3qBs2oXhS6ir8FQ56z8vv0LJuAF9B2cQl2vusxH_Urop5pcHSmK_IyRa8lRlD2VZ2MWcBHKqqrFUJPsY1Btu_ccB5zCTWMLcqmLpgCNkdPQdeTEqH910NV1YEVgKoua4Mvvf4NzEKq8M92xrlsyGDI8DpUl79mXmFyzkm8VIvtysQPFTkNdU8xDH0nJ7-yQPN2QofxX13fSyDM0NnW9OlmGSqmv8V7M84hOTB-w2EZM8dB3EjcVkhOO74bVIlAIZlC8K1D-5p2SN4SlXAO967ktIY34Jj6sbQqk5vGdwEW5XLG11l0l9s7OInbhIM9qQF_1qVnN8qCBNEQoFy0mtTCKqHwFieKq6aDbt2dxYKs9k95N3xpSgy8XeMQqcBsf4LHS5IUgmSqLDq0nNxCU3lnCpxoNTNm3Yd-7nLEslg-Fh6xw0GciSRC40trdyFqXhuuh8ZA_qw49ZMMsDlmA-Zx1QLZL5X3IQXGqEMmDnypuKzm2kxAtjzbchIhXv20Mb2bypMKui-QEUCO4dYF92MaUtnajXadYTwGxOHoUtaGjENcFI40SW8W8X1NMud8LPLNyn1q2OIil5ip8206aRlp_BhwJtmNeRy9ATkZV_rx8DRaywTYgZPKOOUsWR8WsTlA9pM_QNWiSC8KE0JeBxSmmpjTSC9kM_qBmOhDe4BOcFuaUaA6NhnkI78FfiSO-BwMnr87oiGqm6BHOWYTidIJ5emeIB5vFYmN_0E2Tim_sDmsDvjmwB-LAPXN-B3xqpg7tRsUR0b-z1ZyBpRgNOac9sCnNCOqgcR6fGeSTsBcPPMDBH1PdAp1EF3gj3r7BXUJq5GJhtpWV9FZqI5zaY0ySxIG5Q3fteCPvBd2xBM18N-TSs8o7vwrGk2R9EP9JeZzTsdMK7FjyaMjxdqRNQ657Pz7fdUYPRpmR0-Ubik2S1LQFeBM1dd2eDlWP7cA58Fi85peKFILHtlRdaouXn9OxlEjoRQq7JEoty2l8G2s5OP91B2Pu6PlWxdzpJsXc4d4F_sBMPV9oZPnnZuEXFifLTtyFO9ZOU6G36EqpyK8yjpkQCzWkoYFmH-ylMGepBn23c2guAPvN19JzuvWKH261YicrrLhkMTbgSx-R1c1-B3IiQpxK2QLbrvaTQs-71CB1F0JRLQ1aO0n-tTblbiCr_a7VWlakgP6zuZFD_Gwu7yzW_WB6rYnZeoEKjd6-rlOFksL8-yGGLEgzp9l9otdrupfUL1XhgxX6VU3pqQwnvdvMTQD74Rak98CtDcgtHkh7kluigPO9Xg7a5qQOSn8Da291nA9ROp0oTdPWOWUwZ6_CAqPOGXeXG6VHlv55FRgpd-kYyoZururXWf_9GiN56XYaKAwpTY4S05DT-NxJsdf0A0PlGjb3Crsivx7SSpZumIGj1AKdQmCBT2z3IHytGskroWy-xL6a4slpnmPMoSpdHGORl6S0SuY9OlFylxpYyltr-LFl7DCkJrmYtq4tW9JJc7W8Iz6IuZBG9Cm83B9Q6CDvhI_iM_IwiaMk3obcqm02l-cYaWlm_RIGGxwP0TxBf6xIM_AuDwIZyWyZVoUF72SRi3EuOQexQ5exaytw3mmOs02LvDQHrPD2evKgnaxkW4nY6MEFI9QqMuq379__fO6X00mj22clSUvlPsRvbsxHMhyL09lrR0MJPGlgJ2W5CpNjJwoUPv85XsdHcYhk8NhmZvsTbx7yDu-l1XFlixCjv1IhPyVrTWEMyUH342srA2e7LPC5Ls_wsauZO8A-7aX6j61Q78_e0SRpOsItR-Tzuo6u8mRu5bXd8qs3-Xhdznfr1Jelwy7mJE1L_4e1pBsDC70PCxjq5T8IDy-v-NO0cLiWbkIN5xk_P45qeaCKtM1Rd5FokGx3-x-Cxndz&";
+                params = [
+                  {
+                    name = "q";
+                    value = "{searchTerms}";
+                  }
+                  {
+                    name = "category_images";
+                    value = "on";
+                  }
+                  {
+                    name = "time_range";
+                    value = "";
+                  }
+                  {
+                    name = "language";
+                    value = "en";
+                  }
+                ];
+              }];
               # icon =
               # "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
-              definedAliases = [ "sx" ];
+              definedAliases = [ "si" ];
             };
             "Yewtube" = {
               urls = [{
@@ -236,6 +264,7 @@
               # "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
               definedAliases = [ "y" ];
             };
+            # https://docs.qtile.org/en/stable/search.html?q=groupbox&check_keywords=yes&area=default
             "Qtile Search" = {
               urls = [{
                 template = "https://docs.qtile.org/en/latest/";
@@ -311,37 +340,177 @@
               }];
               definedAliases = [ "ho" ];
             };
-            # https://docs.qtile.org/en/stable/search.html?q=groupbox&check_keywords=yes&area=default
-            "Qtile Docs" = {
-              urls = [{
-                template =
-                  "https://docs.qtile.org/en/stable/search.html"
-                params = [{
-                  name = "q";
-                  value = "{searchTerms}";
-                  {
-                    name = "check_keywords";
-                    value = "yes";
-                  }
-                  {
-                    name = "area";
-                    value = "default";
-                  }
-                }];
-              }];
-              definedAliases = [ "qd" ];
-            };
             # https://wiki.archlinux.org/index.php?title=Special%3ASearch&wprov=acrw1_-1&search=%s
             "Archlinux Wiki" = {
               urls = [{
-                template =
-                  "https://wiki.archlinux.org/index.php?"
+                template = "https://wiki.archlinux.org/index.php?";
                 params = [{
                   name = "title=Special%3ASearch&wprov=acrw1_-1&search";
                   value = "{searchTerms}";
                 }];
               }];
               definedAliases = [ "aw" ];
+            };
+            # https://www.treccani.it/vocabolario/macchina/
+            "Treccani Vocabolario" = {
+              urls = [{
+                template = "https://www.treccani.it/vocabolario/";
+                params = [{
+                  name = "";
+                  value = "{searchTerms}";
+                }];
+              }];
+              definedAliases = [ "tcv" ];
+            };
+            # https://www.treccani.it/vocabolario/convoglio_(Sinonimi-e-Contrari)/
+            "Treccani Sinonimi e Contrari" = {
+              urls = [{
+                template = "https://www.treccani.it/vocabolario/";
+                params = [{
+                  name = "";
+                  value = "{searchTerms}_(Sinonimi-e-Contrari)/";
+                }];
+              }];
+              definedAliases = [ "tcs" ];
+            };
+            # https://sci-hub.se/%s
+            "SciHub" = {
+              urls = [{
+                template = "https://sci-hub.se/";
+                params = [{
+                  name = "";
+                  value = "{searchTerms}";
+                }];
+              }];
+              definedAliases = [ "sh" ];
+            };
+            # https://libgen.li/index.php?req=%s&columns%5B%5D=t&columns%5B%5D=a&columns%5B%5D=s&columns%5B%5D=y&columns%5B%5D=p&columns%5B%5D=i&objects%5B%5D=f&objects%5B%5D=e&objects%5B%5D=s&objects%5B%5D=a&objects%5B%5D=p&objects%5B%5D=w&topics%5B%5D=l&topics%5B%5D=c&topics%5B%5D=f&topics%5B%5D=a&topics%5B%5D=m&topics%5B%5D=r&topics%5B%5D=s&res=100&covers=on&showch=on&gmode=on&filesuns=all
+            "LibGen" = {
+              urls = [{
+                template = "https://libgen.li/index.php";
+                params = [
+                  {
+                    name = "columns%5B%5D";
+                    value = "t";
+                  }
+                  {
+                    name = "columns%5B%5D";
+                    value = "
+a";
+                  }
+                  {
+                    name = "columns%5B%5D";
+                    value = "s";
+                  }
+                  {
+                    name = "columns%5B%5D";
+                    value = "y";
+                  }
+                  {
+                    name = "columns%5B%5D";
+                    value = "p";
+                  }
+                  {
+                    name = "columns%5B%5D";
+                    value = "i";
+                  }
+                  {
+                    name = "objects%5B%5D";
+                    value = "f";
+                  }
+                  {
+                    name = "objects%5B%5D";
+                    value = "e";
+                  }
+                  {
+                    name = "objects%5B%5D";
+                    value = "s";
+                  }
+                  {
+                    name = "objects%5B%5D";
+                    value = "a";
+                  }
+                  {
+                    name = "objects%5B%5D";
+                    value = "p";
+                  }
+                  {
+                    name = "objects%5B%5D";
+                    value = "w";
+                  }
+                  {
+                    name = "topics%5B%5D";
+                    value = "l";
+                  }
+                  {
+                    name = "topics%5B%5D";
+                    value = "c";
+                  }
+                  {
+                    name = "topics%5B%5D";
+                    value = "f";
+                  }
+                  {
+                    name = "topics%5B%5D";
+                    value = "a";
+                  }
+                  {
+                    name = "topics%5B%5D";
+                    value = "m";
+                  }
+                  {
+                    name = "topics%5B%5D";
+                    value = "r";
+                  }
+                  {
+                    name = "topics%5B%5D";
+                    value = "s";
+                  }
+                  {
+                    name = "res";
+                    value = "100";
+                  }
+                  {
+                    name = "covers";
+                    value = "on";
+                  }
+                  {
+                    name = "showch";
+                    value = "on";
+                  }
+                  {
+                    name = "gmode";
+                    value = "on";
+                  }
+                  {
+                    name = "filesuns";
+                    value = "all";
+                  }
+                  {
+                    name =
+                      "columns%5B%5D=t&columns%5B%5D=a&columns%5B%5D=s&columns%5B%5D=y&columns%5B%5D=p&columns%5B%5D=i&objects%5B%5D=f&objects%5B%5D=e&objects%5B%5D=s&objects%5B%5D=a&objects%5B%5D=p&objects%5B%5D=w&topics%5B%5D=l&topics%5B%5D=c&topics%5B%5D=f&topics%5B%5D=a&topics%5B%5D=m&topics%5B%5D=r&topics%5B%5D=s&res=100&covers=on&showch=on&gmode=on&filesuns=all";
+                    value = "packages";
+                  }
+                  {
+                    name = "req";
+                    value = "{searchTerms}";
+                  }
+                ];
+              }];
+              definedAliases = [ "lg" ];
+            };
+            # https://scholar.google.com/scholar?hl=it&as_sdt=0%2C5&q=Rosenbrock&btnG=&oq=r
+            "Google Scholar" = {
+              urls = [{
+                template = "https://scholar.google.com/scholar";
+                params = [
+                  {
+                    name = "q";
+                    value = "{searchTerms}";
+                  }
+                ];
+              }];
+              definedAliases = [ "gs" ];
             };
             "Wikipedia (en)" = {
               metaData = {
@@ -371,14 +540,14 @@
           };
         };
         extensions = with pkgs.nur.repos.rycee.firefox-addons; [
-          # tridactyl
           # violentmonkey
           darkreader
           hover-zoom-plus
           keepassxc-browser
           libredirect
           ublock-origin
-          vimium
+          # vimium
+          tridactyl
         ];
         containers = {
           "linux" = {
@@ -433,6 +602,7 @@
           "browser.bookmarks.restore_default_bookmarks" = false;
           "browser.cache.disk.enable" = false;
           "browser.contentblocking.category" = "strict";
+          "browser.compactmode.show" = true;
           "browser.discovery.enabled" = false;
           "browser.display.background_color" = "#c5c8c6";
           "browser.display.foreground_color" = "#1d1f21";
@@ -504,21 +674,8 @@
           "distribution.searchplugins.defaultLocale" = "en-US";
           "general.useragent.locale" = "en-US";
           "browser.bookmarks.showMobileBookmarks" = false;
-          # "browser.newtabpage.pinned" = [
-          #   {
-          #     title = "YewTube";
-          #     url = "https://yewtu.be";
-          #   }
-          #   {
-          #     title = "NixOS";
-          #     url = "https://nixos.org";
-          #   }
-          #   {
-          #     title = "Doom Emacs";
-          #     url = "https://github.com/doomemacs/doomemacs";
-          #   }
-          # ];
           "browser.startup.page" = 1;
+          "browser.tabs.animate" = false;
           "browser.tabs.closeWindowWithLastTab" = false;
           "browser.tabs.crashReporting.sendReport" = false;
           "browser.tabs.tabmanager.enabled" = false;
@@ -526,9 +683,11 @@
           "browser.theme.content-theme" = 0;
           "browser.theme.toolbar-theme" = 0;
           "browser.toolbars.bookmarks.visibility" = "never";
+          "browser.translations.automaticallyPopup" = false;
           "browser.uiCustomization.state" = ''
-            {"placements":{"widget-overflow-fixed-list":[],"unified-extensions-area":[],"nav-bar":["back-button","forward-button","stop-reload-button","home-button","urlbar-container","fxa-toolbar-menu-button","downloads-button","ublock0_raymondhill_net-browser-action","addon_darkreader_org-browser-action","keepassxc-browser_keepassxc_org-browser-action","_d7742d87-e61d-4b78-b8a1-b469842139fa_-browser-action","7esoorv3_alefvanoon_anonaddy_me-browser-action","unified-extensions-button"],"toolbar-menubar":["menubar-items"],"TabsToolbar":["tabbrowser-tabs","new-tab-button","alltabs-button","firefox-view-button"],"PersonalToolbar":["import-button","personal-bookmarks"]},"seen":["developer-button","ublock0_raymondhill_net-browser-action","addon_darkreader_org-browser-action","keepassxc-browser_keepassxc_org-browser-action","_d7742d87-e61d-4b78-b8a1-b469842139fa_-browser-action","7esoorv3_alefvanoon_anonaddy_me-browser-action"],"dirtyAreaCache":["nav-bar","PersonalToolbar","unified-extensions-area","TabsToolbar","toolbar-menubar","widget-overflow-fixed-list"],"currentVersion":20,"newElementCount":7}
+            {"placements":{"widget-overflow-fixed-list":[],"unified-extensions-area":[],"nav-bar":["back-button","forward-button","stop-reload-button","home-button","urlbar-container","fxa-toolbar-menu-button","unified-extensions-button"],"toolbar-menubar":["menubar-items"],"TabsToolbar":["tabbrowser-tabs","new-tab-button","alltabs-button","downloads-button","ublock0_raymondhill_net-browser-action","addon_darkreader_org-browser-action","keepassxc-browser_keepassxc_org-browser-action","_d7742d87-e61d-4b78-b8a1-b469842139fa_-browser-action","7esoorv3_alefvanoon_anonaddy_me-browser-action","onurhanak_protonmail_com-browser-action","firefox-view-button"],"PersonalToolbar":["import-button","personal-bookmarks"]},"seen":["developer-button","ublock0_raymondhill_net-browser-action","addon_darkreader_org-browser-action","keepassxc-browser_keepassxc_org-browser-action","_d7742d87-e61d-4b78-b8a1-b469842139fa_-browser-action","7esoorv3_alefvanoon_anonaddy_me-browser-action","onurhanak_protonmail_com-browser-action"],"dirtyAreaCache":["nav-bar","PersonalToolbar","unified-extensions-area","TabsToolbar","toolbar-menubar","widget-overflow-fixed-list"],"currentVersion":20,"newElementCount":9}
           '';
+          "browser.uidensity" = 1;
           "browser.urlbar.quicksuggest.enabled" = false;
           "browser.urlbar.quicksuggest.migrationVersion" = 2;
           "browser.urlbar.quicksuggest.scenario" = "history";
@@ -590,13 +749,20 @@
             true;
           "extensions.webextensions.restrictedDomains" = "";
           "fission.autostart" = true;
+          "font.size.systemFontScale" = 120;
           "font.size.variable.x-western" = 12;
-          "full-screen-api.ignore-widgets" = false;
+          "full-screen-api.ignore-widgets" = true;
+          "full-screen-api.transition-duration.enter" = [ 0 0 ];
+          "full-screen-api.transition-duration.leave" = [ 0 0 ];
+          "full-screen-api.transition.timeout" = 1000;
+          "full-screen-api.warnint.timeout" = 0;
+          "full-screen-api.delay" = "-1";
+          "full-screen-api.timeout" = "-1";
           "gecko.handlerService.defaultHandlersVersion" = 1;
           "general.autoScroll" = true;
           "general.smoothScroll" = false;
           "general.useragent.override" =
-            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36";
+            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36";
           "geo.enabled" = false;
           "geo.provider.network.url" =
             "https://location.services.mozilla.com/v1/geolocate?key=%MOZILLA_API_KEY%";
@@ -604,10 +770,12 @@
           "geo.provider.use_gpsd" = false;
           # "gfx.webrender.all" = true;
           # "gfx.webrender.enabled" = true;
+          "image.animation_mode" = "once";
           "intl.accept_languages" = "en-US, en";
           "javascript.use_us_english_locale" = true;
           "layout.css.devPixelsPerPx" = 1;
           "media.autoplay.default" = 5;
+          "media.block-play-until-visible" = true;
           "media.eme.enabled" = false;
           # "media.ffmpeg.vaapi.enabled" = true;
           # "media.ffvpx.enabled" = false;
@@ -621,7 +789,6 @@
           "media.video_stats.enabled" = false;
           "media.videocontrols.picture-in-picture.allow-multiple" = false;
           "messaging-system-action.showEmbeddedImport" = true;
-          "network.IDN_show_punycode" = true;
           "network.allow-experiments" = false;
           "network.auth.subresource-http-auth-allow" = 1;
           "network.captive-portal-service.enabled" = false;
@@ -632,7 +799,6 @@
           "network.file.disable_unc_paths" = true;
           "network.gio.supported-protocols" = "";
           "network.http.referer.XOriginPolicy" = 2;
-          "network.http.referer.XOriginTrimmingPolicy" = 2;
           "network.http.referer.disallowCrossSiteRelaxingDefault.top_navigation" =
             true;
           "network.http.referer.trimmingPolicy" = 1;
@@ -697,6 +863,7 @@
           "signon.generation.enabled" = false;
           "signon.management.page.breach-alerts.enabled" = false;
           "signon.rememberSignons" = false;
+          "toolkit.cosmeticAnimations.enabled" = false;
           "toolkit.coverage.endpoint.base" = "";
           "toolkit.coverage.opt-out" = true;
           "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
@@ -714,8 +881,101 @@
           "toolkit.telemetry.updatePing.enabled" = false;
           "trailhead.firstrun.didSeeAboutWelcome" = true;
           "ui.context_menus.after_mouseup" = true;
+          "ui.prefersReducedMotion" = 0;
+          "ui.textScaleFactor" = 85;
           "webgl.disabled" = true;
           "widget.use-xdg-desktop-portal" = true;
+          # FASTERFOX
+          "dom.enable_web_task_scheduling" = true;
+          "dom.security.sanitizer.enabled" = true;
+          "gfx.canvas.accelerated.cache-items" = 4096;
+          "gfx.canvas.accelerated.cache-size" = 512;
+          "gfx.content.skia-font-cache-size" = 20;
+          "image.mem.decode_bytes_at_a_time" = 32768;
+          "layout.css.grid-template-masonry-value.enabled" = true;
+          "layout.css.has-selector.enabled" = true;
+          "network.buffer.cache.count" = 128;
+          "network.buffer.cache.size" = 262144;
+          "network.dns.max_high_priority_threads" = 8;
+          "network.dnsCacheExpiration" = 3600;
+          "network.http.max-connections" = 1800;
+          "network.http.max-persistent-connections-per-server" = 10;
+          "network.http.max-urgent-start-excessive-connections-per-host" = 5;
+          "network.http.pacing.requests.burst" = 14;
+          "network.http.pacing.requests.enabled" = false;
+          "network.http.pacing.requests.min-parallelism" = 10;
+          "network.ssl_tokens_cache_capacity" = 10240;
+          # SECUREFOX
+          "browser.crashReports.unsubmittedCheck.autoSubmit2" = false;
+          "browser.download.start_downloads_in_tmp_dir" = true;
+          "browser.privatebrowsing.forceMediaMemoryCache" = true;
+          "browser.search.separatePrivateDefault.ui.enabled" = true;
+          "browser.sessionstore.interval" = 60000;
+          "browser.tabs.firefox-view" = false;
+          "browser.uitour.enabled" = false;
+          "browser.urlbar.update2.engineAliasRefresh" = true;
+          "dom.security.https_first" = true;
+          "dom.security.https_only_mode_error_page_user_suggestions" = true;
+          "editor.truncate_user_pastes" = false;
+          "extensions.postDownloadThirdPartyPrompt" = false;
+          "identity.fxaccounts.enabled" = false;
+          "network.IDN_show_punycode" = true;
+          "network.cookie.sameSite.noneRequiresSecure" = true;
+          "network.http.referer.XOriginTrimmingPolicy" = 2;
+          "permissions.default.desktop-notification" = 2;
+          "permissions.default.geo" = 2;
+          "privacy.globalprivacycontrol.enabled" = true;
+          "privacy.globalprivacycontrol.functionality.enabled" = true;
+          "security.OCSP.enabled" = 0;
+          "security.insecure_connection_text.enabled" = true;
+          "security.insecure_connection_text.pbmode.enabled" = true;
+          "security.mixed_content.block_display_content" = true;
+          "security.mixed_content.upgrade_display_content" = true;
+          "security.mixed_content.upgrade_display_content.image" = true;
+          "security.ssl.treat_unsafe_negotiation_as_broken" = true;
+          "urlclassifier.features.socialtracking.skipURLs" =
+            "*.instagram.com, *.twitter.com, *.twimg.com";
+          "urlclassifier.trackingSkipURLs" =
+            "*.reddit.com, *.twitter.com, *.twimg.com, *.tiktok.com";
+          "webchannel.allowObject.urlWhitelist" = "";
+          # PESKYFOX
+          "browser.privatebrowsing.vpnpromourl" = "";
+          "browser.shell.checkDefaultBrowser" = false;
+          "browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons" =
+            false;
+          "browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features" =
+            false;
+          "browser.preferences.moreFromMozilla" = false;
+          "browser.display.focus_ring_on_anything" = true;
+          "browser.display.focus_ring_style" = 0;
+          "browser.display.focus_ring_width" = 0;
+          "layout.css.prefers-color-scheme.content-override" = 2;
+          "browser.privateWindowSeparation.enabled" = false;
+          "cookiebanners.service.mode" = 1;
+          "cookiebanners.service.mode.privateBrowsing" = 1;
+          "cookiebanners.service.enableGlobalRules" = true;
+          "browser.urlbar.suggest.engines" = false;
+          "browser.urlbar.suggest.calculator" = true;
+          "browser.urlbar.unitConversion.enabled" = true;
+          "browser.urlbar.trending.featureGate" = false;
+          "browser.download.useDownloadDir" = false;
+          "browser.download.always_ask_before_handling_new_types" = true;
+          "browser.download.manager.addToRecentDocs" = false;
+          "browser.download.open_pdf_attachments_inline" = true;
+          "browser.bookmarks.openInTabClosesMenu" = false;
+          "browser.menu.showViewImageInfo" = true;
+          "findbar.highlightAll" = true;
+          "layout.word_select.eat_space_to_next_word" = false;
+          # user.js
+          "content.notify.interval" = 100000;
+          "browser.cache.jsbc_compression_level" = 3;
+          "media.memory_cache_max_size" = 65536;
+          "media.cache_readahead_limit" = 7200;
+          "media.cache_resume_threshold" = 3600;
+          "signon.privateBrowsingCapture.enabled" = false;
+          "full-screen-api.warning.delay" = -1;
+          "full-screen-api.warning.timeout" = 0;
+          "browser.newtabpage.activity-stream.feeds.topsites" = false;
         };
         extraConfig = ''
           var key_bookmarks = document.getElementById('viewBookmarksSidebarKb');
@@ -724,158 +984,272 @@
           else if (key_history) key_history.remove();
         '';
         userChrome = ''
-          /*
-           *  Hide window controls
-           */
-          .titlebar-buttonbox-container{
-              display: none !important;
+          :root {
+            --tab-active-bg-color: #44475a ;
+            --tab-inactive-bg-color: #282a36;
+            --tab-active-fg-fallback-color: #f8f8f2;
+            --tab-inactive-fg-fallback-color: #f8f8f2;
+            --urlbar-focused-bg-color: #1c1b22;
+            --urlbar-not-focused-bg-color: #282a36;
+            --toolbar-bgcolor: #1c1b22 !important;
+            --tab-font: 'IosevkaTerm Nerd Font Propo';
+            --urlbar-font: 'IosevkaTerm Nerd Font Propo';
+
+            /* try increasing if you encounter problems */
+            --urlbar-height-setting: 24px;
+            --tab-min-height: 16px !important;
+
+            /* I don't recommend you touch this unless you know what you're doing */
+            --arrowpanel-menuitem-padding: 2px !important;
+            --arrowpanel-border-radius: 0px !important;
+            --arrowpanel-menuitem-border-radius: 0px !important;
+            --toolbarbutton-border-radius: 0px !important;
+            --toolbarbutton-inner-padding: 0px 2px !important;
+            --toolbar-field-focus-background-color: var(--urlbar-focused-bg-color) !important;
+            --toolbar-field-background-color: var(--urlbar-not-focused-bg-color) !important;
+            --toolbar-field-focus-border-color: transparent !important;
           }
 
+          /* --- GENERAL DEBLOAT ---------------------------------- */
 
-          .titlebar-placeholder,
-          #TabsToolbar .titlebar-spacer{ display: none; }
-          #navigator-toolbox::after{ display: none !important; }
+          /* Bottom left page loading status or url preview */
+          #statuspanel { display: none !important; }
 
-          .tab-label::before {
-            counter-increment: tab-counter;
-            content: counter(tab-counter) " - ";
+          /* Hide dropdown that appears when you type in search bar */
+          .autocomplete-history-popup, panel[type=autocomplete-richlistbox], panel[type=autocomplete] {
+            display: none !important;
           }
 
-          /*
-           *  Hide all the clutter in the navbar
-           */
-          #main-window :-moz-any(#back-button,
-          		       #forward-button,
-          		       #stop-reload-button,
-          		       #home-button,
-          		       #library-button,
-          		       #sidebar-button,
-          		       #star-button,
-          		       #pocket-button,
-          		       #save-to-pocket-button,
-          		       #permissions-granted-icon,
-          		       #fxa-toolbar-menu-button,
-          /*
-           *  Minimal theme
-           */
+          /* remove radius from right-click popup */
+          menupopup, panel { --panel-border-radius: 0px !important; }
+          menu, menuitem, menucaption { border-radius: 0px !important; }
+
+          /* no stupid large buttons in right-click menu */
+          menupopup > #context-navigation { display: none !important; }
+          menupopup > #context-sep-navigation { display: none !important; }
+
+          /* --- DEBLOAT NAVBAR ----------------------------------- */
+
+          #back-button { display: none; }
+          #forward-button { display: none; }
+          #reload-button { display: none; }
+          #stop-button { display: none; }
+          #home-button { display: none; }
+          #library-button { display: none; }
+          #fxa-toolbar-menu-button { display: none; }
+          /* empty space before and after the url bar */
+          #customizableui-special-spring1, #customizableui-special-spring2 { display: none; }
+
+          /* --- STYLE NAVBAR ------------------------------------ */
+
+          /* remove padding between toolbar buttons */
+          toolbar .toolbarbutton-1 { padding: 0 0 !important; }
+
+          /* add padding to the right of the last button so that it doesn't touch the edge of the window */
+          #PanelUI-menu-button {
+            padding: 0px 4px 0px 0px !important;
+          }
+
+          #urlbar-container {
+            --urlbar-container-height: var(--urlbar-height-setting) !important;
+            margin-left: 0 !important;
+            margin-right: 0 !important;
+            padding-top: 0 !important;
+            padding-bottom: 0 !important;
+            font-family: var(--urlbar-font, 'monospace');
+            font-size: 11px;
+          }
+
+          #urlbar {
+            --urlbar-height: var(--urlbar-height-setting) !important;
+            --urlbar-toolbar-height: var(--urlbar-height-setting) !important;
+            min-height: var(--urlbar-height-setting) !important;
+            border-color: var(--lwt-toolbar-field-border-color, hsla(240,5%,5%,.25)) !important;
+          }
+
+          #urlbar-input {
+            margin-left: 0.8em !important;
+            margin-right: 0.4em !important;
+          }
+
           #navigator-toolbox {
-              font-family: 'IosevkaTerm Nerd Font Mono' !important;
+            border: none !important;
           }
 
-          #navigator-toolbox toolbarspring {
-              display: none;
+          /* keep pop-up menus from overlapping with navbar */
+          #widget-overflow { margin: 0 !important; }
+          #appMenu-popup { margin: 0 !important; }
+          #customizationui-widget-panel { margin: 0 !important; }
+          #unified-extensions-panel { margin: 0 !important; }
+
+          /* --- UNIFIED EXTENSIONS BUTTON ------------------------ */
+
+          /* make extension icons smaller */
+          #unified-extensions-view {
+            --uei-icon-size: 16px;
           }
 
-          /* Hide filler */
-          #customizableui-special-spring2{
-          	display:none;
+          /* hide bloat */
+          .unified-extensions-item-message-deck,
+          #unified-extensions-view > .panel-header,
+          #unified-extensions-view > toolbarseparator,
+          #unified-extensions-manage-extensions {
+            display: none !important;
           }
 
-          .tab-background{
-          	padding-bottom: 0 !important;
+          /* add 3px padding on the top and the bottom of the box */
+          .panel-subview-body {
+            padding: 3px 0px !important;
           }
 
-          #navigator-toolbox #urlbar-container {
-              padding: 0 !important;
-              margin: 0 !important;
+          #unified-extensions-view .unified-extensions-item-menu-button {
+            margin-inline-end: 0 !important;
           }
 
-          #navigator-toolbox #urlbar {
-              border: none !important;
-              border-radius: 0 !important;
+          #unified-extensions-view .toolbarbutton-icon {
+            padding: 0 !important;
+          }
+
+          .unified-extensions-item-contents {
+            line-height: 1 !important;
+            white-space: nowrap !important;
+          }
+
+          /* --- DEBLOAT URLBAR ----------------------------------- */
+
+          #identity-box { display: none; }
+          #pageActionButton { display: none; }
+          #pocket-button { display: none; }
+          #urlbar-zoom-button { display: none; }
+          /* #tracking-protection-icon-container { display: none !important; } */
+          #reader-mode-button{ display: none !important; }
+          /* #star-button { display: none; } */
+          #star-button-box:hover { background: inherit !important; }
+
+          /* Go to arrow button at the end of the urlbar when searching */
+          #urlbar-go-button { display: none; }
+
+          /* remove container indicator from urlbar */
+          /* #userContext-label, #userContext-indicator { display: none !important;} */
+
+          /* --- STYLE TAB TOOLBAR -------------------------------- */
+
+          #titlebar {
+            --proton-tab-block-margin: 0px !important;
+            --tab-block-margin: 0px !important;
+          }
+
+          #TabsToolbar, .tabbrowser-tab {
+            max-height: var(--tab-min-height) !important;
+            font-size: 11px !important;
+          }
+
+          /* Change color of normal tabs */
+          tab:not([selected="true"]) {
+            background-color: var(--tab-inactive-bg-color) !important;
+            color: var(--identity-icon-color, var(--tab-inactive-fg-fallback-color)) !important;
+          }
+
+          tab {
+            font-family: var(--tab-font, monospace);
+            font-weight: bold;
+            border: none !important;
+          }
+
+          /* safari style tab width */
+          .tabbrowser-tab[fadein] {
+            max-width: 100vw !important;
+            border: none
+          }
+
+          /* Hide close button on tabs */
+          #tabbrowser-tabs .tabbrowser-tab .tab-close-button { display: none !important; }
+
+          /* disable favicons in tab */
+          /* .tab-icon-stack:not([pinned]) { display: none !important; } */
+
+          .tabbrowser-tab {
+            /* remove border between tabs */
+            padding-inline: 0px !important;
+            /* reduce fade effect of tab text */
+            --tab-label-mask-size: 1em !important;
+            /* fix pinned tab behaviour on overflow */
+            overflow-clip-margin: 0px !important;
+          }
+
+          /* Tab: selected colors */
+          #tabbrowser-tabs .tabbrowser-tab[selected] .tab-content {
+            background: var(--tab-active-bg-color) !important;
+            color: var(--identity-icon-color, var(--tab-active-fg-fallback-color)) !important;
+          }
+
+          /* Tab: hovered colors */
+          #tabbrowser-tabs .tabbrowser-tab:hover:not([selected]) .tab-content {
+            background: var(--tab-active-bg-color) !important;
+          }
+
+          /* hide window controls */
+          .titlebar-buttonbox-container { display: none; }
+
+          /* remove titlebar spacers */
+          .titlebar-spacer { display: none !important; }
+
+          /* disable tab shadow */
+          #tabbrowser-tabs:not([noshadowfortests]) .tab-background:is([selected], [multiselected]) {
               box-shadow: none !important;
           }
 
-          #navigator-toolbox #PanelUI-button {
-              padding: 0 !important;
-              margin: 0 !important;
-              border: none !important;
+          /* remove dark space between pinned tab and first non-pinned tab */
+          #tabbrowser-tabs[haspinnedtabs]:not([positionpinnedtabs]) >
+          #tabbrowser-arrowscrollbox >
+          .tabbrowser-tab:nth-child(1 of :not([pinned], [hidden])) {
+            margin-inline-start: 0px !important;
           }
 
-          #navigator-toolbox #nav-bar {
-              box-shadow: none !important;
+          /* remove dropdown menu button which displays all tabs on overflow */
+          #alltabs-button { display: none !important }
+
+          /* fix displaying of pinned tabs on overflow */
+          #tabbrowser-tabs:not([secondarytext-unsupported]) .tab-label-container {
+            height: var(--tab-min-height) !important;
           }
 
-          #navigator-toolbox #pageActionButton {
-              display: none;
+          /* remove overflow scroll buttons */
+          #scrollbutton-up, #scrollbutton-down { display: none !important; }
+
+          /* remove new tab button */
+          #tabs-newtab-button {
+            display: none !important;
           }
 
-          #navigator-toolbox #pageActionSeparator {
-              display: none;
+          /* hide private browsing indicator */
+          #private-browsing-indicator-with-label {
+            display: none;
           }
 
-          #fullscr-toggler {
-              height: 0 !important;
+          /* --- AUTOHIDE NAVBAR ---------------------------------- */
+
+          /* hide navbar unless focused */
+          #nav-bar {
+            min-height: 0 !important;
+            max-height: 0 !important;
+            height: 0 !important;
+            --moz-transform: scaleY(0) !important;
+            transform: scaleY(0) !important;
           }
 
-          #navigator-toolbox .urlbar-history-dropmarker {
-              display: none;
+          /* show on focus */
+          #nav-bar:focus-within {
+            --moz-transform: scale(1) !important;
+            transform: scale(1) !important;
+            max-height: var(--urlbar-height-setting) !important;
+            height: var(--urlbar-height-setting) !important;
+            min-height: var(--urlbar-height-setting) !important;
           }
 
-          #navigator-toolbox #tracking-protection-icon-container {
-              padding-right: 0 !important;
-              border: none !important;
-              display: none !important;
-          }
-
-          #navigator-toolbox .tab-close-button, #navigator-toolbox #tabs-newtab-button, #firefox-view-button, #alltabs-button {
-              display: none;
-          }
-
-          #navigator-toolbox #urlbar {
-              padding: 0 !important;
-              padding-left: 3ch !important;
-              font-size: 13px;
-          }
-
-          #navigator-toolbox #urlbar-background {
-              border: none !important;
-              margin: 0 !important;
-          }
-
-          #navigator-toolbox .toolbarbutton-1 {
-              width: 22px;
-              padding-left: 1ch !important;
-          }
-
-          #navigator-toolbox .tabbrowser-tab {
-              font-size: 12px
-          }
-
-          #navigator-toolbox .tab-background {
-              box-shadow: none!important;
-              border: none !important;
-          }
-
-          #navigator-toolbox .tabbrowser-tab::after {
-              display: none !important;
-          }
-
-          #navigator-toolbox #urlbar-zoom-button {
-              border: none !important;
-          }
-
-          #appMenu-fxa-container, #appMenu-fxa-container + toolbarseparator {
-              display: none !important;
-          }
-
-          #sync-setup {
-              display: none !important;
-          }
-
-          /*
-           *  Hamburger menu to the left
-           */
-
-          #PanelUI-button {
-              -moz-box-ordinal-group: 0;
-              border-left: none !important;
-              border-right: none !important;
-              position: absolute;
-          }
-
-          #toolbar-context-menu .viewCustomizeToolbar {
-              display: none !important;
+          #navigator-toolbox:focus-within > .browser-toolbar {
+            transform: translateY(0);
+            opacity: 1;
           }
         '';
       };

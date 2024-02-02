@@ -28,6 +28,7 @@
       pulsemixer
       qt5ct
       tealdeer
+      trash-cli
       tmux
       yaru-theme
       yt-dlp
