@@ -11,11 +11,16 @@
       inactiveOpacity = 0.95;
       menuOpacity = 0.95;
       opacityRules = [
-        "100:class_g = 'alacritty' && focused"
-        "100:class_g = 'mpv' && focused"
-        "100:class_g = 'mpv' && IS_FLOATING_WINDOW@:s = 'False' && !focused"
-        "10:class_g = 'mpv' && IS_FLOATING_WINDOW@:s = 'True' && !focused"
+        "100:class_g = sun-awt-X11-XFramePeer"
+        "100:class_g = MATLAB R2023b - academic use"
+        "100:class_g = Matlab-GLEE"
+        "100:class_g = MATLAB R2023b Update 3"
+
+        "100:class_g = mpv && focused"
+        "100:class_g = mpv && IS_FLOATING_WINDOW@:s = 'False' && !focused"
+        "10:class_g = mpv && IS_FLOATING_WINDOW@:s = 'True' && !focused"
         "95:class_g = 'URxvt' && !_NET_WM_STATE@:32a"
+
         "100:_NET_WM_STATE@[0]:32a = '_NET_WM_STATE_FULLSCREEN'"
         "100:_NET_WM_STATE@[1]:32a = '_NET_WM_STATE_FULLSCREEN'"
         "100:_NET_WM_STATE@[2]:32a = '_NET_WM_STATE_FULLSCREEN'"
@@ -31,7 +36,7 @@
       # settings = {};
       shadow = false;
       vSync = false;
-      backend = "glx"; # try "glx" if xrender doesn't help
+      backend = "xrender"; # try "glx" if xrender doesn't help
       fade = false;
       fadeDelta = 1;
       fadeSteps = [ 0.01 0.01 ];

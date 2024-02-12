@@ -111,16 +111,16 @@
         Locked = true;
       };
       Extensions = {
-        Install = {
-          uBlockOrigin =
-            "https://addons.mozilla.org/firefox/downloads/file/4198829/ublock_origin-1.54.0.xpi";
-          DarkReader =
-            "https://addons.mozilla.org/firefox/downloads/file/4205543/darkreader-4.9.73.xpi";
-          KeePassXC =
-            "https://addons.mozilla.org/firefox/downloads/file/4200248/keepassxc_browser-1.8.10.xpi";
-          # Vimium =
-          #   "https://addons.mozilla.org/firefox/downloads/file/4191523/vimium_ff-2.0.6.xpi";
-        };
+        # Install = {
+        #   uBlockOrigin =
+        #     "https://addons.mozilla.org/firefox/downloads/file/4198829/ublock_origin-1.54.0.xpi";
+        #   DarkReader =
+        #     "https://addons.mozilla.org/firefox/downloads/file/4205543/darkreader-4.9.73.xpi";
+        #   KeePassXC =
+        #     "https://addons.mozilla.org/firefox/downloads/file/4200248/keepassxc_browser-1.8.10.xpi";
+        #   # Vimium =
+        #   #   "https://addons.mozilla.org/firefox/downloads/file/4191523/vimium_ff-2.0.6.xpi";
+        # };
         Uninstall = {
           Amazon = "amazondotcom@search.mozilla.org";
           Bing = "bing@search.mozilla.org";
@@ -187,8 +187,15 @@
       };
     };
     # package = pkgs.firefox;
-    package =
-      pkgs.firefox.override { cfg = { enableTridactylNative = true; }; };
+    # package =
+    #   pkgs.firefox.override { cfg = { enableTridactylNative = true; }; };
+    package =pkgs.firefox.override {
+      # See nixpkgs' firefox/wrapper.nix to check which options you can use
+      nativeMessagingHosts = [
+        # Tridactyl native connector
+        pkgs.tridactyl-native
+      ];
+    };
     profiles = {
       nixhm = {
         id = 0;
@@ -202,8 +209,7 @@
             "SearX General" = {
               urls = [{
                 # template = "https://searx.be/search";
-                template =
-                  "https://searx.be/?preferences=eJx1WMmO5DYM_ZqpizGFTCZAkEOdgiQ_MHeDlmibY0n0aKkq99eH8lKW292HNkpPokSRj4taQcSOPWG4dejQg7kYcF2CDm9gZMAKDN7QXSBFVmxHgxFvHXNn8EJW1tWj5-d0--ETXizGnvXtv39-XAK0GBC86m-_XWKPFm8cFPiLx5BMDDW72uGjjtAsspqpljk2d_Q3Bhle2XeXWehriJOoYbgjxRrvl0BZk3qBs2oXhS6ir8FQ56z8vv0LJuAF9B2cQl2vusxH_Urop5pcHSmK_IyRa8lRlD2VZ2MWcBHKqqrFUJPsY1Btu_ccB5zCTWMLcqmLpgCNkdPQdeTEqH910NV1YEVgKoua4Mvvf4NzEKq8M92xrlsyGDI8DpUl79mXmFyzkm8VIvtysQPFTkNdU8xDH0nJ7-yQPN2QofxX13fSyDM0NnW9OlmGSqmv8V7M84hOTB-w2EZM8dB3EjcVkhOO74bVIlAIZlC8K1D-5p2SN4SlXAO967ktIY34Jj6sbQqk5vGdwEW5XLG11l0l9s7OInbhIM9qQF_1qVnN8qCBNEQoFy0mtTCKqHwFieKq6aDbt2dxYKs9k95N3xpSgy8XeMQqcBsf4LHS5IUgmSqLDq0nNxCU3lnCpxoNTNm3Yd-7nLEslg-Fh6xw0GciSRC40trdyFqXhuuh8ZA_qw49ZMMsDlmA-Zx1QLZL5X3IQXGqEMmDnypuKzm2kxAtjzbchIhXv20Mb2bypMKui-QEUCO4dYF92MaUtnajXadYTwGxOHoUtaGjENcFI40SW8W8X1NMud8LPLNyn1q2OIil5ip8206aRlp_BhwJtmNeRy9ATkZV_rx8DRaywTYgZPKOOUsWR8WsTlA9pM_QNWiSC8KE0JeBxSmmpjTSC9kM_qBmOhDe4BOcFuaUaA6NhnkI78FfiSO-BwMnr87oiGqm6BHOWYTidIJ5emeIB5vFYmN_0E2Tim_sDmsDvjmwB-LAPXN-B3xqpg7tRsUR0b-z1ZyBpRgNOac9sCnNCOqgcR6fGeSTsBcPPMDBH1PdAp1EF3gj3r7BXUJq5GJhtpWV9FZqI5zaY0ySxIG5Q3fteCPvBd2xBM18N-TSs8o7vwrGk2R9EP9JeZzTsdMK7FjyaMjxdqRNQ657Pz7fdUYPRpmR0-Ubik2S1LQFeBM1dd2eDlWP7cA58Fi85peKFILHtlRdaouXn9OxlEjoRQq7JEoty2l8G2s5OP91B2Pu6PlWxdzpJsXc4d4F_sBMPV9oZPnnZuEXFifLTtyFO9ZOU6G36EqpyK8yjpkQCzWkoYFmH-ylMGepBn23c2guAPvN19JzuvWKH261YicrrLhkMTbgSx-R1c1-B3IiQpxK2QLbrvaTQs-71CB1F0JRLQ1aO0n-tTblbiCr_a7VWlakgP6zuZFD_Gwu7yzW_WB6rYnZeoEKjd6-rlOFksL8-yGGLEgzp9l9otdrupfUL1XhgxX6VU3pqQwnvdvMTQD74Rak98CtDcgtHkh7kluigPO9Xg7a5qQOSn8Da291nA9ROp0oTdPWOWUwZ6_CAqPOGXeXG6VHlv55FRgpd-kYyoZururXWf_9GiN56XYaKAwpTY4S05DT-NxJsdf0A0PlGjb3Crsivx7SSpZumIGj1AKdQmCBT2z3IHytGskroWy-xL6a4slpnmPMoSpdHGORl6S0SuY9OlFylxpYyltr-LFl7DCkJrmYtq4tW9JJc7W8Iz6IuZBG9Cm83B9Q6CDvhI_iM_IwiaMk3obcqm02l-cYaWlm_RIGGxwP0TxBf6xIM_AuDwIZyWyZVoUF72SRi3EuOQexQ5exaytw3mmOs02LvDQHrPD2evKgnaxkW4nY6MEFI9QqMuq379__fO6X00mj22clSUvlPsRvbsxHMhyL09lrR0MJPGlgJ2W5CpNjJwoUPv85XsdHcYhk8NhmZvsTbx7yDu-l1XFlixCjv1IhPyVrTWEMyUH342srA2e7LPC5Ls_wsauZO8A-7aX6j61Q78_e0SRpOsItR-Tzuo6u8mRu5bXd8qs3-Xhdznfr1Jelwy7mJE1L_4e1pBsDC70PCxjq5T8IDy-v-NO0cLiWbkIN5xk_P45qeaCKtM1Rd5FokGx3-x-Cxndz&";
+                template = "https://searx.be/search";
                 params = [
                   {
                     name = "q";
@@ -223,34 +229,6 @@
                   }
                 ];
               }];
-            };
-            "SearX images" = {
-              urls = [{
-                # template = "https://searx.be/search";
-                template =
-                  "https://searx.be/?preferences=eJx1WMmO5DYM_ZqpizGFTCZAkEOdgiQ_MHeDlmibY0n0aKkq99eH8lKW292HNkpPokSRj4taQcSOPWG4dejQg7kYcF2CDm9gZMAKDN7QXSBFVmxHgxFvHXNn8EJW1tWj5-d0--ETXizGnvXtv39-XAK0GBC86m-_XWKPFm8cFPiLx5BMDDW72uGjjtAsspqpljk2d_Q3Bhle2XeXWehriJOoYbgjxRrvl0BZk3qBs2oXhS6ir8FQ56z8vv0LJuAF9B2cQl2vusxH_Urop5pcHSmK_IyRa8lRlD2VZ2MWcBHKqqrFUJPsY1Btu_ccB5zCTWMLcqmLpgCNkdPQdeTEqH910NV1YEVgKoua4Mvvf4NzEKq8M92xrlsyGDI8DpUl79mXmFyzkm8VIvtysQPFTkNdU8xDH0nJ7-yQPN2QofxX13fSyDM0NnW9OlmGSqmv8V7M84hOTB-w2EZM8dB3EjcVkhOO74bVIlAIZlC8K1D-5p2SN4SlXAO967ktIY34Jj6sbQqk5vGdwEW5XLG11l0l9s7OInbhIM9qQF_1qVnN8qCBNEQoFy0mtTCKqHwFieKq6aDbt2dxYKs9k95N3xpSgy8XeMQqcBsf4LHS5IUgmSqLDq0nNxCU3lnCpxoNTNm3Yd-7nLEslg-Fh6xw0GciSRC40trdyFqXhuuh8ZA_qw49ZMMsDlmA-Zx1QLZL5X3IQXGqEMmDnypuKzm2kxAtjzbchIhXv20Mb2bypMKui-QEUCO4dYF92MaUtnajXadYTwGxOHoUtaGjENcFI40SW8W8X1NMud8LPLNyn1q2OIil5ip8206aRlp_BhwJtmNeRy9ATkZV_rx8DRaywTYgZPKOOUsWR8WsTlA9pM_QNWiSC8KE0JeBxSmmpjTSC9kM_qBmOhDe4BOcFuaUaA6NhnkI78FfiSO-BwMnr87oiGqm6BHOWYTidIJ5emeIB5vFYmN_0E2Tim_sDmsDvjmwB-LAPXN-B3xqpg7tRsUR0b-z1ZyBpRgNOac9sCnNCOqgcR6fGeSTsBcPPMDBH1PdAp1EF3gj3r7BXUJq5GJhtpWV9FZqI5zaY0ySxIG5Q3fteCPvBd2xBM18N-TSs8o7vwrGk2R9EP9JeZzTsdMK7FjyaMjxdqRNQ657Pz7fdUYPRpmR0-Ubik2S1LQFeBM1dd2eDlWP7cA58Fi85peKFILHtlRdaouXn9OxlEjoRQq7JEoty2l8G2s5OP91B2Pu6PlWxdzpJsXc4d4F_sBMPV9oZPnnZuEXFifLTtyFO9ZOU6G36EqpyK8yjpkQCzWkoYFmH-ylMGepBn23c2guAPvN19JzuvWKH261YicrrLhkMTbgSx-R1c1-B3IiQpxK2QLbrvaTQs-71CB1F0JRLQ1aO0n-tTblbiCr_a7VWlakgP6zuZFD_Gwu7yzW_WB6rYnZeoEKjd6-rlOFksL8-yGGLEgzp9l9otdrupfUL1XhgxX6VU3pqQwnvdvMTQD74Rak98CtDcgtHkh7kluigPO9Xg7a5qQOSn8Da291nA9ROp0oTdPWOWUwZ6_CAqPOGXeXG6VHlv55FRgpd-kYyoZururXWf_9GiN56XYaKAwpTY4S05DT-NxJsdf0A0PlGjb3Crsivx7SSpZumIGj1AKdQmCBT2z3IHytGskroWy-xL6a4slpnmPMoSpdHGORl6S0SuY9OlFylxpYyltr-LFl7DCkJrmYtq4tW9JJc7W8Iz6IuZBG9Cm83B9Q6CDvhI_iM_IwiaMk3obcqm02l-cYaWlm_RIGGxwP0TxBf6xIM_AuDwIZyWyZVoUF72SRi3EuOQexQ5exaytw3mmOs02LvDQHrPD2evKgnaxkW4nY6MEFI9QqMuq379__fO6X00mj22clSUvlPsRvbsxHMhyL09lrR0MJPGlgJ2W5CpNjJwoUPv85XsdHcYhk8NhmZvsTbx7yDu-l1XFlixCjv1IhPyVrTWEMyUH342srA2e7LPC5Ls_wsauZO8A-7aX6j61Q78_e0SRpOsItR-Tzuo6u8mRu5bXd8qs3-Xhdznfr1Jelwy7mJE1L_4e1pBsDC70PCxjq5T8IDy-v-NO0cLiWbkIN5xk_P45qeaCKtM1Rd5FokGx3-x-Cxndz&";
-                params = [
-                  {
-                    name = "q";
-                    value = "{searchTerms}";
-                  }
-                  {
-                    name = "category_images";
-                    value = "on";
-                  }
-                  {
-                    name = "time_range";
-                    value = "";
-                  }
-                  {
-                    name = "language";
-                    value = "en";
-                  }
-                ];
-              }];
-              # icon =
-              # "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
-              definedAliases = [ "si" ];
             };
             "Yewtube" = {
               urls = [{
@@ -341,7 +319,7 @@
               definedAliases = [ "ho" ];
             };
             # https://wiki.archlinux.org/index.php?title=Special%3ASearch&wprov=acrw1_-1&search=%s
-            "Archlinux Wiki" = {
+            "ArchWiki" = {
               urls = [{
                 template = "https://wiki.archlinux.org/index.php?";
                 params = [{
@@ -395,8 +373,9 @@
                   }
                   {
                     name = "columns%5B%5D";
-                    value = "
-a";
+                    value = ''
+
+                      a'';
                   }
                   {
                     name = "columns%5B%5D";
@@ -487,11 +466,6 @@ a";
                     value = "all";
                   }
                   {
-                    name =
-                      "columns%5B%5D=t&columns%5B%5D=a&columns%5B%5D=s&columns%5B%5D=y&columns%5B%5D=p&columns%5B%5D=i&objects%5B%5D=f&objects%5B%5D=e&objects%5B%5D=s&objects%5B%5D=a&objects%5B%5D=p&objects%5B%5D=w&topics%5B%5D=l&topics%5B%5D=c&topics%5B%5D=f&topics%5B%5D=a&topics%5B%5D=m&topics%5B%5D=r&topics%5B%5D=s&res=100&covers=on&showch=on&gmode=on&filesuns=all";
-                    value = "packages";
-                  }
-                  {
                     name = "req";
                     value = "{searchTerms}";
                   }
@@ -503,12 +477,10 @@ a";
             "Google Scholar" = {
               urls = [{
                 template = "https://scholar.google.com/scholar";
-                params = [
-                  {
-                    name = "q";
-                    value = "{searchTerms}";
-                  }
-                ];
+                params = [{
+                  name = "q";
+                  value = "{searchTerms}";
+                }];
               }];
               definedAliases = [ "gs" ];
             };
@@ -540,13 +512,13 @@ a";
           };
         };
         extensions = with pkgs.nur.repos.rycee.firefox-addons; [
-          # violentmonkey
           darkreader
           hover-zoom-plus
           keepassxc-browser
           libredirect
           ublock-origin
           # vimium
+          violentmonkey
           tridactyl
         ];
         containers = {
@@ -1250,6 +1222,25 @@ a";
           #navigator-toolbox:focus-within > .browser-toolbar {
             transform: translateY(0);
             opacity: 1;
+          }
+        '';
+        userContent = ''
+          /* --- HIDE SCROLLBAR ---------------------------------- */
+          * {
+            scrollbar-width: none !important;
+          }
+
+          /* --- NEWTAB WALLPAPER ---------------------------------- */
+          @-moz-document url-prefix(about:home), url-prefix(about:newtab) {
+            .click-target-container *,
+            .top-sites-list * {
+              color: #fff !important ;
+              text-shadow: 2px 2px 2px #000 !important ;
+            }
+            body {
+              background: url(../../../../.local/share/bg) !important ;
+              background-size: cover !important ;
+            }
           }
         '';
       };

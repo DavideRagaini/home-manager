@@ -5,12 +5,12 @@
     packages = with pkgs; [
       direnv
       fd
+      gh-markdown-preview
       gomodifytags
       gopls
       gore
       gotests
       gotools
-      gh-markdown-preview
       graphviz
       html-tidy
       hunspell
@@ -18,6 +18,7 @@
       hunspellDicts.en-us
       hunspellDicts.it-it
       libxml2
+      lua-language-server
       nixfmt
       nixpkgs-fmt
       nixpkgs-review
@@ -36,6 +37,7 @@
       ripgrep
       shellcheck
       shfmt
+      yaml-language-server
     ];
   };
 }
