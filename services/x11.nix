@@ -63,27 +63,24 @@
           brightness-day = 1;
           brightness-night = 0.75;
         };
-        randr = {
-          screen = 0;
-        };
+        randr = { screen = 0; };
       };
     };
 
-  #   screen-locker = {
-  #     enable = true;
-  #     inactiveInterval = 5;
-  #     lockCmd = "suspend";
-  #     xautolock = {
-  #       enable = true;
-  #       detectSleep = true;
-  #       extraOptions = [
-  #         "-time 5"
-  #         "-notify 45"
-  #         "-notifier 'notify-send -u critical -t 45000 \'System will be locked\' \'45 seconds left\''"
-  #         "-locker 'systemctl suspend'"
-  #       ];
-  #     };
-  #   };
+    screen-locker = {
+      enable = true;
+      inactiveInterval = 5;
+      lockCmd = "${pkgs.i3lock} -eft -c 1d2021 -i ~/Storage/Pictures/lockscreen.png";
+      xautolock = {
+        enable = true;
+        detectSleep = true;
+        extraOptions = [
+          "-notify 45"
+          "-notifier 'notify-send -u critical -t 45000 'System will be locked' '45 seconds left''"
+          "-locker 'systemctl suspend'"
+        ];
+      };
+    };
 
   };
 

@@ -3,10 +3,9 @@
 {
   home = {
     packages = with pkgs; [
-      beats
+      lua
       imagemagick
       ferdium
-      okular
       parallel
       streamlink
       texlive.combined.scheme-full

@@ -25,6 +25,8 @@
   #   SUDO_ASKPASS = "pkgs.rofi -dmenu -password";
   # };
 
+  # nixpkgs.config.allowUnfree = true; 
+
   home = {
     file = { };
     username = "davide";
