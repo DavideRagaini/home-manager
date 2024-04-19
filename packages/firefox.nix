@@ -90,7 +90,7 @@
         BehaviorPrivateBrowsing = "reject";
         Locked = false;
       };
-      DefaultDownloadDirectory = "\${home}/Downloads";
+      DefaultDownloadDirectory = "\${home}/dwn";
       DisableBuiltinPDFViewer = true;
       DisableFirefoxAccounts = true;
       DisableFirefoxStudies = true;
@@ -242,27 +242,6 @@
               # "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
               definedAliases = [ "y" ];
             };
-            # https://docs.qtile.org/en/stable/search.html?q=groupbox&check_keywords=yes&area=default
-            "Qtile Search" = {
-              urls = [{
-                template = "https://docs.qtile.org/en/latest/";
-                params = [
-                  {
-                    name = "area";
-                    value = "default";
-                  }
-                  {
-                    name = "check_keyword";
-                    value = "yes";
-                  }
-                  {
-                    name = "q";
-                    value = "{searchTerms}";
-                  }
-                ];
-              }];
-              definedAliases = [ "qs" ];
-            };
             "Nix Packages" = {
               urls = [{
                 template = "https://search.nixos.org/packages";
@@ -317,172 +296,6 @@
                 }];
               }];
               definedAliases = [ "ho" ];
-            };
-            # https://wiki.archlinux.org/index.php?title=Special%3ASearch&wprov=acrw1_-1&search=%s
-            "ArchWiki" = {
-              urls = [{
-                template = "https://wiki.archlinux.org/index.php?";
-                params = [{
-                  name = "title=Special%3ASearch&wprov=acrw1_-1&search";
-                  value = "{searchTerms}";
-                }];
-              }];
-              definedAliases = [ "aw" ];
-            };
-            # https://www.treccani.it/vocabolario/macchina/
-            "Treccani Vocabolario" = {
-              urls = [{
-                template = "https://www.treccani.it/vocabolario/";
-                params = [{
-                  name = "";
-                  value = "{searchTerms}";
-                }];
-              }];
-              definedAliases = [ "tcv" ];
-            };
-            # https://www.treccani.it/vocabolario/convoglio_(Sinonimi-e-Contrari)/
-            "Treccani Sinonimi e Contrari" = {
-              urls = [{
-                template = "https://www.treccani.it/vocabolario/";
-                params = [{
-                  name = "";
-                  value = "{searchTerms}_(Sinonimi-e-Contrari)/";
-                }];
-              }];
-              definedAliases = [ "tcs" ];
-            };
-            # https://sci-hub.se/%s
-            "SciHub" = {
-              urls = [{
-                template = "https://sci-hub.se/";
-                params = [{
-                  name = "";
-                  value = "{searchTerms}";
-                }];
-              }];
-              definedAliases = [ "sh" ];
-            };
-            # https://libgen.li/index.php?req=%s&columns%5B%5D=t&columns%5B%5D=a&columns%5B%5D=s&columns%5B%5D=y&columns%5B%5D=p&columns%5B%5D=i&objects%5B%5D=f&objects%5B%5D=e&objects%5B%5D=s&objects%5B%5D=a&objects%5B%5D=p&objects%5B%5D=w&topics%5B%5D=l&topics%5B%5D=c&topics%5B%5D=f&topics%5B%5D=a&topics%5B%5D=m&topics%5B%5D=r&topics%5B%5D=s&res=100&covers=on&showch=on&gmode=on&filesuns=all
-            "LibGen" = {
-              urls = [{
-                template = "https://libgen.li/index.php";
-                params = [
-                  {
-                    name = "columns%5B%5D";
-                    value = "t";
-                  }
-                  {
-                    name = "columns%5B%5D";
-                    value = ''
-
-                      a'';
-                  }
-                  {
-                    name = "columns%5B%5D";
-                    value = "s";
-                  }
-                  {
-                    name = "columns%5B%5D";
-                    value = "y";
-                  }
-                  {
-                    name = "columns%5B%5D";
-                    value = "p";
-                  }
-                  {
-                    name = "columns%5B%5D";
-                    value = "i";
-                  }
-                  {
-                    name = "objects%5B%5D";
-                    value = "f";
-                  }
-                  {
-                    name = "objects%5B%5D";
-                    value = "e";
-                  }
-                  {
-                    name = "objects%5B%5D";
-                    value = "s";
-                  }
-                  {
-                    name = "objects%5B%5D";
-                    value = "a";
-                  }
-                  {
-                    name = "objects%5B%5D";
-                    value = "p";
-                  }
-                  {
-                    name = "objects%5B%5D";
-                    value = "w";
-                  }
-                  {
-                    name = "topics%5B%5D";
-                    value = "l";
-                  }
-                  {
-                    name = "topics%5B%5D";
-                    value = "c";
-                  }
-                  {
-                    name = "topics%5B%5D";
-                    value = "f";
-                  }
-                  {
-                    name = "topics%5B%5D";
-                    value = "a";
-                  }
-                  {
-                    name = "topics%5B%5D";
-                    value = "m";
-                  }
-                  {
-                    name = "topics%5B%5D";
-                    value = "r";
-                  }
-                  {
-                    name = "topics%5B%5D";
-                    value = "s";
-                  }
-                  {
-                    name = "res";
-                    value = "100";
-                  }
-                  {
-                    name = "covers";
-                    value = "on";
-                  }
-                  {
-                    name = "showch";
-                    value = "on";
-                  }
-                  {
-                    name = "gmode";
-                    value = "on";
-                  }
-                  {
-                    name = "filesuns";
-                    value = "all";
-                  }
-                  {
-                    name = "req";
-                    value = "{searchTerms}";
-                  }
-                ];
-              }];
-              definedAliases = [ "lg" ];
-            };
-            # https://scholar.google.com/scholar?hl=it&as_sdt=0%2C5&q=Rosenbrock&btnG=&oq=r
-            "Google Scholar" = {
-              urls = [{
-                template = "https://scholar.google.com/scholar";
-                params = [{
-                  name = "q";
-                  value = "{searchTerms}";
-                }];
-              }];
-              definedAliases = [ "gs" ];
             };
             "Wikipedia (en)" = {
               metaData = {
@@ -657,7 +470,7 @@
           "browser.toolbars.bookmarks.visibility" = "never";
           "browser.translations.automaticallyPopup" = false;
           "browser.uiCustomization.state" = ''
-            {"placements":{"widget-overflow-fixed-list":[],"unified-extensions-area":[],"nav-bar":["back-button","forward-button","stop-reload-button","home-button","urlbar-container","fxa-toolbar-menu-button","unified-extensions-button"],"toolbar-menubar":["menubar-items"],"TabsToolbar":["tabbrowser-tabs","new-tab-button","alltabs-button","downloads-button","ublock0_raymondhill_net-browser-action","addon_darkreader_org-browser-action","keepassxc-browser_keepassxc_org-browser-action","_d7742d87-e61d-4b78-b8a1-b469842139fa_-browser-action","7esoorv3_alefvanoon_anonaddy_me-browser-action","onurhanak_protonmail_com-browser-action","firefox-view-button"],"PersonalToolbar":["import-button","personal-bookmarks"]},"seen":["developer-button","ublock0_raymondhill_net-browser-action","addon_darkreader_org-browser-action","keepassxc-browser_keepassxc_org-browser-action","_d7742d87-e61d-4b78-b8a1-b469842139fa_-browser-action","7esoorv3_alefvanoon_anonaddy_me-browser-action","onurhanak_protonmail_com-browser-action"],"dirtyAreaCache":["nav-bar","PersonalToolbar","unified-extensions-area","TabsToolbar","toolbar-menubar","widget-overflow-fixed-list"],"currentVersion":20,"newElementCount":9}
+browser.uiCustomization.state	{"placements":{"widget-overflow-fixed-list":[],"unified-extensions-area":["_ef87d84c-2127-493f-b952-5b4e744245bc_-browser-action","_aecec67f-0d10-4fa7-b7c7-609a2db280cf_-browser-action"],"nav-bar":["back-button","forward-button","stop-reload-button","home-button","urlbar-container","fxa-toolbar-menu-button","downloads-button","ublock0_raymondhill_net-browser-action","addon_darkreader_org-browser-action","keepassxc-browser_keepassxc_org-browser-action","_d7742d87-e61d-4b78-b8a1-b469842139fa_-browser-action","7esoorv3_alefvanoon_anonaddy_me-browser-action","unified-extensions-button"],"toolbar-menubar":["menubar-items"],"TabsToolbar":["tabbrowser-tabs","new-tab-button","alltabs-button","firefox-view-button"],"PersonalToolbar":["import-button","personal-bookmarks"]},"seen":["developer-button","ublock0_raymondhill_net-browser-action","addon_darkreader_org-browser-action","keepassxc-browser_keepassxc_org-browser-action","_d7742d87-e61d-4b78-b8a1-b469842139fa_-browser-action","7esoorv3_alefvanoon_anonaddy_me-browser-action","_ef87d84c-2127-493f-b952-5b4e744245bc_-browser-action","_aecec67f-0d10-4fa7-b7c7-609a2db280cf_-browser-action"],"dirtyAreaCache":["nav-bar","PersonalToolbar","unified-extensions-area","TabsToolbar","toolbar-menubar","widget-overflow-fixed-list"],"currentVersion":20,"newElementCount":7}
           '';
           "browser.uidensity" = 1;
           "browser.urlbar.quicksuggest.enabled" = false;
@@ -709,16 +522,16 @@
           "extensions.webcompat.enable_shims" = true;
           "extensions.webcompat.perform_injections" = true;
           "extensions.webcompat.perform_ua_overrides" = true;
-          "extensions.webextensions.ExtensionStorageIDB.migrated.addon@darkreader.org" =
-            true;
-          "extensions.webextensions.ExtensionStorageIDB.migrated.keepassxc-browser@keepassxc.org" =
-            true;
-          "extensions.webextensions.ExtensionStorageIDB.migrated.screenshots@mozilla.org" =
-            true;
-          "extensions.webextensions.ExtensionStorageIDB.migrated.tridactyl.vim.betas@cmcaine.co.uk" =
-            true;
-          "extensions.webextensions.ExtensionStorageIDB.migrated.uBlock0@raymondhill.net" =
-            true;
+          # "extensions.webextensions.ExtensionStorageIDB.migrated.addon@darkreader.org" =
+          #   true;
+          # "extensions.webextensions.ExtensionStorageIDB.migrated.keepassxc-browser@keepassxc.org" =
+          #   true;
+          # "extensions.webextensions.ExtensionStorageIDB.migrated.screenshots@mozilla.org" =
+          #   true;
+          # "extensions.webextensions.ExtensionStorageIDB.migrated.tridactyl.vim.betas@cmcaine.co.uk" =
+          #   true;
+          # "extensions.webextensions.ExtensionStorageIDB.migrated.uBlock0@raymondhill.net" =
+          #   true;
           "extensions.webextensions.restrictedDomains" = "";
           "fission.autostart" = true;
           "font.size.systemFontScale" = 120;
@@ -957,7 +770,7 @@
         '';
         userChrome = ''
           :root {
-            --tab-active-bg-color: #44475a ;
+            --tab-active-bg-color: #2e2d6e;
             --tab-inactive-bg-color: #282a36;
             --tab-active-fg-fallback-color: #f8f8f2;
             --tab-inactive-fg-fallback-color: #f8f8f2;

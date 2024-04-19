@@ -3,7 +3,7 @@
 {
   home = {
     packages = with pkgs; [
-      brave
+      # brave
       catppuccin-cursors.macchiatoDark
       dmenu
       fd
@@ -17,7 +17,7 @@
       keepassxc
       kodi
       libnotify
-      librewolf
+      # librewolf
       libsForQt5.breeze-qt5
       lsof
       mpv
@@ -26,6 +26,7 @@
       poppler_utils
       powertop
       pulsemixer
+      # qutebrowser
       qt5ct
       tealdeer
       trash-cli

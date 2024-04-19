@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   services = {
@@ -6,7 +6,7 @@
     # clipmenu.enable = true;
 
     picom = {
-      enable = true;
+      enable = false;
       activeOpacity = 1;
       inactiveOpacity = 0.95;
       menuOpacity = 0.95;
@@ -67,20 +67,20 @@
       };
     };
 
-    screen-locker = {
-      enable = true;
-      inactiveInterval = 5;
-      lockCmd = "${pkgs.i3lock} -eft -c 1d2021 -i ~/Storage/Pictures/lockscreen.png";
-      xautolock = {
-        enable = true;
-        detectSleep = true;
-        extraOptions = [
-          "-notify 45"
-          "-notifier 'notify-send -u critical -t 45000 'System will be locked' '45 seconds left''"
-          "-locker 'systemctl suspend'"
-        ];
-      };
-    };
+    # screen-locker = {
+    #   enable = true;
+    #   inactiveInterval = 5;
+    #   lockCmd = "${pkgs.i3lock} -eft -c 1d2021 -i ~/Storage/Pictures/lockscreen.png";
+    #   xautolock = {
+    #     enable = true;
+    #     detectSleep = true;
+    #     extraOptions = [
+    #       "-notify 45"
+    #       "-notifier 'notify-send -u critical -t 45000 'System will be locked' '45 seconds left''"
+    #       "-locker 'systemctl suspend'"
+    #     ];
+    #   };
+    # };
 
   };
 

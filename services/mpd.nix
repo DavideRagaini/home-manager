@@ -6,13 +6,15 @@
   services = {
     mpd = {
       enable = true;
-      musicDirectory = "${config.home.homeDirectory}/Storage/Music";
+      musicDirectory = "${config.home.homeDirectory}/mus";
+      network = {
+        startWhenNeeded = true;
+      };
       extraConfig = ''
         restore_paused "yes"
         audio_output {
               type  "pipewire"
               name  "PipeWire Sound Server"
-              # mixer_type "software"
         }
       '';
     };

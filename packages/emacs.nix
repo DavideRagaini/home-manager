@@ -7,14 +7,17 @@
       bashdb
       direnv
       fd
+      sqlite
+      editorconfig-core-c
       ripgrep
-      zeal
+      tree-sitter
 
       # ----- Dictionaries -----
       hunspell
       hunspellDicts.en-gb-ise
       hunspellDicts.en-us
       hunspellDicts.it-it
+      wordnet
 
       # ----- Development -----
 
@@ -29,6 +32,9 @@
       html-tidy
       libxml2
 
+      ## irc
+      gnutls
+
       ## Latex
       graphviz
 
@@ -39,7 +45,7 @@
       gh-markdown-preview
 
       ## Nix
-      nixfmt
+      nixfmt-classic
       nixpkgs-fmt
       nixpkgs-review
 
@@ -47,6 +53,7 @@
       nodePackages.bash-language-server
       nodePackages.js-beautify
       nodePackages.prettier
+      nodePackages.pyright
       nodePackages.stylelint
       nodejs_20
 
@@ -56,6 +63,7 @@
       python311Packages.black
       python311Packages.isort
       python311Packages.nose
+      python311Packages.pip
       python311Packages.pyflakes
       python311Packages.pytest
 

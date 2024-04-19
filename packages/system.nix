@@ -15,7 +15,6 @@
       hw-probe
       jq
       lf
-      librespot
       lm_sensors
       lshw
       mediainfo
@@ -23,18 +22,14 @@
       mpd
       ncdu
       ncmpcpp
-      newsboat
       pciutils
       pipx
-      qbittorrent
       rsync
       sioyek
       socat
-      # sox
-      spotify-tui
+      spotify-player
       taskspooler
       tree
-      tremc
       udisks
       unzip
       w3m

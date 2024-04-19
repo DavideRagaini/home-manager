@@ -2,14 +2,15 @@
 
 {
   imports = [
-    # ./services/udiskie.nix
     ./packages/desktop.nix
     ./packages/emacs.nix
     ./packages/firefox.nix
     ./packages/system.nix
     ./packages/theme.nix
-    ./services/gpg.nix
     ./services/dunst.nix
+    ./services/gpg.nix
+    ./services/mimeapplist.nix
+    ./services/udiskie.nix
     # Bagaro
     # ./packages/wayland.nix
     # Apollo
@@ -25,7 +26,7 @@
   #   SUDO_ASKPASS = "pkgs.rofi -dmenu -password";
   # };
 
-  # nixpkgs.config.allowUnfree = true; 
+  # nixpkgs.config.allowUnfree = true;
 
   home = {
     file = { };

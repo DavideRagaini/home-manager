@@ -4,6 +4,9 @@
     packages = with pkgs; [
       alacritty
       ani-cli
+      aria
+      beets
+      btop
       calibre
       clipmenu
       djvulibre
@@ -21,6 +24,10 @@
       maim
       nsxiv
       numlockx
+      syncthingtray
+      transmission
+      transmission-remote-gtk
+      tremc
       wmctrl
       xautolock
       xcape

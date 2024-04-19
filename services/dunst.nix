@@ -16,9 +16,9 @@
           geometry = "0x0-35+80";
           offset = "15x50";
           scale = 0;
-          notification_limit = 0;
+          notification_limit = 15;
           indicate_hidden = "yes";
-          transparency = 0;
+          transparency = 10;
           separator_height = 2;
           padding = 20;
           horizontal_padding = 20;
