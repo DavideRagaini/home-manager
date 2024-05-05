@@ -11,6 +11,7 @@
         startWhenNeeded = true;
       };
       extraConfig = ''
+        auto_update "yes"
         restore_paused "yes"
         audio_output {
               type  "pipewire"

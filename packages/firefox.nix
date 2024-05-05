@@ -230,11 +230,11 @@
                 ];
               }];
             };
-            "Yewtube" = {
+            "Piped" = {
               urls = [{
-                template = "https://yewtu.be/search";
+                template = "https://piped.privacydev.net";
                 params = [{
-                  name = "q";
+                  name = "results?search_query";
                   value = "{searchTerms}";
                 }];
               }];
@@ -242,6 +242,18 @@
               # "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
               definedAliases = [ "y" ];
             };
+            # "Yewtube" = {
+            #   urls = [{
+            #     template = "https://yewtu.be/search";
+            #     params = [{
+            #       name = "q";
+            #       value = "{searchTerms}";
+            #     }];
+            #   }];
+            #   # icon =
+            #   # "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
+            #   definedAliases = [ "y" ];
+            # };
             "Nix Packages" = {
               urls = [{
                 template = "https://search.nixos.org/packages";
@@ -815,8 +827,8 @@ browser.uiCustomization.state	{"placements":{"widget-overflow-fixed-list":[],"un
 
           /* --- DEBLOAT NAVBAR ----------------------------------- */
 
-          #back-button { display: none; }
-          #forward-button { display: none; }
+          /* #back-button { display: none; } */
+          /* #forward-button { display: none; } */
           #reload-button { display: none; }
           #stop-button { display: none; }
           #home-button { display: none; }
@@ -837,8 +849,8 @@ browser.uiCustomization.state	{"placements":{"widget-overflow-fixed-list":[],"un
 
           #urlbar-container {
             --urlbar-container-height: var(--urlbar-height-setting) !important;
-            margin-left: 0 !important;
-            margin-right: 0 !important;
+            margin-left: 5 !important;
+            margin-right: 5 !important;
             padding-top: 0 !important;
             padding-bottom: 0 !important;
             font-family: var(--urlbar-font, 'monospace');
@@ -1051,7 +1063,7 @@ browser.uiCustomization.state	{"placements":{"widget-overflow-fixed-list":[],"un
               text-shadow: 2px 2px 2px #000 !important ;
             }
             body {
-              background: url(../../../../.local/share/bg) !important ;
+              background: url(../../../../pic/current/firefox) !important ;
               background-size: cover !important ;
             }
           }
