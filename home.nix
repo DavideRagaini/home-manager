@@ -15,8 +15,9 @@
     # ./packages/wayland.nix
     # Apollo
     ./packages/x11.nix
-    ./services/x11.nix
     ./packages/optionals.nix
+    ./packages/ncmpcpp.nix
+    ./services/x11.nix
     ./services/emacs.nix
     ./services/mpd.nix
   ];

@@ -7,7 +7,6 @@
       imagemagick
       ferdium
       parallel
-      streamlink
       texlive.combined.scheme-full
     ];
   };

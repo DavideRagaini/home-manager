@@ -619,8 +619,8 @@ browser.uiCustomization.state	{"placements":{"widget-overflow-fixed-list":[],"un
           "privacy.clearOnShutdown.offlineApps" = true;
           "privacy.clearOnShutdown.sessions" = true;
           "privacy.clearOnShutdown.sitesettings" = false;
-          "privacy.donottrackheader.enabled" = true;
-          "privacy.donottrackheader.value" = 1;
+          "privacy.donottrackheader.enabled" = false;
+          "privacy.donottrackheader.value" = 0;
           "privacy.fingerprintingProtection" = true;
           "privacy.firstparty.isolate" = true;
           "privacy.history.custom" = true;

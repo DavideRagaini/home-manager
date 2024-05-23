@@ -3,6 +3,9 @@
 {
   home = {
     packages = with pkgs; [
+
+      emacs-all-the-icons-fonts
+
       # ----- Tools -----
       bashdb
       direnv
@@ -41,10 +44,15 @@
       ## Lua
       lua-language-server
 
+      ## Mails
+      mu
+      isync
+
       ## Markdown
       gh-markdown-preview
 
       ## Nix
+      nixd
       nixfmt-classic
       nixpkgs-fmt
       nixpkgs-review
