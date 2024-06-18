@@ -8,6 +8,10 @@
       pqiv
       tofi
       wl-clipboard
+      wlsunset
+      libsixel
+      lsix
+      chafa
     ];
     sessionVariables = {
       XDG_CURRENT_DESKTOP = "sway";
@@ -16,6 +20,7 @@
 
   xdg = {
     portal = {
+      config.common.default = "*";
       enable = true;
       extraPortals = with pkgs; [
         xdg-desktop-portal-wlr
