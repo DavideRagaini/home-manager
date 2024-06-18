@@ -15,7 +15,6 @@
       htop
       jmtpfs
       keepassxc
-      kodi
       libnotify
       # librewolf
       libsForQt5.breeze-qt5

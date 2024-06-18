@@ -189,7 +189,7 @@
     # package = pkgs.firefox;
     # package =
     #   pkgs.firefox.override { cfg = { enableTridactylNative = true; }; };
-    package =pkgs.firefox.override {
+    package = pkgs.firefox.override {
       # See nixpkgs' firefox/wrapper.nix to check which options you can use
       nativeMessagingHosts = [
         # Tridactyl native connector
@@ -263,6 +263,10 @@
                     value = "packages";
                   }
                   {
+                    name = "channel";
+                    value = "24.05";
+                  }
+                  {
                     name = "query";
                     value = "{searchTerms}";
                   }
@@ -292,7 +296,13 @@
             };
             "NixOS Wiki" = {
               urls = [{
-                template = "https://nixos.wiki/index.php?search={searchTerms}";
+                template = "https://nixos.wiki/index.php";
+                params = [
+                  {
+                    name = "search";
+                    value = "{searchTerms}";
+                  }
+                ];
               }];
               iconUpdateURL = "https://nixos.wiki/favicon.png";
               # updateInterval = 24 * 60 * 60 * 1000;
@@ -308,6 +318,42 @@
                 }];
               }];
               definedAliases = [ "ho" ];
+            };
+            "prowlarr | indexer" = {
+              urls = [{
+                template = "localhost:9696";
+              }];
+              definedAliases = [ "tp" ];
+            };
+            "lidarr | music" = {
+              urls = [{
+                template = "localhost:8686";
+              }];
+              definedAliases = [ "tm" ];
+            };
+            "sonarr | series" = {
+              urls = [{
+                template = "localhost:8989";
+              }];
+              definedAliases = [ "ts" ];
+            };
+            "readarr | books" = {
+              urls = [{
+                template = "localhost:8787";
+              }];
+              definedAliases = [ "tb" ];
+            };
+            "radarr | movies" = {
+              urls = [{
+                template = "localhost:7878";
+              }];
+              definedAliases = [ "tm" ];
+            };
+            "bazarr | subtitles" = {
+              urls = [{
+                template = "localhost:6767";
+              }];
+              definedAliases = [ "tb" ];
             };
             "Wikipedia (en)" = {
               metaData = {
@@ -482,7 +528,7 @@
           "browser.toolbars.bookmarks.visibility" = "never";
           "browser.translations.automaticallyPopup" = false;
           "browser.uiCustomization.state" = ''
-browser.uiCustomization.state	{"placements":{"widget-overflow-fixed-list":[],"unified-extensions-area":["_ef87d84c-2127-493f-b952-5b4e744245bc_-browser-action","_aecec67f-0d10-4fa7-b7c7-609a2db280cf_-browser-action"],"nav-bar":["back-button","forward-button","stop-reload-button","home-button","urlbar-container","fxa-toolbar-menu-button","downloads-button","ublock0_raymondhill_net-browser-action","addon_darkreader_org-browser-action","keepassxc-browser_keepassxc_org-browser-action","_d7742d87-e61d-4b78-b8a1-b469842139fa_-browser-action","7esoorv3_alefvanoon_anonaddy_me-browser-action","unified-extensions-button"],"toolbar-menubar":["menubar-items"],"TabsToolbar":["tabbrowser-tabs","new-tab-button","alltabs-button","firefox-view-button"],"PersonalToolbar":["import-button","personal-bookmarks"]},"seen":["developer-button","ublock0_raymondhill_net-browser-action","addon_darkreader_org-browser-action","keepassxc-browser_keepassxc_org-browser-action","_d7742d87-e61d-4b78-b8a1-b469842139fa_-browser-action","7esoorv3_alefvanoon_anonaddy_me-browser-action","_ef87d84c-2127-493f-b952-5b4e744245bc_-browser-action","_aecec67f-0d10-4fa7-b7c7-609a2db280cf_-browser-action"],"dirtyAreaCache":["nav-bar","PersonalToolbar","unified-extensions-area","TabsToolbar","toolbar-menubar","widget-overflow-fixed-list"],"currentVersion":20,"newElementCount":7}
+            browser.uiCustomization.state	{"placements":{"widget-overflow-fixed-list":[],"unified-extensions-area":["_ef87d84c-2127-493f-b952-5b4e744245bc_-browser-action","_aecec67f-0d10-4fa7-b7c7-609a2db280cf_-browser-action"],"nav-bar":["back-button","forward-button","stop-reload-button","home-button","urlbar-container","fxa-toolbar-menu-button","downloads-button","ublock0_raymondhill_net-browser-action","addon_darkreader_org-browser-action","keepassxc-browser_keepassxc_org-browser-action","_d7742d87-e61d-4b78-b8a1-b469842139fa_-browser-action","7esoorv3_alefvanoon_anonaddy_me-browser-action","unified-extensions-button"],"toolbar-menubar":["menubar-items"],"TabsToolbar":["tabbrowser-tabs","new-tab-button","alltabs-button","firefox-view-button"],"PersonalToolbar":["import-button","personal-bookmarks"]},"seen":["developer-button","ublock0_raymondhill_net-browser-action","addon_darkreader_org-browser-action","keepassxc-browser_keepassxc_org-browser-action","_d7742d87-e61d-4b78-b8a1-b469842139fa_-browser-action","7esoorv3_alefvanoon_anonaddy_me-browser-action","_ef87d84c-2127-493f-b952-5b4e744245bc_-browser-action","_aecec67f-0d10-4fa7-b7c7-609a2db280cf_-browser-action"],"dirtyAreaCache":["nav-bar","PersonalToolbar","unified-extensions-area","TabsToolbar","toolbar-menubar","widget-overflow-fixed-list"],"currentVersion":20,"newElementCount":7}
           '';
           "browser.uidensity" = 1;
           "browser.urlbar.quicksuggest.enabled" = false;

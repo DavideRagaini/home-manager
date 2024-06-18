@@ -61,9 +61,9 @@
       nodePackages.bash-language-server
       nodePackages.js-beautify
       nodePackages.prettier
-      nodePackages.pyright
       nodePackages.stylelint
       nodejs_20
+      pyright
 
       ## Python3
       pipenv
