@@ -1,11 +1,17 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
   home = {
     packages = with pkgs; [
-      # brave
+      btop
+      calibre
       catppuccin-cursors.macchiatoDark
       dmenu
+      duf
+      djvulibre
+      ffmpegthumbnailer
+      gnome-epub-thumbnailer
+      dunst
       fd
       ffmpeg
       gcc9
@@ -16,8 +22,6 @@
       jmtpfs
       keepassxc
       libnotify
-      # librewolf
-      libsForQt5.breeze-qt5
       lsof
       mpv
       neovim
@@ -25,12 +29,9 @@
       poppler_utils
       powertop
       pulsemixer
-      # qutebrowser
-      qt5ct
       tealdeer
       trash-cli
       tmux
-      yaru-theme
       yt-dlp
     ];
   };

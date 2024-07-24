@@ -206,9 +206,8 @@
           default = "SearX";
           # order = [  ];
           engines = {
-            "SearX General" = {
+            "SearX" = {
               urls = [{
-                # template = "https://searx.be/search";
                 template = "https://searx.be/search";
                 params = [
                   {
@@ -230,41 +229,43 @@
                 ];
               }];
             };
-            "Piped" = {
+            "USDA" = {
               urls = [{
-                template = "https://piped.privacydev.net";
+                template = "https://fdc.nal.usda.gov/fdc-app.html#/";
                 params = [{
-                  name = "results?search_query";
+                  name = "query";
                   value = "{searchTerms}";
                 }];
               }];
-              # icon =
-              # "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
+              definedAliases = [ "usda" ];
+            };
+            "Piped" = {
+              urls = [{
+                template = "https://piped.privacydev.net/results";
+                params = [{
+                  name = "search_query";
+                  value = "{searchTerms}";
+                }];
+              }];
               definedAliases = [ "y" ];
             };
-            # "Yewtube" = {
-            #   urls = [{
-            #     template = "https://yewtu.be/search";
-            #     params = [{
-            #       name = "q";
-            #       value = "{searchTerms}";
-            #     }];
-            #   }];
-            #   # icon =
-            #   # "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
-            #   definedAliases = [ "y" ];
-            # };
-            "Nix Packages" = {
+            "Yewtube" = {
+              urls = [{
+                template = "https://yewtu.be/search";
+                params = [{
+                  name = "q";
+                  value = "{searchTerms}";
+                }];
+              }];
+              definedAliases = [ "yt" ];
+            };
+            "Nix Packages stable" = {
               urls = [{
                 template = "https://search.nixos.org/packages";
                 params = [
                   {
                     name = "type";
                     value = "packages";
-                  }
-                  {
-                    name = "channel";
-                    value = "24.05";
                   }
                   {
                     name = "query";
@@ -276,7 +277,29 @@
                 "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
               definedAliases = [ "np" ];
             };
-            "NixOS Options" = {
+            "Nix Packages unstable" = {
+              urls = [{
+                template = "https://search.nixos.org/packages";
+                params = [
+                  {
+                    name = "type";
+                    value = "packages";
+                  }
+                  {
+                    name = "channel";
+                    value = "unstable";
+                  }
+                  {
+                    name = "query";
+                    value = "{searchTerms}";
+                  }
+                ];
+              }];
+              icon =
+                "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
+              definedAliases = [ "npu" ];
+            };
+            "NixOS Options stable" = {
               urls = [{
                 template = "https://search.nixos.org/options";
                 params = [
@@ -293,6 +316,28 @@
               icon =
                 "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
               definedAliases = [ "no" ];
+            };
+            "NixOS Options unstable" = {
+              urls = [{
+                template = "https://search.nixos.org/options";
+                params = [
+                  {
+                    name = "type";
+                    value = "packages";
+                  }
+                  {
+                    name = "channel";
+                    value = "unstable";
+                  }
+                  {
+                    name = "query";
+                    value = "{searchTerms}";
+                  }
+                ];
+              }];
+              icon =
+                "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
+              definedAliases = [ "nou" ];
             };
             "NixOS Wiki" = {
               urls = [{
@@ -431,6 +476,7 @@
           };
         };
         settings = {
+          "accessibility.force_disabled" = 1;
           "accessibility.typeaheadfind.flashBar" = 0;
           "app.normandy.api_url" = "";
           "app.normandy.enabled" = false;
@@ -592,8 +638,8 @@
           #   true;
           "extensions.webextensions.restrictedDomains" = "";
           "fission.autostart" = true;
-          "font.size.systemFontScale" = 120;
-          "font.size.variable.x-western" = 12;
+          # "font.size.systemFontScale" = 120;
+          "font.size.variable.x-western" = 18;
           "full-screen-api.ignore-widgets" = true;
           "full-screen-api.transition-duration.enter" = [ 0 0 ];
           "full-screen-api.transition-duration.leave" = [ 0 0 ];
@@ -616,7 +662,7 @@
           "image.animation_mode" = "once";
           "intl.accept_languages" = "en-US, en";
           "javascript.use_us_english_locale" = true;
-          "layout.css.devPixelsPerPx" = 1;
+          # "layout.css.devPixelsPerPx" = 2; # scale x2
           "media.autoplay.default" = 5;
           "media.block-play-until-visible" = true;
           "media.eme.enabled" = false;
@@ -750,7 +796,7 @@
           "network.ssl_tokens_cache_capacity" = 10240;
           # SECUREFOX
           "browser.crashReports.unsubmittedCheck.autoSubmit2" = false;
-          "browser.download.start_downloads_in_tmp_dir" = true;
+          "browser.download.start_downloads_in_tmp_dir" = false;
           "browser.privatebrowsing.forceMediaMemoryCache" = true;
           "browser.search.separatePrivateDefault.ui.enabled" = true;
           "browser.sessionstore.interval" = 60000;
@@ -801,7 +847,7 @@
           "browser.urlbar.suggest.calculator" = true;
           "browser.urlbar.unitConversion.enabled" = true;
           "browser.urlbar.trending.featureGate" = false;
-          "browser.download.useDownloadDir" = false;
+          "browser.download.useDownloadDir" = true;
           "browser.download.always_ask_before_handling_new_types" = true;
           "browser.download.manager.addToRecentDocs" = false;
           "browser.download.open_pdf_attachments_inline" = true;
@@ -900,7 +946,7 @@
             padding-top: 0 !important;
             padding-bottom: 0 !important;
             font-family: var(--urlbar-font, 'monospace');
-            font-size: 11px;
+            font-size: 18px;
           }
 
           #urlbar {
@@ -929,7 +975,7 @@
 
           /* make extension icons smaller */
           #unified-extensions-view {
-            --uei-icon-size: 16px;
+            --uei-icon-size: 26px;
           }
 
           /* hide bloat */
@@ -984,7 +1030,7 @@
 
           #TabsToolbar, .tabbrowser-tab {
             max-height: var(--tab-min-height) !important;
-            font-size: 11px !important;
+            font-size: 18px !important;
           }
 
           /* Change color of normal tabs */

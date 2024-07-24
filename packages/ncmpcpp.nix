@@ -51,7 +51,6 @@
         # mpd_host = 127.0.0.1
         mpd_host = "/run/user/1000/mpd/socket";
         mpd_port = 6600;
-        mpd_music_dir = "~/mus";
         mpd_crossfade_time = 1;
         message_delay_time = 1;
         song_list_format = "{$4%a - }{%t}|{$8%f$9}$R{$3(%l)$9}";

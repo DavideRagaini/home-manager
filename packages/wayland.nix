@@ -1,21 +1,22 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
   home = {
     packages = with pkgs; [
       emacs29-pgtk
       cliphist
-      pqiv
+      sway-contrib.grimshot
+      imv
       tofi
       wl-clipboard
       wlsunset
       libsixel
       lsix
       chafa
+      foot
+      wlr-randr
+      swayidle
     ];
-    sessionVariables = {
-      XDG_CURRENT_DESKTOP = "sway";
-    };
   };
 
   xdg = {

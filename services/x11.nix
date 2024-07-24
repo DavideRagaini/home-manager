@@ -1,9 +1,9 @@
-{ config, pkgs, lib, ... }:
+{ ... }:
 
 {
   services = {
 
-    # clipmenu.enable = true;
+    clipmenu.enable = true;
 
     picom = {
       enable = false;
@@ -84,10 +84,15 @@
 
   };
 
-  systemd.user.targets.tray = {
-    Unit = {
-      Description = "Home Manager System Tray";
-      Requires = [ "graphical-session-pre.target" ];
+  systemd.user = {
+    services.clipmenu.environment = {
+      CM_IGNORE_WINDOW=".*KeePassXC.*";
+    };
+    targets.tray = {
+      Unit = {
+        Description = "Home Manager System Tray";
+        Requires = [ "graphical-session-pre.target" ];
+      };
     };
   };
 }

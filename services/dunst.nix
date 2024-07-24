@@ -28,7 +28,7 @@
           separator_color = "auto";
           sort = "no";
           idle_threshold = 1;
-          font = "Fantasque Sans Mono 12";
+          font = "Iosevka Term Nerd Font 20";
           line_height = 3;
           markup = "full";
           format = "<b>%s</b>\\n%b\\n\\n[%a]\\n%p";

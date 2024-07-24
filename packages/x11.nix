@@ -1,33 +1,26 @@
 { config, pkgs, ... }:
 
-{  home = {
+{
+  home = {
     packages = with pkgs; [
+
+      mypy
+      iftop
+      python311Packages.urllib3
+
       alacritty
-      ani-cli
       aria
       beets
-      btop
-      calibre
       clipmenu
-      djvulibre
-      ffmpegthumbnailer
-      gnome-epub-thumbnailer
-      mangal
       pdftk
       ueberzugpp
-
       alsa-utils
       conky
-      dunst
-      emacs29
       fontpreview
       maim
       nsxiv
       numlockx
       syncthingtray
-      transmission
-      transmission-remote-gtk
-      tremc
       wmctrl
       xautolock
       xcape
