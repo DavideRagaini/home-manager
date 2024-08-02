@@ -3,19 +3,20 @@
 {
   home = {
     packages = with pkgs; [
-      emacs29-pgtk
+      bemenu
+      chafa
       cliphist
-      sway-contrib.grimshot
+      emacs29-pgtk
+      foot
       imv
-      tofi
-      wl-clipboard
-      wlsunset
       libsixel
       lsix
-      chafa
-      foot
-      wlr-randr
+      sway-contrib.grimshot
       swayidle
+      swaylock
+      wl-clipboard
+      wlr-randr
+      wlsunset
     ];
   };
 

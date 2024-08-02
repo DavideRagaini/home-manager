@@ -20,7 +20,6 @@
       maim
       nsxiv
       numlockx
-      syncthingtray
       wmctrl
       xautolock
       xcape

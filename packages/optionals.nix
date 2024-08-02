@@ -3,11 +3,13 @@
 {
   home = {
     packages = with pkgs; [
-      lua
-      imagemagick
       ferdium
+      imagemagick
+      lua
+      nsxiv
       parallel
       texlive.combined.scheme-full
+      wlopm
     ];
   };
 }
