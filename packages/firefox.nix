@@ -573,9 +573,9 @@
           "browser.theme.toolbar-theme" = 0;
           "browser.toolbars.bookmarks.visibility" = "never";
           "browser.translations.automaticallyPopup" = false;
-          "browser.uiCustomization.state" = ''
-            browser.uiCustomization.state	{"placements":{"widget-overflow-fixed-list":[],"unified-extensions-area":["_ef87d84c-2127-493f-b952-5b4e744245bc_-browser-action","_aecec67f-0d10-4fa7-b7c7-609a2db280cf_-browser-action"],"nav-bar":["back-button","forward-button","stop-reload-button","home-button","urlbar-container","fxa-toolbar-menu-button","downloads-button","ublock0_raymondhill_net-browser-action","addon_darkreader_org-browser-action","keepassxc-browser_keepassxc_org-browser-action","_d7742d87-e61d-4b78-b8a1-b469842139fa_-browser-action","7esoorv3_alefvanoon_anonaddy_me-browser-action","unified-extensions-button"],"toolbar-menubar":["menubar-items"],"TabsToolbar":["tabbrowser-tabs","new-tab-button","alltabs-button","firefox-view-button"],"PersonalToolbar":["import-button","personal-bookmarks"]},"seen":["developer-button","ublock0_raymondhill_net-browser-action","addon_darkreader_org-browser-action","keepassxc-browser_keepassxc_org-browser-action","_d7742d87-e61d-4b78-b8a1-b469842139fa_-browser-action","7esoorv3_alefvanoon_anonaddy_me-browser-action","_ef87d84c-2127-493f-b952-5b4e744245bc_-browser-action","_aecec67f-0d10-4fa7-b7c7-609a2db280cf_-browser-action"],"dirtyAreaCache":["nav-bar","PersonalToolbar","unified-extensions-area","TabsToolbar","toolbar-menubar","widget-overflow-fixed-list"],"currentVersion":20,"newElementCount":7}
-          '';
+          # "browser.uiCustomization.state" = ''
+          #   browser.uiCustomization.state	{"placements":{"widget-overflow-fixed-list":[],"unified-extensions-area":["_ef87d84c-2127-493f-b952-5b4e744245bc_-browser-action","_aecec67f-0d10-4fa7-b7c7-609a2db280cf_-browser-action"],"nav-bar":["back-button","forward-button","stop-reload-button","home-button","urlbar-container","fxa-toolbar-menu-button","downloads-button","ublock0_raymondhill_net-browser-action","addon_darkreader_org-browser-action","keepassxc-browser_keepassxc_org-browser-action","_d7742d87-e61d-4b78-b8a1-b469842139fa_-browser-action","7esoorv3_alefvanoon_anonaddy_me-browser-action","unified-extensions-button"],"toolbar-menubar":["menubar-items"],"TabsToolbar":["tabbrowser-tabs","new-tab-button","alltabs-button","firefox-view-button"],"PersonalToolbar":["import-button","personal-bookmarks"]},"seen":["developer-button","ublock0_raymondhill_net-browser-action","addon_darkreader_org-browser-action","keepassxc-browser_keepassxc_org-browser-action","_d7742d87-e61d-4b78-b8a1-b469842139fa_-browser-action","7esoorv3_alefvanoon_anonaddy_me-browser-action","_ef87d84c-2127-493f-b952-5b4e744245bc_-browser-action","_aecec67f-0d10-4fa7-b7c7-609a2db280cf_-browser-action"],"dirtyAreaCache":["nav-bar","PersonalToolbar","unified-extensions-area","TabsToolbar","toolbar-menubar","widget-overflow-fixed-list"],"currentVersion":20,"newElementCount":7}
+          # '';
           "browser.uidensity" = 1;
           "browser.urlbar.quicksuggest.enabled" = false;
           "browser.urlbar.quicksuggest.migrationVersion" = 2;
@@ -589,7 +589,7 @@
           "browser.urlbar.trimURLs" = false;
           "browser.xul.error_pages.expert_bad_cert" = true;
           "captivedetect.canonicalURL" = "";
-          "datareporting.healthreport.uploadEnabled" = false;
+          # "datareporting.healthreport.uploadEnabled" = false;
           "datareporting.policy.dataSubmissionEnabled" = false;
           "distribution.nixos.bookmarksProcessed" = true;
           "doh-rollout.disable-heuristics" = true;
@@ -867,10 +867,10 @@
           "browser.newtabpage.activity-stream.feeds.topsites" = false;
         };
         extraConfig = ''
-          var key_bookmarks = document.getElementById('viewBookmarksSidebarKb');
-          var key_history = document.getElementById('viewHistorySidebarKb');
-          if (key_bookmark) key_bookmark.remove();
-          else if (key_history) key_history.remove();
+          # var key_bookmarks = document.getElementById('viewBookmarksSidebarKb');
+          # var key_history = document.getElementById('viewHistorySidebarKb');
+          # if (key_bookmark) key_bookmark.remove();
+          # else if (key_history) key_history.remove();
         '';
         userChrome = ''
           :root {
