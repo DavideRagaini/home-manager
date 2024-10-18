@@ -239,16 +239,6 @@
               }];
               definedAliases = [ "usda" ];
             };
-            "Piped" = {
-              urls = [{
-                template = "https://piped.privacydev.net/results";
-                params = [{
-                  name = "search_query";
-                  value = "{searchTerms}";
-                }];
-              }];
-              definedAliases = [ "y" ];
-            };
             "Yewtube" = {
               urls = [{
                 template = "https://yewtu.be/search";
@@ -257,7 +247,7 @@
                   value = "{searchTerms}";
                 }];
               }];
-              definedAliases = [ "yt" ];
+              definedAliases = [ "y" ];
             };
             "Nix Packages stable" = {
               urls = [{
@@ -639,7 +629,7 @@
           "extensions.webextensions.restrictedDomains" = "";
           "fission.autostart" = true;
           # "font.size.systemFontScale" = 120;
-          "font.size.variable.x-western" = 18;
+          "font.size.variable.x-western" = 12;
           "full-screen-api.ignore-widgets" = true;
           "full-screen-api.transition-duration.enter" = [ 0 0 ];
           "full-screen-api.transition-duration.leave" = [ 0 0 ];
@@ -670,7 +660,7 @@
           # "media.ffvpx.enabled" = false;
           "media.gmp.storage.version.observed" = 1;
           "media.navigator.enabled" = false;
-          "media.peerconnection.enabled" = false;
+          "media.peerconnection.enabled" = true;
           "media.peerconnection.ice.default_address_only" = true;
           "media.peerconnection.ice.no_host" = true;
           "media.peerconnection.ice.proxy_only_if_behind_proxy" = true;
@@ -771,7 +761,7 @@
           "trailhead.firstrun.didSeeAboutWelcome" = true;
           "ui.context_menus.after_mouseup" = true;
           "ui.prefersReducedMotion" = 0;
-          "ui.textScaleFactor" = 85;
+          # "ui.textScaleFactor" = 85;
           "webgl.disabled" = true;
           "widget.use-xdg-desktop-portal" = true;
           # FASTERFOX
@@ -881,8 +871,8 @@
             --urlbar-focused-bg-color: #1c1b22;
             --urlbar-not-focused-bg-color: #282a36;
             --toolbar-bgcolor: #1c1b22 !important;
-            --tab-font: 'IosevkaTerm Nerd Font Propo';
-            --urlbar-font: 'IosevkaTerm Nerd Font Propo';
+            --tab-font: 'IosevkaTermSlab Nerd Font Propo';
+            --urlbar-font: 'IosevkaTermSlab Nerd Font Propo';
 
             /* try increasing if you encounter problems */
             --urlbar-height-setting: 24px;

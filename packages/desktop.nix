@@ -3,6 +3,8 @@
 {
   home = {
     packages = with pkgs; [
+      aria2
+      alacritty
       btop
       calibre
       catppuccin-cursors.macchiatoDark

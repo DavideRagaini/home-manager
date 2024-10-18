@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
   services = {
@@ -28,7 +28,7 @@
           separator_color = "auto";
           sort = "no";
           idle_threshold = 1;
-          font = "Iosevka Term Nerd Font 20";
+          font = "Iosevka Term Nerd Font 14";
           line_height = 3;
           markup = "full";
           format = "<b>%s</b>\\n%b\\n\\n[%a]\\n%p";

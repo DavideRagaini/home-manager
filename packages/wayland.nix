@@ -14,7 +14,9 @@
       sway-contrib.grimshot
       swayidle
       swaylock
+      waybar
       wl-clipboard
+      wlopm
       wlr-randr
       wlsunset
     ];
@@ -26,7 +28,6 @@
       enable = true;
       extraPortals = with pkgs; [
         xdg-desktop-portal-wlr
-        xdg-desktop-portal-gtk
       ];
     };
   };

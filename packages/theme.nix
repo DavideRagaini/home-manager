@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
   home.packages = with pkgs; [
@@ -30,71 +30,45 @@
   gtk = {
     enable = true;
     font = {
-      name = "IosevkaTerm Nerd Font Propo";
+      name = "IosevkaTermSlab Nerd Font Propo";
       size = 18;
     };
-    # gtk2 = {
-    #   configLocation = "${config.xdg.configHome}/gtk-2.0/gtkrc";
-    #   extraConfig = ''
-    #     gtk-toolbar-style = GTK_TOOLBAR_BOTH
-    #     gtk-toolbar-icon-size = GTK_ICON_SIZE_SMALL_TOOLBAR
-    #     gtk-button-images = 1
-    #     gtk-menu-images = 1
-    #     gtk-enable-event-sounds = 0
-    #     gtk-enable-input-feedback-sounds = 0
-    #     gtk-xft-antialias = 1
-    #     gtk-xft-hinting = 1
-    #     gtk-xft-hintstyle = "hintfull"
-    #     gtk-xft-rgba = "rgb"
-    #   '';
-    # };
-    # gtk3 = {
-    #   extraConfig = {
-    #     gtk-cursor-blink = true;
-    #     gtk-cursor-theme-size = 0;
-    #     gtk-enable-event-sounds = 0;
-    #     gtk-enable-input-feedback-sounds = 0;
-    #     gtk-menu-images = 1;
-    #     gtk-primary-button-warps-slider = 0;
-    #     gtk-recent-files-limit = 20;
-    #     gtk-toolbar-icon-size = "GTK_ICON_SIZE_SMALL_TOOLBAR";
-    #     gtk-toolbar-style = "GTK_TOOLBAR_BOTH";
-    #     gtk-xft-antialias = 1;
-    #     gtk-xft-hinting = 1;
-    #     gtk-xft-hintstyle = "hintfull";
-    #     gtk-xft-rgba = "rgb";
-    #   };
-    # };
-    # gtk4 = {
-    #   extraConfig = {
-    #     gtk-cursor-blink = true;
-    #     gtk-recent-files-limit = 20;
-    #   };
-    # };
+
     iconTheme = {
       name = "Papirus-Dark";
       package = pkgs.papirus-icon-theme;
     };
+
     theme = {
       name = "yaru-theme";
       package = pkgs.yaru-theme;
     };
+
     cursorTheme = {
       name = "Catppuccin-Macchiato-Dark-Cursors";
       package = pkgs.catppuccin-cursors.macchiatoDark;
       size = 32;
     };
+
     gtk3.extraConfig = {
-      Settings = ''
-        gtk-application-prefer-dark-theme=1
-      '';
+      gtk-application-prefer-dark-theme = true;
+      gtk-toolbar-style = "GTK_TOOLBAR_BOTH_HORIZ";
+      gtk-toolbar-icon-size = "GTK_ICON_SIZE_SMALL_TOOLBAR";
+      gtk-button-images = 0;
+      gtk-menu-images = 0;
+      gtk-enable-event-sounds = 0;
+      gtk-enable-input-feedback-sounds = 0;
+      gtk-xft-antialias = 1;
+      gtk-xft-hinting = 1;
+      gtk-xft-hintstyle = "hintslight";
+      gtk-xft-rgba = "rgb";
+      # gtk-decoration-layout=menu:close
+      # gtk-application-prefer-dark-theme=1
     };
-    gtk4.extraConfig = {
-      Settings = ''
-        gtk-application-prefer-dark-theme=1
-      '';
-    };
+
+    gtk4.extraConfig = { gtk-application-prefer-dark-theme = true; };
   };
+
   home.sessionVariables.GTK_THEME = "yaru";
   dconf.settings = {
     "org/gnome/desktop/interface" = { color-scheme = "prefer-dark"; };
