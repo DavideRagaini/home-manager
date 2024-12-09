@@ -68,13 +68,13 @@
       ## Python3
       pipenv
       pyenv
-      python311
-      python311Packages.black
-      python311Packages.isort
-      python311Packages.nose
-      python311Packages.pip
-      python311Packages.pyflakes
-      python311Packages.pytest
+      python312
+      python312Packages.black
+      python312Packages.isort
+      # python311Packages.nose
+      python312Packages.pip
+      python312Packages.pyflakes
+      python312Packages.pytest
 
       ## Shell
       shellcheck

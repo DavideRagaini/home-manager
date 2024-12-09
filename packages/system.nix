@@ -11,21 +11,21 @@
       file
       fzf
       git-crypt
-      harfbuzz
-      hw-probe
+      # harfbuzz
+      # hw-probe
       jq
       lf
-      lm_sensors
-      lshw
+      # lm_sensors
+      # lshw
       mediainfo
       mpc-cli
       mpd
       ncdu
       ncmpcpp
       pciutils
-      pipx
+      # pipx
       rsync
-      sioyek
+      # sioyek
       socat
       spotify-player
       taskspooler

@@ -6,10 +6,14 @@
       ferdium
       imagemagick
       lua
-      nsxiv
+      luarocks
+      nuclear
       parallel
+      pipe-viewer
+      openvpn3
+      remmina
       texlive.combined.scheme-full
-      wlopm
+      wtwitch
     ];
   };
 }

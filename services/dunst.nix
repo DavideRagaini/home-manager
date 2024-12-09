@@ -9,7 +9,7 @@
       iconTheme.size = "32x32";
       settings = {
         global = {
-          monitor = 0;
+          monitor = 1;
           follow = "none";
           width = "(0, 1500)";
           origin = "top-right";

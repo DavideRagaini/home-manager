@@ -7,7 +7,6 @@
       alacritty
       btop
       calibre
-      catppuccin-cursors.macchiatoDark
       dmenu
       duf
       djvulibre
@@ -27,7 +26,6 @@
       lsof
       mpv
       neovim
-      papirus-icon-theme
       poppler_utils
       powertop
       pulsemixer

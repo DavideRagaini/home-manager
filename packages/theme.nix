@@ -5,6 +5,7 @@
     adwaita-qt
     yaru-theme
     catppuccin-cursors.macchiatoDark
+    papirus-icon-theme
   ];
 
   qt = {
