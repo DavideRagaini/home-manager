@@ -26,6 +26,7 @@
       lsof
       mpv
       neovim
+      qutebrowser
       poppler_utils
       powertop
       pulsemixer

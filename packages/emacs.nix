@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
   home = {
@@ -23,6 +23,13 @@
       wordnet
 
       # ----- Development -----
+
+      # cc
+      emacsPackages.clang-format
+      glslang
+
+      ## Docker
+      dockfmt
 
       ## Go
       gomodifytags
@@ -50,6 +57,7 @@
 
       ## Markdown
       gh-markdown-preview
+      emacsPackages.markdown-preview-mode
 
       ## Nix
       nixd

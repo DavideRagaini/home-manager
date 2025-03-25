@@ -3,11 +3,12 @@
 {
   home = {
     packages = with pkgs; [
+      easyeffects
       ferdium
       imagemagick
       lua
       luarocks
-      nuclear
+      # nuclear
       parallel
       pipe-viewer
       openvpn3

@@ -25,7 +25,7 @@
         home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           # modules = [ ./home.nix ];
-          modules = [ ./home.nix ({ nixpkgs.overlays = [ nur.overlay ]; }) ];
+          modules = [ ./home.nix ({ nixpkgs.overlays = [ nur.overlays.default ]; }) ];
         };
     };
 }

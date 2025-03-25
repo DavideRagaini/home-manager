@@ -5,8 +5,10 @@
     ./packages/desktop.nix
     ./packages/emacs.nix
     ./packages/firefox.nix
+    ./packages/chromium.nix
     ./packages/system.nix
     ./packages/theme.nix
+
     ./services/dunst.nix
     ./services/gpg.nix
     ./services/mimeapplist.nix

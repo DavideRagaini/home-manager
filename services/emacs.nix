@@ -1,10 +1,10 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
   services = {
     emacs = {
       enable = true;
-      package = pkgs.emacs29;
+      package = pkgs.emacs30;
       defaultEditor = true;
     };
   };

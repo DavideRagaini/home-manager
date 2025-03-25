@@ -9,7 +9,7 @@
       iconTheme.size = "32x32";
       settings = {
         global = {
-          monitor = 1;
+          monitor = 0;
           follow = "none";
           width = "(0, 1500)";
           origin = "top-right";
@@ -28,7 +28,7 @@
           separator_color = "auto";
           sort = "no";
           idle_threshold = 1;
-          font = "Iosevka Term Nerd Font 14";
+          font = "Iosevka Term Nerd Font 18";
           line_height = 3;
           markup = "full";
           format = "<b>%s</b>\\n%b\\n\\n[%a]\\n%p";

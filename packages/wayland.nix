@@ -6,7 +6,7 @@
       bemenu
       chafa
       cliphist
-      emacs29-pgtk
+      emacs30-pgtk
       foot
       imv
       libsixel
