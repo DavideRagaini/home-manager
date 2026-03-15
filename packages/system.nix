@@ -18,7 +18,7 @@
       # lm_sensors
       # lshw
       mediainfo
-      mpc-cli
+      mpc
       mpd
       ncdu
       ncmpcpp
@@ -78,7 +78,7 @@
         device = {
           name = "spotify-player";
           device_type = "computer";
-          volume = 85;
+          volume = 75;
           bitrate = 320;
           audio_cache = true;
           normalization = true;

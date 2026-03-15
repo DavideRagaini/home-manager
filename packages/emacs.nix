@@ -7,7 +7,7 @@
       emacs-all-the-icons-fonts
 
       # ----- Tools -----
-      bashdb
+      # bashdb
       direnv
       fd
       sqlite
@@ -25,7 +25,7 @@
       # ----- Development -----
 
       # cc
-      emacsPackages.clang-format
+      emacs.pkgs.clang-format
       glslang
 
       ## Docker
@@ -57,11 +57,11 @@
 
       ## Markdown
       gh-markdown-preview
-      emacsPackages.markdown-preview-mode
+      emacs.pkgs.markdown-preview-mode
 
       ## Nix
       nixd
-      nixfmt-classic
+      nixfmt
       nixpkgs-fmt
       nixpkgs-review
 
@@ -70,23 +70,34 @@
       nodePackages.js-beautify
       nodePackages.prettier
       nodePackages.stylelint
-      nodejs_20
-      pyright
+      nodejs_24
+      # pyright
+
+      # Org
+      python313Packages.jupyter-core
 
       ## Python3
-      pipenv
-      pyenv
-      python312
-      python312Packages.black
-      python312Packages.isort
-      # python311Packages.nose
-      python312Packages.pip
-      python312Packages.pyflakes
-      python312Packages.pytest
+      # pipenv
+      # pyenv
+      python313
+      python313Packages.black
+      python313Packages.cython
+      python313Packages.isort
+      python313Packages.pip
+      python313Packages.pyflakes
+      python313Packages.pytest
+      ruff
+      ty
+      uv
 
       ## Shell
       shellcheck
       shfmt
+
+      # vterm
+      gnumake
+      cmakeMinimal
+      libtool
 
       ## YAML
       yaml-language-server

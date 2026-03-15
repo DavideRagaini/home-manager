@@ -4,35 +4,34 @@
   home = {
     packages = with pkgs; [
       aria2
-      alacritty
       btop
       calibre
-      dmenu
-      duf
       djvulibre
-      ffmpegthumbnailer
-      gnome-epub-thumbnailer
+      duf
       dunst
       fd
       ffmpeg
-      gcc9
+      ffmpegthumbnailer
+      gcc
+      gnome-epub-thumbnailer
       gnupg
       hdparm
       html2text
       htop
+      jftui
       jmtpfs
       keepassxc
       libnotify
       lsof
       mpv
       neovim
-      qutebrowser
-      poppler_utils
+      poppler-utils
       powertop
       pulsemixer
+      qutebrowser
       tealdeer
-      trash-cli
       tmux
+      trash-cli
       yt-dlp
     ];
   };
