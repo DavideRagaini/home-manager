@@ -66,10 +66,10 @@
       nixpkgs-review
 
       ## Node
-      nodePackages.bash-language-server
-      nodePackages.js-beautify
-      nodePackages.prettier
-      nodePackages.stylelint
+      # nodePackages.bash-language-server
+      # nodePackages.js-beautify
+      # nodePackages.prettier
+      # nodePackages.stylelint
       nodejs_24
       # pyright
 

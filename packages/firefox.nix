@@ -202,12 +202,12 @@
 
         search = {
           force = true;
-          privateDefault = "Google";
-          default = "Google";
+          privateDefault = "google";
+          default = "google";
           # order = [  ];
 
           engines = {
-            "Google" = {
+            "google" = {
               urls = [
                 {
                   template = "https://www.google.com/search";
@@ -289,9 +289,24 @@
                   ];
                 }
               ];
-              iconUpdateURL = "https://nixos.wiki/favicon.png";
+              # iconUpdateURL = "https://nixos.wiki/favicon.png";
               # updateInterval = 24 * 60 * 60 * 1000;
               definedAliases = [ "nw" ];
+            };
+
+            "Home Manager Packages" = {
+              urls = [
+                {
+                  template = "https://searchix.ovh/";
+                  params = [
+                    {
+                      name = "query";
+                      value = "{searchTerms}";
+                    }
+                  ];
+                }
+              ];
+              definedAliases = [ "hp" ];
             };
 
             "Home Manager Options" = {
@@ -309,7 +324,7 @@
               definedAliases = [ "ho" ];
             };
 
-            "Wikipedia (en)" = {
+            "wikipedia" = {
               metaData = {
                 hidden = true;
                 alias = "w";
@@ -330,19 +345,19 @@
               };
             };
 
-            "Bing".metaData.hidden = true;
+            "bing".metaData.hidden = true;
 
           };
         };
         extensions.packages = with pkgs.nur.repos.rycee.firefox-addons; [
           darkreader
           hover-zoom-plus
-          keepassxc-browser
+          # keepassxc-browser
           bitwarden
-          libredirect
+          # libredirect
           ublock-origin
           # vimium
-          violentmonkey
+          # violentmonkey
           tridactyl
         ];
 
@@ -376,8 +391,8 @@
           "browser.sessionstore.interval" = 60000;
 
           # /** SHUTDOWN & SANITIZING ***/
-          "privacy.history.custom" = true;
-          "browser.privatebrowsing.resetPBM.enabled" = true;
+          # "privacy.history.custom" = true;
+          # "browser.privatebrowsing.resetPBM.enabled" = true;
 
           # /** SPECULATIVE LOADING ***/
           "network.http.speculative-parallel-limit" = 0;

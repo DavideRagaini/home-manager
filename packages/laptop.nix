@@ -3,9 +3,8 @@
 {
   home = {
     packages = with pkgs; [
-      easyeffects
-      parallel
-      wtwitch
+      brightnessctl
+      wdisplays
     ];
   };
 }

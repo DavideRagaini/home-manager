@@ -3,6 +3,7 @@
 {
   home = {
     packages = with pkgs; [
+      pcmanfm-qt
       aria2
       btop
       calibre

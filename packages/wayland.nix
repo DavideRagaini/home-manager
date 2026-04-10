@@ -22,13 +22,13 @@
     ];
   };
 
-  xdg = {
-    portal = {
-      config.common.default = "*";
-      enable = true;
-      extraPortals = with pkgs; [
-        xdg-desktop-portal-wlr
-      ];
-    };
-  };
+  # xdg = {
+  #   portal = {
+  #     config.common.default = "*";
+  #     enable = true;
+  #     extraPortals = with pkgs; [
+  #       xdg-desktop-portal-wlr
+  #     ];
+  #   };
+  # };
 }

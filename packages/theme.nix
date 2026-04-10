@@ -32,7 +32,7 @@
     enable = true;
     font = {
       name = "IosevkaTermSlab Nerd Font Propo";
-      size = 18;
+      size = 12;
     };
 
     iconTheme = {
@@ -67,11 +67,18 @@
       # gtk-application-prefer-dark-theme=1
     };
 
-    gtk4.extraConfig = { gtk-application-prefer-dark-theme = true; };
+    gtk4 = {
+      theme = null;
+      extraConfig = {
+        gtk-application-prefer-dark-theme = true;
+      };
+    };
   };
 
   home.sessionVariables.GTK_THEME = "yaru";
   dconf.settings = {
-    "org/gnome/desktop/interface" = { color-scheme = "prefer-dark"; };
+    "org/gnome/desktop/interface" = {
+      color-scheme = "prefer-dark";
+    };
   };
 }
