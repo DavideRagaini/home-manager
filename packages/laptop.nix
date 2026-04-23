@@ -5,6 +5,7 @@
     packages = with pkgs; [
       brightnessctl
       wdisplays
+      nautilus
     ];
   };
 }

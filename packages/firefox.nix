@@ -530,12 +530,12 @@
           "layout.word_select.eat_space_to_next_word" = false;
         };
 
-        extraConfig = ''
-          # var key_bookmarks = document.getElementById('viewBookmarksSidebarKb');
-          # var key_history = document.getElementById('viewHistorySidebarKb');
-          # if (key_bookmark) key_bookmark.remove();
-          # else if (key_history) key_history.remove();
-        '';
+        # extraConfig = ''
+        #   # var key_bookmarks = document.getElementById('viewBookmarksSidebarKb');
+        #   # var key_history = document.getElementById('viewHistorySidebarKb');
+        #   # if (key_bookmark) key_bookmark.remove();
+        #   # else if (key_history) key_history.remove();
+        # '';
 
         userChrome = ''
           :root {
@@ -795,7 +795,6 @@
         #     }
         #   }
         # '';
-
       };
     };
   };

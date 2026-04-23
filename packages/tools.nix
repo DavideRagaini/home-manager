@@ -12,6 +12,7 @@
       minicom
       mmtui
       nmap
+      net-snmp
       openfortivpn
       picocom
       remmina

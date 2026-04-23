@@ -36,7 +36,7 @@
       gopls
       gore
       gotests
-      gotools
+      # gotools
 
       ## html
       html-tidy
