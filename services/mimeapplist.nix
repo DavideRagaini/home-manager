@@ -55,8 +55,8 @@
       "audio/mp4" = "mpv.desktop";
       "audio/mpeg" = "mpv.desktop";
       "audio/x-flac" = "mpv.desktop";
-      "image/jpeg" = "nsxiv.desktop";
-      "image/png" = "nsxiv.desktop";
+      "image/jpeg" = "imv.desktop";
+      "image/png" = "imv.desktop";
       "image/vnd.djvu" = "zathura.desktop";
       "inode/directory" = "lf.desktop";
       "inode/x-empty" = "emacsslient.desktop";
@@ -136,13 +136,13 @@
       "audio/mpeg" = "mpv.desktop";
       "audio/x-mpequrl" = "mpv.desktop";
       "audio/x-flac" = "mpv.desktop";
-      "image/apng" = [ "nsxiv.desktop" "feh.desktop" "pqiv.desktop" ];
-      "image/avif" = [ "nsxiv.desktop" "feh.desktop" "pqiv.desktop" ];
-      "image/gif" = [ "nsxiv.desktop" "feh.desktop" "pqiv.desktop" ];
-      "image/jpeg" = [ "nsxiv.desktop" "feh.desktop" "pqiv.desktop" ];
-      "image/png" = [ "nsxiv.desktop" "feh.desktop" "pqiv.desktop" ];
-      "image/svg+xml" = [ "nsxiv.desktop" "feh.desktop" "pqiv.desktop" ];
-      "image/webp" = [ "nsxiv.desktop" "feh.desktop" "pqiv.desktop" ];
+      "image/apng" = [ "imv.desktop" "feh.desktop" "pqiv.desktop" ];
+      "image/avif" = [ "imv.desktop" "feh.desktop" "pqiv.desktop" ];
+      "image/gif" = [ "imv.desktop" "feh.desktop" "pqiv.desktop" ];
+      "image/jpeg" = [ "imv.desktop" "feh.desktop" "pqiv.desktop" ];
+      "image/png" = [ "imv.desktop" "feh.desktop" "pqiv.desktop" ];
+      "image/svg+xml" = [ "imv.desktop" "feh.desktop" "pqiv.desktop" ];
+      "image/webp" = [ "imv.desktop" "feh.desktop" "pqiv.desktop" ];
       "image/vnd.djvu" = "zathura.desktop";
       "inode/directory" = "lf.desktop";
       "inode/x-empty" = "emacsslient.desktop";
@@ -172,7 +172,7 @@
       "x-scheme-handler/http" = "firefox.desktop";
       "x-scheme-handler/https" = "firefox.desktop";
       "text/xml" =
-        [ "emacs.desktop" "emacsclient.desktop" "nvim.desktop" "vi.desktop" ];
+        [ "emacsclient.desktop" "emacs.desktop" "nvim.desktop" "vi.desktop" ];
     };
   };
 }

@@ -3,7 +3,6 @@
 {
   home = {
     packages = with pkgs; [
-      pcmanfm-qt
       aria2
       btop
       calibre
@@ -26,13 +25,16 @@
       lsof
       mpv
       neovim
+      pinentry-all
       poppler-utils
       powertop
       pulsemixer
+      pwvucontrol
       qutebrowser
       tealdeer
       tmux
       trash-cli
+      wiremix
       yt-dlp
     ];
   };

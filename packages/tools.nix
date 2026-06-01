@@ -3,16 +3,17 @@
 {
   home = {
     packages = with pkgs; [
+      ansible
       dig
       ethtool
-      freerdp
       gping
+      iperf
       iproute2
       lm_sensors
       minicom
       mmtui
-      nmap
       net-snmp
+      nmap
       openfortivpn
       picocom
       remmina
@@ -21,8 +22,6 @@
       traceroute
       usbutils
       wireguard-tools
-      wireshark
-      wlvncc
       yazi
     ];
   };

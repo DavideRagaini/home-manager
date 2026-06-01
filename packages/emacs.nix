@@ -23,6 +23,8 @@
       wordnet
 
       # ----- Development -----
+      # Ansible
+      emacsPackages.ansible
 
       # cc
       emacs.pkgs.clang-format
@@ -52,12 +54,14 @@
       lua-language-server
 
       ## Mails
-      mu
+      emacsPackages.mu4e
       isync
+      msmtp
+      mu
 
       ## Markdown
       gh-markdown-preview
-      emacs.pkgs.markdown-preview-mode
+      # emacs.pkgs.markdown-preview-mode
 
       ## Nix
       nixd

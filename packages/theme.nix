@@ -1,30 +1,35 @@
 { pkgs, ... }:
 
 {
-  home.packages = with pkgs; [
-    adwaita-qt
-    yaru-theme
-    catppuccin-cursors.macchiatoDark
-    papirus-icon-theme
-  ];
-
-  qt = {
-    enable = true;
-    platformTheme.name = "qtct";
-    style = {
-      package = pkgs.adwaita-qt;
-      name = "adwaita-dark";
-    };
-  };
-
-  # environment.sessionVariables = { QT_STYLE_OVERRIDE = "adwaita-dark"; };
 
   home = {
+    packages = with pkgs; [
+      adwaita-qt
+      yaru-theme
+      catppuccin-cursors.macchiatoDark
+      papirus-icon-theme
+    ];
+    sessionVariables = {
+      # QT_QPA_PLATFORMTHEME = "qt6ct";
+      # QT_STYLE_OVERRIDE = "adwaita-dark";
+      # QT_STYLE_OVERRIDE = "kvantum";
+      SAL_USE_VCLPLUGIN = "qt6"; # libreoffice
+      GTK_THEME = "yaru";
+    };
     pointerCursor = {
       x11.enable = true;
       size = 48;
       name = "Catppuccin-Macchiato-Dark-Cursors";
       package = pkgs.catppuccin-cursors.macchiatoDark;
+    };
+  };
+
+  qt = {
+    enable = true;
+    platformTheme.name = "qt5ct";
+    style = {
+      package = pkgs.adwaita-qt;
+      name = "adwaita-dark";
     };
   };
 
@@ -75,7 +80,6 @@
     };
   };
 
-  home.sessionVariables.GTK_THEME = "yaru";
   dconf.settings = {
     "org/gnome/desktop/interface" = {
       color-scheme = "prefer-dark";

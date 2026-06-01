@@ -1,8 +1,9 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 
 {
   programs.firefox = {
     enable = true;
+    configPath = "${config.xdg.configHome}/firefox";
     # https://mozilla.github.io/policy-templates/
 
     policies = {
@@ -219,7 +220,7 @@
                   ];
                 }
               ];
-              definedAliases = [ "g" ];
+              definedAliases = [ "@g" ];
             };
 
             "Yewtube" = {
@@ -234,7 +235,7 @@
                   ];
                 }
               ];
-              definedAliases = [ "y" ];
+              definedAliases = [ "@y" ];
             };
 
             "Nix Packages stable" = {
@@ -254,7 +255,7 @@
                 }
               ];
               icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
-              definedAliases = [ "np" ];
+              definedAliases = [ "@np" ];
             };
 
             "NixOS Options stable" = {
@@ -274,7 +275,7 @@
                 }
               ];
               icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
-              definedAliases = [ "no" ];
+              definedAliases = [ "@no" ];
             };
 
             "NixOS Wiki" = {
@@ -291,7 +292,7 @@
               ];
               # iconUpdateURL = "https://nixos.wiki/favicon.png";
               # updateInterval = 24 * 60 * 60 * 1000;
-              definedAliases = [ "nw" ];
+              definedAliases = [ "@nw" ];
             };
 
             "Home Manager Packages" = {
@@ -306,7 +307,7 @@
                   ];
                 }
               ];
-              definedAliases = [ "hp" ];
+              definedAliases = [ "@hp" ];
             };
 
             "Home Manager Options" = {
@@ -321,7 +322,7 @@
                   ];
                 }
               ];
-              definedAliases = [ "ho" ];
+              definedAliases = [ "@ho" ];
             };
 
             "wikipedia" = {
@@ -570,6 +571,7 @@
           /* no stupid large buttons in right-click menu */
           menupopup > #context-navigation { display: none !important; }
           menupopup > #context-sep-navigation { display: none !important; }
+          #fullscr-toggler { display:none !important; }
           /* --- DEBLOAT NAVBAR ----------------------------------- */
           /* #back-button { display: none; } */
           /* #forward-button { display: none; } */

@@ -8,6 +8,7 @@
       ferdium
       kanshi
       libreoffice-qt
+      namespaced-openvpn
       networkmanagerapplet
       obs-studio
       thunderbird

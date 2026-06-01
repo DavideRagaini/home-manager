@@ -18,8 +18,6 @@
       # lm_sensors
       # lshw
       mediainfo
-      mpc
-      mpd
       ncdu
       ncmpcpp
       pciutils
