@@ -6,6 +6,7 @@
       anydesk
       brave
       ferdium
+      googleearth-pro
       kanshi
       libreoffice-qt
       namespaced-openvpn
@@ -19,11 +20,19 @@
   # virtualisation.docker.enable = true;
   # users.users.davide.extraGroups = [ "docker" ];
 
-  nixpkgs.config.allowUnfreePredicate =
-    pkg:
-    builtins.elem (lib.getName pkg) [
-      "anydesk"
-      "winbox4"
-      "winbox"
+  nixpkgs.config = {
+    allowUnfreePredicate =
+      pkg:
+      builtins.elem (lib.getName pkg) [
+        "anydesk"
+        "winbox4"
+        "winbox"
+        "googleearth-pro"
+      ];
+
+    permittedInsecurePackages = [
+      "googleearth-pro-7.3.7.1155"
     ];
+  };
+
 }

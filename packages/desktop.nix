@@ -15,22 +15,24 @@
       gcc
       gnome-epub-thumbnailer
       gnupg
+      gpg-tui
       hdparm
       html2text
       htop
       jftui
-      jmtpfs
       keepassxc
       libnotify
       lsof
       mpv
       neovim
+      opencode
       pinentry-all
       poppler-utils
       powertop
       pulsemixer
       pwvucontrol
       qutebrowser
+      rustnet
       tealdeer
       tmux
       trash-cli
