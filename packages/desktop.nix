@@ -19,6 +19,8 @@
       hdparm
       html2text
       htop
+      jellyfin-mpv-shim
+      jellyfin-tui
       jftui
       keepassxc
       libnotify

@@ -5,7 +5,6 @@
   home = {
     packages = with pkgs; [
       adwaita-qt
-      yaru-theme
       catppuccin-cursors.macchiatoDark
       papirus-icon-theme
     ];
@@ -14,45 +13,49 @@
       # QT_STYLE_OVERRIDE = "adwaita-dark";
       # QT_STYLE_OVERRIDE = "kvantum";
       SAL_USE_VCLPLUGIN = "qt6"; # libreoffice
-      GTK_THEME = "yaru";
+      GTK_THEME = "catppuccin-frappe-blue-standard";
     };
-    pointerCursor = {
-      x11.enable = true;
-      size = 48;
-      name = "Catppuccin-Macchiato-Dark-Cursors";
-      package = pkgs.catppuccin-cursors.macchiatoDark;
-    };
+
+  #   pointerCursor = {
+  #     sway = {
+  #       enable = true;
+  #       size = 48;
+  #     };
+  #     name = "Catppuccin-Macchiato-Dark-Cursors";
+  #     package = pkgs.catppuccin-cursors.macchiatoDark;
+  #   };
   };
 
   qt = {
     enable = true;
-    platformTheme.name = "qt5ct";
+    platformTheme.name = "kvantum";
     style = {
-      package = pkgs.adwaita-qt;
-      name = "adwaita-dark";
+      package = pkgs.catppuccin-kde;
+      name = "catppuccin-macchiato-dark";
     };
   };
 
   gtk = {
     enable = true;
     font = {
-      name = "IosevkaTermSlab Nerd Font Propo";
-      size = 12;
+      # name = "IosevkaTermSlab Nerd Font Propo";
+      name = "Liberation Sans";
+      size = 16;
     };
 
     iconTheme = {
-      name = "Papirus-Dark";
-      package = pkgs.papirus-icon-theme;
+      name = "breeze-dark";
+      # package = pkgs.catppuccin-icon;
     };
 
     theme = {
-      name = "yaru-theme";
-      package = pkgs.yaru-theme;
+      name = "catppuccin-frappe-blue-standard";
+      package = pkgs.catppuccin-gtk;
     };
 
     cursorTheme = {
-      name = "Catppuccin-Macchiato-Dark-Cursors";
-      package = pkgs.catppuccin-cursors.macchiatoDark;
+      name = "catppuccin-macchiato-dark-cursors";
+      package = pkgs.catppuccin-cursors;
       size = 32;
     };
 
