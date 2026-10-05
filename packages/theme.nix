@@ -40,11 +40,11 @@
     font = {
       # name = "IosevkaTermSlab Nerd Font Propo";
       name = "Liberation Sans";
-      size = 16;
+      size = 14;
     };
 
     iconTheme = {
-      name = "breeze-dark";
+      name = "breeze";
       # package = pkgs.catppuccin-icon;
     };
 
@@ -56,7 +56,7 @@
     cursorTheme = {
       name = "catppuccin-macchiato-dark-cursors";
       package = pkgs.catppuccin-cursors;
-      size = 32;
+      size = 16;
     };
 
     gtk3.extraConfig = {

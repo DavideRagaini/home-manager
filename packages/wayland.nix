@@ -7,6 +7,7 @@
       chafa
       cliphist
       emacs-pgtk
+      flameshot
       foot
       imv
       libsixel

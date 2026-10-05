@@ -6,12 +6,14 @@
       aria2
       btop
       calibre
+      codex
       djvulibre
       duf
       dunst
       fd
       ffmpeg
       ffmpegthumbnailer
+      freerdp
       gcc
       gnome-epub-thumbnailer
       gnupg
@@ -39,6 +41,8 @@
       tmux
       trash-cli
       wiremix
+      wlvncc
+      yazi
       yt-dlp
     ];
   };

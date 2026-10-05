@@ -12,6 +12,7 @@
       namespaced-openvpn
       networkmanagerapplet
       obs-studio
+      openfortivpn
       thunderbird
       winbox4
     ];

@@ -220,7 +220,7 @@
                   ];
                 }
               ];
-              definedAliases = [ "@g" ];
+              definedAliases = [ "@g" "@google" ];
             };
 
             "Yewtube" = {
@@ -235,7 +235,22 @@
                   ];
                 }
               ];
-              definedAliases = [ "@y" ];
+              definedAliases = [ "@y" "@yew" ];
+            };
+
+            "Addons/Plugins" = {
+              urls = [
+                {
+                  template = "https://addons.mozilla.org/en-US/firefox/search/";
+                  params = [
+                    {
+                      name = "q";
+                      value = "{searchTerms}";
+                    }
+                  ];
+                }
+              ];
+              definedAliases = [ "@addons" "@plugins" ];
             };
 
             "Nix Packages stable" = {
@@ -313,8 +328,17 @@
             "Home Manager Options" = {
               urls = [
                 {
-                  template = "https://mipmip.github.io/home-manager-option-search/";
+# query=firefox
+                  template = "https://search.nixos.org/options";
                   params = [
+                    {
+                      name = "source";
+                      value = "home_manager";
+                    }
+                    {
+                      name = "type";
+                      value = "options";
+                    }
                     {
                       name = "query";
                       value = "{searchTerms}";
